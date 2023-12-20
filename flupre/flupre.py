@@ -181,6 +181,7 @@ def get_h3_dict_and_hatype(protein, marker, convert_to_h3_dict):
 
 def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
     # marker_match = re.fullmatch(r"(\d+)([A-Z]|-)", marker)
+    length_diffs = compare_sequences(STD_PATH, COMPLETE_STD_PATH)
     marker_match = re.search(r"(\d+)([A-Z]|-)", marker)
 
     if not marker_match:
