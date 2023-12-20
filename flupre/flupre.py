@@ -257,6 +257,7 @@ def process_ha_type(protein, marker_dict, structure_folder, hatype):
         f"{structure_folder}/HA2/H3_{protein}.txt", ['H3', protein])
 
     combined_dict = {'HA1': convert_to_h3_dict_ha1, 'HA2': convert_to_h3_dict_ha2}
+    print(f"combine\n{combined_dict}")
     return map_residues_to_h3(protein, marker_dict, combined_dict, hatype)
 
 
@@ -443,10 +444,11 @@ def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
                 if protein_abbr in [f"H{i}" for i in range(1, 19)]:
                     print("开始测试")
                     ha_results = process_ha_na(protein_abbr, record.seq)
-                    print("process失败")
+                    print(f"haresults\n{ha_results}")
                     renumbered_positions_HA1 = convert_HA_residues(ha_results["HA1"], STRUCTURE_PATH, hatype = "HA1")
+                    print(f"renumbered_positions_HA1\n{renumbered_positions_HA1}")
                     renumbered_positions_HA2 = convert_HA_residues(ha_results["HA2"], STRUCTURE_PATH, hatype = "HA2")
-                    print(renumbered_positions_HA1)
+
                     renumbered_positions = merge_dictionaries(renumbered_positions_HA1, renumbered_positions_HA2)
                     # pop_num = "H3" if protein_abbr in HA_TYPES else "N2"
                     renumbered_positions[protein_id] = renumbered_positions.pop("H3")
