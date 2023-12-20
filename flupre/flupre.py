@@ -263,7 +263,7 @@ def process_ha_type(protein, marker_dict, structure_folder, hatype):
 def process_na_type(protein, marker_dict, structure_folder, hatype):
     convert_to_n2_dict = load_mapping_data(
         f"{structure_folder}/NA/N2_{protein}.txt", ['N2', protein])
-    print(convert_to_n2_dict)
+    # print(convert_to_n2_dict)
     return map_residues_to_h3(protein, marker_dict, convert_to_n2_dict, hatype)
 
 
@@ -290,7 +290,8 @@ def convert_HA_residues(marker_dict, structure_folder, hatype):
             residues = process_na_type(protein, marker_dict, structure_folder, hatype)
             updated_marker_dict["N2"] = updated_marker_dict.get("N2", []) + residues
             del updated_marker_dict[protein]
-
+    print(updated_marker_dict)
+    print('-'*50)
     return transform_marker_dict(updated_marker_dict)
 
 
