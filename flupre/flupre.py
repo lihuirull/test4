@@ -290,6 +290,7 @@ def convert_HA_residues(marker_dict, structure_folder, hatype):
             residues = process_na_type(protein, marker_dict, structure_folder, hatype)
             updated_marker_dict["N2"] = updated_marker_dict.get("N2", []) + residues
             del updated_marker_dict[protein]
+    print(marker_dict)
     print(updated_marker_dict)
     print('-'*50)
     return transform_marker_dict(updated_marker_dict)
