@@ -435,7 +435,8 @@ def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
         protein_id = record.id
         protein_abbr = acc_pro_dict.get(protein_id)
         is_hana_type = protein_abbr in HA_TYPES or protein_abbr in NA_TYPES
-
+        print("marker_dict")
+        print(marker_dict)
         if protein_abbr in marker_dict or is_hana_type:
             try:
                 if protein_abbr in [f"H{i}" for i in range(1, 19)]:
