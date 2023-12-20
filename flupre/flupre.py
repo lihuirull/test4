@@ -280,7 +280,7 @@ def convert_HA_residues(marker_dict, structure_folder, hatype):
                 if "HA2" not in marker and "HA1" not in marker:
                     # 假设 adjust_position_and_get_h3_position 函数适用于这种情况
                     marker = adjust_position_and_get_h3_position(marker, hatype = None, H3_dict = None, protein = "H3")
-                print(marker)
+                # print(marker)
                 res.append(marker)
             updated_marker_dict["H3"] = res
 
@@ -293,9 +293,9 @@ def convert_HA_residues(marker_dict, structure_folder, hatype):
             residues = process_na_type(protein, marker_dict, structure_folder, hatype)
             updated_marker_dict["N2"] = updated_marker_dict.get("N2", []) + residues
             del updated_marker_dict[protein]
-    print(marker_dict)
-    print(updated_marker_dict)
-    print('-'*50)
+    # print(marker_dict)
+    # print(updated_marker_dict)
+    # print('-'*50)
     return transform_marker_dict(updated_marker_dict)
 
 
@@ -355,16 +355,17 @@ def annotate_markers(markers_path, STRUCTURE_PATH, hatype = None):
     marker_dict = {i: list(set(j)) for i, j in marker_dict.items()}
     for i, j in marker_dict.items():
         if i in [f"H{i}" for i in range(1, 19)]:
-            print(f"Protein:\n{i}")
-            print(f"Markers:\n{j}")
-            print("-" * 50)
+            pass
+            # print(f"Protein:\n{i}")
+            # print(f"Markers:\n{j}")
+            # print("-" * 50)
     # Convert HA/NA residues to H3/N2 numbering and update marker_dict
     # Already Duplicated
     marker_dict = convert_HA_residues(marker_dict, STRUCTURE_PATH, hatype)
 
     # Duplicated
     # marker_dict = {i: list(set(j)) for i, j in marker_dict.items()}
-    print(marker_dict)
+    # print(marker_dict)
     return marker_dict, data
 
 
@@ -412,17 +413,17 @@ def perform_alignment_and_renumber(standard_seq_path, query_seq):
     return renumber_sequence(best_alignment)
 
 
-def process_ha_na(protein_abbr, sequence, structure_folder):
+def process_ha_na(protein_abbr, sequence):
     ha_results = defaultdict(dict)
     if protein_abbr != "H3":
         if protein_abbr in HA_TYPES:
-            ha1_path = os.path.join(structure_folder, f"HA1/{protein_abbr}.fas")
+            ha1_path = f"{STANDARD_PATH}/HA1/{protein_abbr}.fas"
             ha_results["HA1"][protein_abbr] = perform_alignment_and_renumber(ha1_path, sequence)
 
-            ha2_path = os.path.join(structure_folder, f"HA2/{protein_abbr}.fas")
+            ha2_path = f"{STANDARD_PATH}/HA2/{protein_abbr}.fas"
             ha_results["HA2"][protein_abbr] = perform_alignment_and_renumber(ha2_path, sequence)
         elif protein_abbr in NA_TYPES:
-            na_path = os.path.join(structure_folder, f"{protein_abbr}.fas")
+            na_path = f"{STANDARD_PATH}{protein_abbr}.fas"
             ha_results[protein_abbr] = perform_alignment_and_renumber(na_path, sequence)
     return ha_results
 
@@ -440,15 +441,18 @@ def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
         if protein_abbr in marker_dict or is_hana_type:
             try:
                 if protein_abbr in [f"H{i}" for i in range(1, 19)]:
-                    ha_results = process_ha_na(protein_abbr, record.seq, STANDARD_PATH)
+                    print("开始测试")
+                    ha_results = process_ha_na(protein_abbr, record.seq)
+                    print("process失败")
                     renumbered_positions_HA1 = convert_HA_residues(ha_results["HA1"], STRUCTURE_PATH, hatype = "HA1")
                     renumbered_positions_HA2 = convert_HA_residues(ha_results["HA2"], STRUCTURE_PATH, hatype = "HA2")
+                    print(renumbered_positions_HA1)
                     renumbered_positions = merge_dictionaries(renumbered_positions_HA1, renumbered_positions_HA2)
                     # pop_num = "H3" if protein_abbr in HA_TYPES else "N2"
                     renumbered_positions[protein_id] = renumbered_positions.pop("H3")
                     renumbering_results.update(renumbered_positions)
                 elif protein_abbr in [f"N{i}" for i in range(1, 10)]:
-                    ha_results = process_ha_na(protein_abbr, record.seq, STANDARD_PATH)
+                    ha_results = process_ha_na(protein_abbr, record.seq)
                     renumbered_positions = convert_HA_residues(ha_results, STRUCTURE_PATH, hatype = None)
                     renumbered_positions[protein_id] = renumbered_positions.pop("N2")
                     renumbering_results.update(renumbered_positions)

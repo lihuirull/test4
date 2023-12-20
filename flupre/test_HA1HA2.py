@@ -16,7 +16,7 @@ NA_TYPES = [f"N{i}" for i in range(1, 10) if i != 2]
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_PATH = os.path.join(base_dir, 'data', 'flu_db.dmnd')
 STD_PATH = os.path.join(base_dir, 'data', 'std.fasta')
-STRUCTURE_PATH = os.path.join(base_dir, 'data', 'structure')
+STRUCTURE_PATH = os.path.join(base_dir, 'data', 'HA_NA_mapdir')
 STANDARD_PATH = os.path.join(base_dir, 'data', 'standard_seq_protein')
 MODEL_PATH = os.path.join(base_dir, 'model')
 DATA_PATH = os.path.join(base_dir, 'data')
@@ -284,9 +284,9 @@ def load_mapping_data(filepath, column_names):
 
 def process_ha_type(protein, marker_dict, structure_folder, hatype):
     convert_to_h3_dict_ha1 = load_mapping_data(
-        f"{structure_folder}/HA1/H3_{protein}.txt", ['H3', protein])
+        f"{STRUCTURE_PATH}/HA1/H3_{protein}.txt", ['H3', protein])
     convert_to_h3_dict_ha2 = load_mapping_data(
-        f"{structure_folder}/HA2/H3_{protein}.txt", ['H3', protein])
+        f"{STRUCTURE_PATH}/HA2/H3_{protein}.txt", ['H3', protein])
 
     combined_dict = {'HA1': convert_to_h3_dict_ha1, 'HA2': convert_to_h3_dict_ha2}
     return map_residues_to_h3(protein, marker_dict, combined_dict, hatype)
@@ -294,7 +294,7 @@ def process_ha_type(protein, marker_dict, structure_folder, hatype):
 
 def process_na_type(protein, marker_dict, structure_folder, hatype):
     convert_to_n2_dict = load_mapping_data(
-        f"{structure_folder}/NA/N2_{protein}.txt", ['N2', protein])
+        f"{STRUCTURE_PATH}/NA/N2_{protein}.txt", ['N2', protein])
     print(convert_to_n2_dict)
     return map_residues_to_h3(protein, marker_dict, convert_to_n2_dict, hatype)
 
