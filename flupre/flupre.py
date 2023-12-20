@@ -275,7 +275,7 @@ def convert_HA_residues(marker_dict, structure_folder, hatype):
             # 处理特殊情况
             res = []
             for marker in marker_dict["H3"]:
-                if "HA2" not in marker and "HA1" not in marker:
+                if "HA2" not in marker or "HA1" not in marker:
                     # 假设 adjust_position_and_get_h3_position 函数适用于这种情况
                     marker = adjust_position_and_get_h3_position(marker, hatype = None, H3_dict = None, protein = "H3")
                 res.append(marker)
