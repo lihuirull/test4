@@ -22,7 +22,8 @@ pd.set_option('display.max_columns', None)
 
 HA_TYPES = [f"H{i}" for i in range(1, 19) if i != 3]
 NA_TYPES = [f"N{i}" for i in range(1, 10) if i != 2]
-
+length_diffs = {'H1': 17, 'H10': 17, 'H11': 16, 'H12': 17, 'H13': 18, 'H14': 17, 'H15': 18, 'H16': 19, 'H17': 18,
+                'H18': 14, 'H2': 15, 'H3': 16, 'H4': 16, 'H5': 12, 'H6': 16, 'H7': 18, 'H8': 17, 'H9': 18}
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_PATH = os.path.join(base_dir, 'data', 'flu_db.dmnd')
 STD_PATH = os.path.join(base_dir, 'data', 'std.fasta')
@@ -181,7 +182,7 @@ def get_h3_dict_and_hatype(protein, marker, convert_to_h3_dict):
 
 def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
     # marker_match = re.fullmatch(r"(\d+)([A-Z]|-)", marker)
-    length_diffs = compare_sequences(STD_PATH, COMPLETE_STD_PATH)
+    # length_diffs = compare_sequences(STD_PATH, COMPLETE_STD_PATH)
     marker_match = re.search(r"(\d+)([A-Z]|-)", marker)
 
     if not marker_match:
