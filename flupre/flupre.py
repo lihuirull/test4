@@ -257,7 +257,7 @@ def process_ha_type(protein, marker_dict, structure_folder, hatype):
         f"{structure_folder}/HA2/H3_{protein}.txt", ['H3', protein])
 
     combined_dict = {'HA1': convert_to_h3_dict_ha1, 'HA2': convert_to_h3_dict_ha2}
-    print(f"combine\n{combined_dict}")
+    # print(f"combine\n{combined_dict}")
     return map_residues_to_h3(protein, marker_dict, combined_dict, hatype)
 
 
@@ -437,8 +437,8 @@ def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
         protein_id = record.id
         protein_abbr = acc_pro_dict.get(protein_id)
         is_hana_type = protein_abbr in HA_TYPES or protein_abbr in NA_TYPES
-        print("marker_dict")
-        print(marker_dict)
+        # print("marker_dict")
+        # print(marker_dict)
         if protein_abbr in marker_dict or is_hana_type:
             try:
                 if protein_abbr in [f"H{i}" for i in range(1, 19)]:
@@ -655,16 +655,27 @@ def process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_ma
         return None, None
 
     use_protein = "H3" if protein_type in HA_TYPES else protein_type
-    expected_markers = marker_markers.get(use_protein, [])
-    markers = []
 
-    for marker in expected_markers:
-        match = re.match(r"(\d+)([A-Z])", marker)
-        if match and match.group() in renumbered_position:
-            markers.append(match.group())
+    expected_markers = marker_markers.get(use_protein, [])
 
     protein = f'H3' if protein_type in HA_TYPES else (
         f'N2' if protein_type in NA_TYPES else protein_type)
+    markers = defaultdict(list)
+    if use_protein == "H3":
+        for hatype, ha_markers in expected_markers.items():
+            for marker in ha_markers:
+                match = re.match(r"(\d+)([A-Z])", marker)
+                if match and match.group() in renumbered_position:
+                    markers[hatype].append(match.group())
+        return protein,markers
+    markers_oth = []
+    for marker in expected_markers:
+        match = re.match(r"(\d+)([A-Z])", marker)
+        if match and match.group() in renumbered_position:
+            markers_oth.append(match.group())
+    return protein, markers_oth
+
+
 
     return protein, markers
 
@@ -812,13 +823,14 @@ def identify_markers(input_file_path, renumbering_results, marker_markers, acc_p
     # This is to handle each HA/NA, including those present in combinations,
     # the file only processed single HA/NA markers
     ori_markers = generate_protein_dict(load_total_markers(data))
+    print(f"ori:\n{ori_markers}")
     total_markers = defaultdict(list)
     for pro, lst in ori_markers.items():
         for dic in lst:
             if dic and all(dic.values()):
                 # After converting through convert_HA_residues, everything will become H3, so there's no impact
                 total_markers[pro].append(convert_HA_residues(dic, STRUCTURE_PATH, hatype = None))
-
+    print(f"total\n{total_markers}")
     # Check marker combinations and merge results with data
     results_df = check_marker_combinations(total_markers, results_markers, markers_type,
                                            input_file_name, data, ha_type, na_type)
