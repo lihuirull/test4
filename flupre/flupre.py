@@ -423,7 +423,7 @@ def process_ha_na(protein_abbr, sequence):
             ha2_path = f"{STANDARD_PATH}/HA2/{protein_abbr}.fas"
             ha_results["HA2"][protein_abbr] = perform_alignment_and_renumber(ha2_path, sequence)
         elif protein_abbr in NA_TYPES:
-            na_path = f"{STANDARD_PATH}{protein_abbr}.fas"
+            na_path = f"{STANDARD_PATH}/{protein_abbr}.fas"
             ha_results[protein_abbr] = perform_alignment_and_renumber(na_path, sequence)
     return ha_results
 
