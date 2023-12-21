@@ -679,7 +679,7 @@ def process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_ma
     if use_protein == "H3":
         for hatype, ha_markers in expected_markers.items():
             for marker in ha_markers:
-                match = re.match(r"(\d+)([A-Z])", marker)
+                match = re.match(r"(\d+)([A-Z]|-)", marker)
                 index = 0 if hatype == "HA1" else 1
                 if match and match.group() in renumbered_position[index][hatype]:
                     markers[hatype].append(match.group())
@@ -694,7 +694,7 @@ def process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_ma
     #     return protein,markers
     markers_oth = []
     for marker in expected_markers:
-        match = re.match(r"(\d+)([A-Z])", marker)
+        match = re.match(r"(\d+)([A-Z]|-)", marker)
         if match and match.group() in renumbered_position:
             markers_oth.append(match.group())
     return protein, markers_oth
