@@ -295,6 +295,7 @@ def convert_HA_residues(marker_dict, structure_folder, hatype):
             updated_marker_dict["N2"] = updated_marker_dict.get("N2", []) + residues
             del updated_marker_dict[protein]
 
+
     # print(marker_dict)
     # print(updated_marker_dict)
     # print('-'*50)
@@ -420,16 +421,16 @@ def perform_alignment_and_renumber(standard_seq_path, query_seq):
 
 def process_ha_na(protein_abbr, sequence):
     ha_results = defaultdict(dict)
-    if protein_abbr != "H3":
-        if protein_abbr in HA_TYPES:
-            ha1_path = f"{STANDARD_PATH}/HA1/{protein_abbr}.fas"
-            ha_results["HA1"][protein_abbr] = perform_alignment_and_renumber(ha1_path, sequence)
+    # if protein_abbr != "H3":
+    if protein_abbr in [f"H{i}" for i in range(1, 19)]:
+        ha1_path = f"{STANDARD_PATH}/HA1/{protein_abbr}.fas"
+        ha_results["HA1"][protein_abbr] = perform_alignment_and_renumber(ha1_path, sequence)
 
-            ha2_path = f"{STANDARD_PATH}/HA2/{protein_abbr}.fas"
-            ha_results["HA2"][protein_abbr] = perform_alignment_and_renumber(ha2_path, sequence)
-        elif protein_abbr in NA_TYPES:
-            na_path = f"{STANDARD_PATH}/{protein_abbr}.fas"
-            ha_results[protein_abbr] = perform_alignment_and_renumber(na_path, sequence)
+        ha2_path = f"{STANDARD_PATH}/HA2/{protein_abbr}.fas"
+        ha_results["HA2"][protein_abbr] = perform_alignment_and_renumber(ha2_path, sequence)
+    elif protein_abbr in [f"N{i}" for i in range(1, 10)]:
+        na_path = f"{STANDARD_PATH}/{protein_abbr}.fas"
+        ha_results[protein_abbr] = perform_alignment_and_renumber(na_path, sequence)
     return ha_results
 
 
@@ -446,13 +447,9 @@ def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
         if protein_abbr in marker_dict or is_hana_type:
             try:
                 if protein_abbr in [f"H{i}" for i in range(1, 19)]:
-                    print("开始测试")
                     ha_results = process_ha_na(protein_abbr, record.seq)
-                    print(f"haresults\n{ha_results}")
                     renumbered_positions_HA1 = convert_HA_residues(ha_results["HA1"], STRUCTURE_PATH, hatype = "HA1")
-                    print(f"renumbered_positions_HA1\n{renumbered_positions_HA1}")
                     renumbered_positions_HA2 = convert_HA_residues(ha_results["HA2"], STRUCTURE_PATH, hatype = "HA2")
-                    print(f"renumbered_positions_HA2\n{renumbered_positions_HA2}")
                     renumbered_positions = merge_dictionaries(renumbered_positions_HA1, renumbered_positions_HA2)
                     print(f"renumbered_positions\n{renumbered_positions}")
                     # pop_num = "H3" if protein_abbr in HA_TYPES else "N2"
