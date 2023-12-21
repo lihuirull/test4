@@ -190,7 +190,7 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
 
     position, amino_acid = marker_match.groups()
     # if not hatype and protein in HA_TYPES:
-    if "HA1" not in marker and protein in HA_TYPES:
+    if not hatype and protein in HA_TYPES:
         minus = length_diffs[protein]
         position = str(int(position) - minus)
         hatype = "HA1"
