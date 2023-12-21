@@ -192,7 +192,6 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
     # if not hatype and protein in HA_TYPES:
     if not hatype and protein in HA_TYPES:
         minus = length_diffs[protein]
-        minus = length_diffs[protein]
         position = str(int(position) - minus)
         hatype = "HA1"
 
@@ -284,6 +283,7 @@ def convert_HA_residues(marker_dict, structure_folder, hatype):
             for marker in marker_dict["H3"]:
                 if "HA2" not in marker and "HA1" not in marker:
                     # 假设 adjust_position_and_get_h3_position 函数适用于这种情况
+                    # 用于识别标志物的序列的编号列表传入，hatype为HA1或HA2，不需要对此列表减去信号肽
                     marker = adjust_position_and_get_h3_position(marker, hatype = hatype, H3_dict = None, protein = "H3")
                 # print(marker)
                 res.append(marker)
@@ -420,7 +420,6 @@ def perform_alignment_and_renumber(standard_seq_path, query_seq):
     standard_seq = next(SeqIO.parse(standard_seq_path, 'fasta')).seq
     alignments = pairwise2.align.globalxx(standard_seq, query_seq)
     best_alignment = max(alignments, key = lambda x: x.score)
-    print(f"初始编号:renumber_sequence(best_alignment\n{renumber_sequence(best_alignment)}")
     return renumber_sequence(best_alignment)
 
 
@@ -453,8 +452,11 @@ def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
             try:
                 if protein_abbr in [f"H{i}" for i in range(1, 19)]:
                     ha_results = process_ha_na(protein_abbr, record.seq)
+                    print(f"ha_results:\n{ha_results}")
                     renumbered_positions_HA1 = convert_HA_residues(ha_results["HA1"], STRUCTURE_PATH, hatype = "HA1")
+                    print(f"RENUMBER:HA1\n{renumbered_positions_HA1}")
                     renumbered_positions_HA2 = convert_HA_residues(ha_results["HA2"], STRUCTURE_PATH, hatype = "HA2")
+                    print(f"RENUMBER:HA2\n{renumbered_positions_HA2}")
                     renumbered_positions = merge_dictionaries(renumbered_positions_HA1, renumbered_positions_HA2)
                     # pop_num = "H3" if protein_abbr in HA_TYPES else "N2"
                     renumbered_positions[protein_id] = renumbered_positions.pop("H3")
