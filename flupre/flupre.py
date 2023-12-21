@@ -420,6 +420,7 @@ def perform_alignment_and_renumber(standard_seq_path, query_seq):
     standard_seq = next(SeqIO.parse(standard_seq_path, 'fasta')).seq
     alignments = pairwise2.align.globalxx(standard_seq, query_seq)
     best_alignment = max(alignments, key = lambda x: x.score)
+    print(f"初始编号:renumber_sequence(best_alignment\n{renumber_sequence(best_alignment)}")
     return renumber_sequence(best_alignment)
 
 
