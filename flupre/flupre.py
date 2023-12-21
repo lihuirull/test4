@@ -238,7 +238,10 @@ def map_residues_to_h3(protein, marker_dict, convert_to_h3_dict, hatype = None):
         elif not marker.endswith("-"):
             marker = marker.strip().split("-")[-1]
         # HA1 H2
+        print(f"con:\n{convert_to_h3_dict}")
+        print(f"H3_dict:\n{H3_dict}")
         h3_position, amino_acid, updated_hatype = adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein)
+        print(f"H3_postion:\n{h3_position}")
         if h3_position is None:
             continue
 
@@ -262,7 +265,7 @@ def process_ha_type(protein, marker_dict, structure_folder, hatype):
         f"{structure_folder}/HA2/H3_{protein}.txt", ['H3', protein])
 
     combined_dict = {'HA1': convert_to_h3_dict_ha1, 'HA2': convert_to_h3_dict_ha2}
-    print(f"combine\n{combined_dict}")
+    # print(f"combine\n{combined_dict}")
     return map_residues_to_h3(protein, marker_dict, combined_dict, hatype)
 
 
