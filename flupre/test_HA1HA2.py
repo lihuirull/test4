@@ -411,13 +411,14 @@ def annotate_markers(markers_path, STRUCTURE_PATH,hatype=None):
 #     if not isinstance(values, str):
 #         print(list(set(values)))
 
-s1 =  {'H3': {'HA1': '2181W', 'HA2': '156N'}}
-
-s =  {'H3': {'HA1': '2181W', 'HA2': ['156N','222L']}}
-
-def is_subset_complex(dict1, dict2):
+# s =  {'H3': {'HA1': '218W', 'HA2': '156N'}}
+# s1 =  {'H3': {'HA1': '218W', 'HA2': ['156N','222L']}}
+s = {'PB2': '158G', 'PA': '295P'}
+s1 = {'PB2': '158G', 'PA': ['295P','225L']}
+# Revised function to correctly handle nested dictionaries
+def is_subset_complex_revised(dict1, dict2):
     """
-    Check if one dictionary is a complex subset of another.
+    Check if one dictionary is a complex subset of another, with revised logic for nested dictionaries.
 
     Parameters:
     - dict1, dict2: Dictionaries to be compared.
@@ -431,17 +432,26 @@ def is_subset_complex(dict1, dict2):
 
         value2 = dict2[key]
 
-        if isinstance(value1, list) and isinstance(value2, list):
+        # Check for nested dictionaries
+        if isinstance(value1, dict) and isinstance(value2, dict):
+            if not is_subset_complex_revised(value1, value2):
+                return False
+        # Check for list and string combinations
+        elif isinstance(value1, list) and isinstance(value2, list):
             if not set(value1).issubset(set(value2)):
                 return False
         elif isinstance(value1, str) and isinstance(value2, list):
             if value1 not in value2:
                 return False
-        elif value1 != value2:
-            return False
+        elif isinstance(value1, str) and isinstance(value2, str):
+            if value1 != value2:
+                return False
 
     return True
-print(is_subset_complex(s, s1))
+
+# Test the revised function
+print(is_subset_complex_revised(s1, s))
+
 
 def map_residues_to_h3(protein, marker_dict, convert_to_h3_dict):
     """

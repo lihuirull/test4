@@ -451,12 +451,9 @@ def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
                     renumbered_positions_HA1 = convert_HA_residues(ha_results["HA1"], STRUCTURE_PATH, hatype = "HA1")
                     renumbered_positions_HA2 = convert_HA_residues(ha_results["HA2"], STRUCTURE_PATH, hatype = "HA2")
                     renumbered_positions = merge_dictionaries(renumbered_positions_HA1, renumbered_positions_HA2)
-                    print(f"renumbered_positions\n{renumbered_positions}")
                     # pop_num = "H3" if protein_abbr in HA_TYPES else "N2"
                     renumbered_positions[protein_id] = renumbered_positions.pop("H3")
-                    print("删除")
                     renumbering_results.update(renumbered_positions)
-                    print("更新")
                 elif protein_abbr in [f"N{i}" for i in range(1, 10)]:
                     ha_results = process_ha_na(protein_abbr, record.seq)
                     renumbered_positions = convert_HA_residues(ha_results, STRUCTURE_PATH, hatype = None)
@@ -547,9 +544,9 @@ def load_total_markers(data):
     return data.groupby('Protein Type')
 
 
-def is_subset_complex(dict1, dict2):
+def is_subset_complex_revised(dict1, dict2):
     """
-    Check if one dictionary is a complex subset of another.
+    Check if one dictionary is a complex subset of another, with revised logic for nested dictionaries.
 
     Parameters:
     - dict1, dict2: Dictionaries to be compared.
@@ -563,16 +560,23 @@ def is_subset_complex(dict1, dict2):
 
         value2 = dict2[key]
 
-        if isinstance(value1, list) and isinstance(value2, list):
+        # Check for nested dictionaries
+        if isinstance(value1, dict) and isinstance(value2, dict):
+            if not is_subset_complex_revised(value1, value2):
+                return False
+        # Check for list and string combinations
+        elif isinstance(value1, list) and isinstance(value2, list):
             if not set(value1).issubset(set(value2)):
                 return False
         elif isinstance(value1, str) and isinstance(value2, list):
             if value1 not in value2:
                 return False
-        elif value1 != value2:
-            return False
+        elif isinstance(value1, str) and isinstance(value2, str):
+            if value1 != value2:
+                return False
 
     return True
+
 
 
 def format_marker(marker, protein_prefix = ''):
@@ -702,7 +706,7 @@ def check_marker_combinations(total_markers, results_markers, markers_type, inpu
         for proba_comb in marker_list:
             # If the key-value pair in this dictionary exists in the identified marker dictionary,
             # return a more concise format.
-            if is_subset_complex(proba_comb, results_markers):
+            if is_subset_complex_revised(proba_comb, results_markers):
                 if proba_comb and all(proba_comb.values()):
                     markers_formated = process_dictionary(proba_comb)
                     results.append({
@@ -712,6 +716,7 @@ def check_marker_combinations(total_markers, results_markers, markers_type, inpu
                     })
 
     results = pd.DataFrame(results)
+    print(f"带合并：\n{results}")
     final_results = merge_dataframes(results, data, markers_type, ha_type, na_type)
     return final_results
 
@@ -836,6 +841,7 @@ def identify_markers(input_file_path, renumbering_results, marker_markers, acc_p
                 # After converting through convert_HA_residues, everything will become H3, so there's no impact
                 total_markers[pro].append(convert_HA_residues(dic, STRUCTURE_PATH, hatype = None))
     print(f"total\n{total_markers}")
+    print(f"result_markers\n{results_markers}")
     # Check marker combinations and merge results with data
     results_df = check_marker_combinations(total_markers, results_markers, markers_type,
                                            input_file_name, data, ha_type, na_type)
