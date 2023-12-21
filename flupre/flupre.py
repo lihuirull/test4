@@ -810,7 +810,7 @@ def identify_markers(input_file_path, renumbering_results, marker_markers, acc_p
     os.makedirs(output_directory, exist_ok = True)
     input_file_name = os.path.split(input_file_path)[1]
     results_markers = defaultdict(list)
-    print(f"初始result——markers\n{results_markers}")
+    print(f"初始result——markers\n{renumbering_results}")
     # Process each accession ID and its renumbered position
     for acc_id, renumbered_position in renumbering_results.items():
         protein, markers = process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_markers)
