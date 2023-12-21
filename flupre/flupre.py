@@ -190,7 +190,6 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
         return None, None, hatype
 
     position, amino_acid = marker_match.groups()
-    i = 0
 
     # if not hatype and protein in HA_TYPES:
     if not hatype and protein in HA_TYPES:
@@ -203,7 +202,7 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
         print(H3_dict)
     if H3_dict:
         # 处理除H3的情况
-        return H3_dict.get(position), amino_acid, hatype
+        return H3_dict.get(int(position)), amino_acid, hatype
     else:
         if not hatype:
             hatype = "HA1" #处理标志物字典的H3标志物
