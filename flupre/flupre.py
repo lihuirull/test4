@@ -191,16 +191,15 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
 
     position, amino_acid = marker_match.groups()
     i = 0
-    for key in H3_dict:
-        if i == 0:
-            print(f"键 {key} 的类型是 {type(key)}")
-            i +=1
+
     # if not hatype and protein in HA_TYPES:
     if not hatype and protein in HA_TYPES:
         minus = length_diffs[protein]
         position = int(position) - minus
         hatype = "HA1"
-
+    print(f"str\n{H3_dict.get(str(position))}")
+    print(f"int\n{H3_dict.get(int(position))}")
+    print(H3_dict.keys())
     if H3_dict:
         # 处理除H3的情况
         return H3_dict.get(position), amino_acid, hatype
