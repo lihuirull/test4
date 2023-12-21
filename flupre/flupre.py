@@ -179,6 +179,22 @@ def get_h3_dict_and_hatype(protein, marker, convert_to_h3_dict):
         return convert_to_h3_dict, None
     return None, None
 
+def adjust_position_type(position, H3_dict):
+    if not H3_dict:
+        return position  # 如果字典为空，则直接返回原始位置
+
+    # 获取字典中第一个键的类型
+    first_key_type = type(next(iter(H3_dict)))
+
+    # 如果位置已经是正确的类型，则直接返回
+    if isinstance(position, first_key_type):
+        return position
+
+    # 否则，尝试将位置转换为该类型
+    try:
+        return first_key_type(position)
+    except ValueError:
+        return None  # 或者处理转换失败的情况
 
 def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
     # marker_match = re.fullmatch(r"(\d+)([A-Z]|-)", marker)
@@ -194,7 +210,7 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
     # if not hatype and protein in HA_TYPES:
     if not hatype and protein in HA_TYPES:
         minus = length_diffs[protein]
-        position = int(position) - minus
+        position = str(int(position) - minus)
         hatype = "HA1"
     if protein != "H3":
         print(f"str\n{H3_dict.get(str(position))}")
@@ -202,7 +218,9 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
         print(H3_dict)
     if H3_dict:
         # 处理除H3的情况
-        return H3_dict.get(int(position)), amino_acid, hatype
+        # return H3_dict.get(position), amino_acid, hatype
+        adjusted_position = adjust_position_type(position, H3_dict)
+        return H3_dict.get(adjusted_position), amino_acid, hatype
     else:
         if not hatype:
             hatype = "HA1" #处理标志物字典的H3标志物
