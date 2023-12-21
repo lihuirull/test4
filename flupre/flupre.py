@@ -294,6 +294,7 @@ def convert_HA_residues(marker_dict, structure_folder, hatype):
             residues = process_na_type(protein, marker_dict, structure_folder, hatype)
             updated_marker_dict["N2"] = updated_marker_dict.get("N2", []) + residues
             del updated_marker_dict[protein]
+
     # print(marker_dict)
     # print(updated_marker_dict)
     # print('-'*50)
@@ -314,7 +315,10 @@ def transform_marker_dict(marker_dict):
             transformed_data[key] = {k: v[0] if len(v) == 1 else v for k, v in sub_dict.items()}
         else:
             # 对其他键应用去重逻辑
-            transformed_data[key] = list(set(values))
+            if not isinstance(values, str):
+                transformed_data[key] = list(set(values))
+            else:
+                transformed_data[key] = values
     return transformed_data
 
 
@@ -448,11 +452,14 @@ def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
                     renumbered_positions_HA1 = convert_HA_residues(ha_results["HA1"], STRUCTURE_PATH, hatype = "HA1")
                     print(f"renumbered_positions_HA1\n{renumbered_positions_HA1}")
                     renumbered_positions_HA2 = convert_HA_residues(ha_results["HA2"], STRUCTURE_PATH, hatype = "HA2")
-
+                    print(f"renumbered_positions_HA2\n{renumbered_positions_HA2}")
                     renumbered_positions = merge_dictionaries(renumbered_positions_HA1, renumbered_positions_HA2)
+                    print(f"renumbered_positions\n{renumbered_positions}")
                     # pop_num = "H3" if protein_abbr in HA_TYPES else "N2"
                     renumbered_positions[protein_id] = renumbered_positions.pop("H3")
+                    print("删除")
                     renumbering_results.update(renumbered_positions)
+                    print("更新")
                 elif protein_abbr in [f"N{i}" for i in range(1, 10)]:
                     ha_results = process_ha_na(protein_abbr, record.seq)
                     renumbered_positions = convert_HA_residues(ha_results, STRUCTURE_PATH, hatype = None)
@@ -677,9 +684,6 @@ def process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_ma
 
 
 
-    return protein, markers
-
-
 def check_marker_combinations(total_markers, results_markers, markers_type, input_file_name, data, ha_type, na_type):
     results = []
 
@@ -695,6 +699,7 @@ def check_marker_combinations(total_markers, results_markers, markers_type, inpu
     for marker_protein_type, marker_list in total_markers.items():
         # proba_comb is one of the multiple combinations of markers for each type, which is a dictionary.
         # 'combination-combination_449': [{'PB2': '158G', 'PA': '295P'}, {'PB2': '158A', 'PA': '295P'}]
+        # {'H1-combination_409': [{'H3': {'HA1': ['149E', '208G']}}],
         # proba_comb is one of these dictionaries, if the dictionary is satisfied,
         # it is considered that there is a combination-combination_449 type of marker.
         for proba_comb in marker_list:
@@ -819,6 +824,9 @@ def identify_markers(input_file_path, renumbering_results, marker_markers, acc_p
             ha_type = pro
         elif pro in NA_TYPES or pro == "N2":
             na_type = pro
+    S = {'H1-combination_409': [{'H1': ['163E', '222G']}],
+     'M2': [{'M2': '41C'}, {'M2': '24D'}, {'M2': '82S'}],
+     'combination-combination_460': [{'H3': ['299R', 'HA2-107I'], 'N2': '35R', 'M2': '41C'}]}
 
     # This is to handle each HA/NA, including those present in combinations,
     # the file only processed single HA/NA markers

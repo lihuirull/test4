@@ -395,17 +395,53 @@ def annotate_markers(markers_path, STRUCTURE_PATH,hatype=None):
     return marker_dict, data
 
 
-# 文件路径
-std_fasta_path = "test_py_file/std.fasta"
-complete_std_fasta_path = "test_py_file/complete_std.fasta"
+# # 文件路径
+# std_fasta_path = "test_py_file/std.fasta"
+# complete_std_fasta_path = "test_py_file/complete_std.fasta"
+#
+# # 比较并获取长度差异
+# length_diffs = compare_sequences(std_fasta_path, complete_std_fasta_path)
+#
+# s, data = annotate_markers(r"test_py_file/test_formated.csv",
+#                            r"D:\user\data\fluphenotype\script\convert_site\HA_NA_mapdir")
+# print(data)
+# marker_dict = {'M2': '41C'}
+# for protein in list(marker_dict.keys()):
+#     values = marker_dict[protein]
+#     if not isinstance(values, str):
+#         print(list(set(values)))
 
-# 比较并获取长度差异
-length_diffs = compare_sequences(std_fasta_path, complete_std_fasta_path)
+s1 =  {'H3': {'HA1': '2181W', 'HA2': '156N'}}
 
-s, data = annotate_markers(r"test_py_file/test_formated.csv",
-                           r"D:\user\data\fluphenotype\script\convert_site\HA_NA_mapdir")
-print(data)
+s =  {'H3': {'HA1': '2181W', 'HA2': ['156N','222L']}}
 
+def is_subset_complex(dict1, dict2):
+    """
+    Check if one dictionary is a complex subset of another.
+
+    Parameters:
+    - dict1, dict2: Dictionaries to be compared.
+
+    Returns:
+    - Boolean: True if dict1 is a subset of dict2, else False.
+    """
+    for key, value1 in dict1.items():
+        if key not in dict2:
+            return False
+
+        value2 = dict2[key]
+
+        if isinstance(value1, list) and isinstance(value2, list):
+            if not set(value1).issubset(set(value2)):
+                return False
+        elif isinstance(value1, str) and isinstance(value2, list):
+            if value1 not in value2:
+                return False
+        elif value1 != value2:
+            return False
+
+    return True
+print(is_subset_complex(s, s1))
 
 def map_residues_to_h3(protein, marker_dict, convert_to_h3_dict):
     """
