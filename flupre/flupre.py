@@ -665,7 +665,8 @@ def process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_ma
     use_protein = "H3" if protein_type in HA_TYPES else protein_type
 
     expected_markers = marker_markers.get(use_protein, [])
-
+    print(f"expet:\n{expected_markers}")
+    print(f"renumber:\n{renumbered_position}")
     protein = f'H3' if protein_type in HA_TYPES else (
         f'N2' if protein_type in NA_TYPES else protein_type)
     markers = defaultdict(list)
@@ -813,6 +814,9 @@ def identify_markers(input_file_path, renumbering_results, marker_markers, acc_p
     print(f"初始result——markers\n{renumbering_results}")
     # Process each accession ID and its renumbered position
     for acc_id, renumbered_position in renumbering_results.items():
+        # renumbered_position是列表，除了HA外元素都是marker(226L)，HA是里面有两个字典，一个字典是HA1，对应一个列表（元素也是marker)
+        # 另一个字典是HA2，对应一个列表（元素也是marker)
+        # acc_id是accession号
         protein, markers = process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_markers)
         if protein:
             results_markers[protein] = markers
