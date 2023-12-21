@@ -395,15 +395,15 @@ def annotate_markers(markers_path, STRUCTURE_PATH,hatype=None):
     return marker_dict, data
 
 
-# # 文件路径
-# std_fasta_path = "test_py_file/std.fasta"
-# complete_std_fasta_path = "test_py_file/complete_std.fasta"
-#
-# # 比较并获取长度差异
-# length_diffs = compare_sequences(std_fasta_path, complete_std_fasta_path)
-#
-# s, data = annotate_markers(r"test_py_file/test_formated.csv",
-#                            r"D:\user\data\fluphenotype\script\convert_site\HA_NA_mapdir")
+# 文件路径
+std_fasta_path = "test_py_file/std.fasta"
+complete_std_fasta_path = "test_py_file/complete_std.fasta"
+
+# 比较并获取长度差异
+length_diffs = compare_sequences(std_fasta_path, complete_std_fasta_path)
+
+s, data = annotate_markers(r"test_py_file/test_formated.csv",
+                           r"D:\user\data\fluphenotype\script\convert_site\HA_NA_mapdir")
 # print(data)
 # marker_dict = {'M2': '41C'}
 # for protein in list(marker_dict.keys()):
