@@ -189,7 +189,8 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
         return None, None, hatype
 
     position, amino_acid = marker_match.groups()
-    if not hatype and protein in HA_TYPES:
+    # if not hatype and protein in HA_TYPES:
+    if "HA1" not in marker and protein in HA_TYPES:
         minus = length_diffs[protein]
         position = str(int(position) - minus)
         hatype = "HA1"
@@ -199,7 +200,7 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
         return H3_dict.get(position), amino_acid, hatype
     else:
         # 处理H3（不需要位点转换）
-        return f"HA1-{position}{amino_acid}"
+        return f"{hatype}-{position}{amino_acid}"
 
 
 def map_residues_to_h3(protein, marker_dict, convert_to_h3_dict, hatype = None):
@@ -674,9 +675,18 @@ def process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_ma
         for hatype, ha_markers in expected_markers.items():
             for marker in ha_markers:
                 match = re.match(r"(\d+)([A-Z])", marker)
-                if match and match.group() in renumbered_position:
+                index = 0 if hatype == "HA1" else 1
+                if match and match.group() in renumbered_position[index][hatype]:
                     markers[hatype].append(match.group())
-        return protein,markers
+        return protein, markers
+    # markers = defaultdict(list)
+    # if use_protein == "H3":
+    #     for hatype, ha_markers in expected_markers.items():
+    #         for marker in ha_markers:
+    #             match = re.match(r"(\d+)([A-Z])", marker)
+    #             if match and match.group() in renumbered_position:
+    #                 markers[hatype].append(match.group())
+    #     return protein,markers
     markers_oth = []
     for marker in expected_markers:
         match = re.match(r"(\d+)([A-Z])", marker)
