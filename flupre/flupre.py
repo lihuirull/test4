@@ -197,9 +197,10 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
         minus = length_diffs[protein]
         position = int(position) - minus
         hatype = "HA1"
-    print(f"str\n{H3_dict.get(str(position))}")
-    print(f"int\n{H3_dict.get(int(position))}")
-    print(H3_dict)
+    if protein != "H3":
+        print(f"str\n{H3_dict.get(str(position))}")
+        print(f"int\n{H3_dict.get(int(position))}")
+        print(H3_dict)
     if H3_dict:
         # 处理除H3的情况
         return H3_dict.get(position), amino_acid, hatype
