@@ -707,6 +707,7 @@ def check_marker_combinations(total_markers, results_markers, markers_type, inpu
             # If the key-value pair in this dictionary exists in the identified marker dictionary,
             # return a more concise format.
             if is_subset_complex_revised(proba_comb, results_markers):
+                print(f"子集比较：\n{proba_comb}\n{results_markers}")
                 if proba_comb and all(proba_comb.values()):
                     markers_formated = process_dictionary(proba_comb)
                     results.append({
