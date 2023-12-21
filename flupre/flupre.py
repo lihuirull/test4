@@ -183,6 +183,7 @@ def get_h3_dict_and_hatype(protein, marker, convert_to_h3_dict):
 def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
     # marker_match = re.fullmatch(r"(\d+)([A-Z]|-)", marker)
     # length_diffs = compare_sequences(STD_PATH, COMPLETE_STD_PATH)
+    print(f"adjH2:\n{marker}")
     marker_match = re.search(r"(\d+)([A-Z]|-)", marker)
 
     if not marker_match:
@@ -207,6 +208,7 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
 
 def map_residues_to_h3(protein, marker_dict, convert_to_h3_dict, hatype = None):
     markers = [marker_dict[protein]] if isinstance(marker_dict[protein], str) else marker_dict[protein]
+    print(f"H2protein:\n{markers}")
     map_dic = {"496S": "158S", "409P": "65P", "434G": "90G", "445G": "101G", "425G": "81G", "425M": "79M",
                "452T": "111T"}
     markers = [f"HA2-{map_dic[marker]}" if marker in map_dic else marker for marker in markers]
@@ -235,7 +237,7 @@ def map_residues_to_h3(protein, marker_dict, convert_to_h3_dict, hatype = None):
             continue
         elif not marker.endswith("-"):
             marker = marker.strip().split("-")[-1]
-
+        # HA1 H2
         h3_position, amino_acid, updated_hatype = adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein)
         if h3_position is None:
             continue
@@ -260,7 +262,7 @@ def process_ha_type(protein, marker_dict, structure_folder, hatype):
         f"{structure_folder}/HA2/H3_{protein}.txt", ['H3', protein])
 
     combined_dict = {'HA1': convert_to_h3_dict_ha1, 'HA2': convert_to_h3_dict_ha2}
-    # print(f"combine\n{combined_dict}")
+    print(f"combine\n{combined_dict}")
     return map_residues_to_h3(protein, marker_dict, combined_dict, hatype)
 
 
@@ -449,8 +451,7 @@ def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
         # print("marker_dict")
         # print(marker_dict)
         if protein_abbr in marker_dict or is_hana_type:
-            print(f"开始测试")
-            # try:
+            try:
                 if protein_abbr in [f"H{i}" for i in range(1, 19)]:
                     ha_results = process_ha_na(protein_abbr, record.seq)
                     print(f"ha_results:\n{ha_results}")
@@ -471,8 +472,8 @@ def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
                     # 处理非 HA/NA 类型
                     standard_seq_path = os.path.join(STANDARD_PATH, f"{protein_abbr}.fas")
                     renumbering_results[protein_id] = perform_alignment_and_renumber(standard_seq_path, record.seq)
-            # except Exception as e:
-            #     print(f"An error occurred while processing {protein_id}: {str(e)}")
+            except Exception as e:
+                print(f"An error occurred while processing {protein_id}: {str(e)}")
         else:
             print(f"No markers found for {protein_abbr} in the source data.")
     # print(renumbering_results)
