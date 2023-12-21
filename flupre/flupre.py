@@ -449,7 +449,8 @@ def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
         # print("marker_dict")
         # print(marker_dict)
         if protein_abbr in marker_dict or is_hana_type:
-            try:
+            print(f"开始测试")
+            # try:
                 if protein_abbr in [f"H{i}" for i in range(1, 19)]:
                     ha_results = process_ha_na(protein_abbr, record.seq)
                     print(f"ha_results:\n{ha_results}")
@@ -470,12 +471,12 @@ def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
                     # 处理非 HA/NA 类型
                     standard_seq_path = os.path.join(STANDARD_PATH, f"{protein_abbr}.fas")
                     renumbering_results[protein_id] = perform_alignment_and_renumber(standard_seq_path, record.seq)
-            except Exception as e:
-                print(f"An error occurred while processing {protein_id}: {str(e)}")
+            # except Exception as e:
+            #     print(f"An error occurred while processing {protein_id}: {str(e)}")
         else:
             print(f"No markers found for {protein_abbr} in the source data.")
-    print(renumbering_results)
-    print('-' * 50)
+    # print(renumbering_results)
+    # print('-' * 50)
     return renumbering_results
 
 
@@ -849,9 +850,9 @@ def identify_markers(input_file_path, renumbering_results, marker_markers, acc_p
             ha_type = pro
         elif pro in NA_TYPES or pro == "N2":
             na_type = pro
-    S = {'H1-combination_409': [{'H1': ['163E', '222G']}],
-     'M2': [{'M2': '41C'}, {'M2': '24D'}, {'M2': '82S'}],
-     'combination-combination_460': [{'H3': ['299R', 'HA2-107I'], 'N2': '35R', 'M2': '41C'}]}
+    # S = {'H1-combination_409': [{'H1': ['163E', '222G']}],
+    #  'M2': [{'M2': '41C'}, {'M2': '24D'}, {'M2': '82S'}],
+    #  'combination-combination_460': [{'H3': ['299R', 'HA2-107I'], 'N2': '35R', 'M2': '41C'}]}
 
     # This is to handle each HA/NA, including those present in combinations,
     # the file only processed single HA/NA markers
