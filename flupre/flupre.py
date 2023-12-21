@@ -192,6 +192,7 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
     # if not hatype and protein in HA_TYPES:
     if not hatype and protein in HA_TYPES:
         minus = length_diffs[protein]
+        minus = length_diffs[protein]
         position = str(int(position) - minus)
         hatype = "HA1"
 
@@ -664,14 +665,16 @@ def process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_ma
     # Skip processing if protein type is unknown
     if protein_type == "Unknown":
         return None, None
+    HA_TYPES_ALL =  [f"H{i}" for i in range(1, 19)]
+    NA_TYPES_ALL =  [f"N{i}" for i in range(1, 10)]
 
-    use_protein = "H3" if protein_type in HA_TYPES else protein_type
+    use_protein = "H3" if protein_type in HA_TYPES_ALL else protein_type
 
     expected_markers = marker_markers.get(use_protein, [])
     print(f"expet:\n{expected_markers}")
     print(f"renumber:\n{renumbered_position}")
-    protein = f'H3' if protein_type in HA_TYPES else (
-        f'N2' if protein_type in NA_TYPES else protein_type)
+    protein = f'H3' if protein_type in HA_TYPES_ALL else (
+        f'N2' if protein_type in NA_TYPES_ALL else protein_type)
     markers = defaultdict(list)
     if use_protein == "H3":
         for hatype, ha_markers in expected_markers.items():
