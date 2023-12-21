@@ -190,10 +190,15 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
         return None, None, hatype
 
     position, amino_acid = marker_match.groups()
+    i = 0
+    for key in H3_dict:
+        if i == 0:
+            print(f"键 {key} 的类型是 {type(key)}")
+            i +=1
     # if not hatype and protein in HA_TYPES:
     if not hatype and protein in HA_TYPES:
         minus = length_diffs[protein]
-        position = str(int(position) - minus)
+        position = int(position) - minus
         hatype = "HA1"
 
     if H3_dict:
@@ -238,8 +243,8 @@ def map_residues_to_h3(protein, marker_dict, convert_to_h3_dict, hatype = None):
         elif not marker.endswith("-"):
             marker = marker.strip().split("-")[-1]
         # HA1 H2
-        print(f"con:\n{convert_to_h3_dict}")
-        print(f"H3_dict:\n{H3_dict}")
+        # print(f"con:\n{convert_to_h3_dict}")
+        # print(f"H3_dict:\n{H3_dict}")
         h3_position, amino_acid, updated_hatype = adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein)
         print(f"H3_postion:\n{h3_position}")
         if h3_position is None:
