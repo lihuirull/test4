@@ -199,7 +199,7 @@ def adjust_position_type(position, H3_dict):
 def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
     # marker_match = re.fullmatch(r"(\d+)([A-Z]|-)", marker)
     # length_diffs = compare_sequences(STD_PATH, COMPLETE_STD_PATH)
-    print(f"adjH2:\n{marker}")
+    # print(f"adjH2:\n{marker}")
     marker_match = re.search(r"(\d+)([A-Z]|-)", marker)
 
     if not marker_match:
@@ -212,10 +212,7 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
         minus = length_diffs[protein]
         position = str(int(position) - minus)
         hatype = "HA1"
-    if protein != "H3":
-        print(f"str\n{H3_dict.get(str(position))}")
-        print(f"int\n{H3_dict.get(int(position))}")
-        print(H3_dict)
+
     if H3_dict:
         # 处理除H3的情况
         # return H3_dict.get(position), amino_acid, hatype
@@ -230,7 +227,7 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
 
 def map_residues_to_h3(protein, marker_dict, convert_to_h3_dict, hatype = None):
     markers = [marker_dict[protein]] if isinstance(marker_dict[protein], str) else marker_dict[protein]
-    print(f"H2protein:\n{markers}")
+    # print(f"H2protein:\n{markers}")
     map_dic = {"496S": "158S", "409P": "65P", "434G": "90G", "445G": "101G", "425G": "81G", "425M": "79M",
                "452T": "111T"}
     markers = [f"HA2-{map_dic[marker]}" if marker in map_dic else marker for marker in markers]
@@ -263,7 +260,7 @@ def map_residues_to_h3(protein, marker_dict, convert_to_h3_dict, hatype = None):
         # print(f"con:\n{convert_to_h3_dict}")
         # print(f"H3_dict:\n{H3_dict}")
         h3_position, amino_acid, updated_hatype = adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein)
-        print(f"H3_postion:\n{h3_position}")
+        # print(f"H3_postion:\n{h3_position}")
         if h3_position is None:
             continue
 
@@ -299,6 +296,10 @@ def process_na_type(protein, marker_dict, structure_folder, hatype):
 
 
 def convert_HA_residues(marker_dict, structure_folder, hatype):
+    # 传入都是{'H1': ['190R', 'HA2-64H', '186P', 445G', 'HA2-117S'], 'H10': ['220L'], 'PB1': ['250S', '170R']...}
+    # 中间过程是：{'H3': ['HA1-190R', 'HA2-64H', 'HA1-186P', 'HA2-45G', 'HA2-117S'], 'PB1': ['220L']...}
+    # 经过transform_marker_dict导出都是{'H3': {'HA1': ['138S', '225G', '304T'], 'HA2': ['156N', '107I']},'M1': ['192V']}
+    # 此函数处理HA/NA，用于将基于标准序列的编号向H3/N2转换，其他蛋白重编号位点不变（即基于标注序列的编号）
     updated_marker_dict = marker_dict.copy()
 
     for protein in list(marker_dict.keys()):
@@ -310,7 +311,13 @@ def convert_HA_residues(marker_dict, structure_folder, hatype):
             for marker in marker_dict["H3"]:
                 if "HA2" not in marker and "HA1" not in marker:
                     # 假设 adjust_position_and_get_h3_position 函数适用于这种情况
-                    # 用于识别标志物的序列的编号列表传入，hatype为HA1或HA2，不需要对此列表减去信号肽
+                    # 用于识别标志物的序列的编号列表传入(此列表元素不会出现：HA1-XXX或者HA2-XXX，
+                    # 因为此列表的整理就是HA1:[],HA2:[]，然后把对应的HA1的列表传入
+                    # 不需要对此列表减去信号肽，所以编号时需指定hatype（hatype为HA1或HA）,不减信号肽
+                    # 只是为了给这些marker字符串加上HA1/HA2的前缀
+
+                    # 而传入标志物列表时会出现无需处理带有HA1和HA2标识的marker字符串，不带有的则需要减去信号肽，
+                    # 给这些marker字符串加上HA1-的前缀
                     marker = adjust_position_and_get_h3_position(marker, hatype = hatype, H3_dict = None, protein = "H3")
                 # print(marker)
                 res.append(marker)
@@ -334,6 +341,7 @@ def convert_HA_residues(marker_dict, structure_folder, hatype):
 
 
 def transform_marker_dict(marker_dict):
+    # 这一步只是为了把H3
     transformed_data = {}
     for key, values in marker_dict.items():
         if key == 'H3':
@@ -390,15 +398,11 @@ def annotate_markers(markers_path, STRUCTURE_PATH, hatype = None):
 
     # Duplicated
     marker_dict = {i: list(set(j)) for i, j in marker_dict.items()}
-    for i, j in marker_dict.items():
-        if i in [f"H{i}" for i in range(1, 19)]:
-            pass
-            # print(f"Protein:\n{i}")
-            # print(f"Markers:\n{j}")
-            # print("-" * 50)
+
     # Convert HA/NA residues to H3/N2 numbering and update marker_dict
     # Already Duplicated
-    marker_dict = convert_HA_residues(marker_dict, STRUCTURE_PATH, hatype)
+    # 传入的marker_dict应该没有经过H3/N2的转换
+    marker_dict = convert_HA_residues(marker_dict, STRUCTURE_PATH, "HA1")
 
     # Duplicated
     # marker_dict = {i: list(set(j)) for i, j in marker_dict.items()}
@@ -466,6 +470,7 @@ def process_ha_na(protein_abbr, sequence):
 
 
 def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
+    # 针对待提取标志物的序列的重编号，
     fasta_sequences = SeqIO.parse(fasta_path, 'fasta')
     renumbering_results = {}
 
@@ -478,12 +483,14 @@ def renumber_proteins(fasta_path, acc_pro_dict, marker_dict):
         if protein_abbr in marker_dict or is_hana_type:
             try:
                 if protein_abbr in [f"H{i}" for i in range(1, 19)]:
+                    # 给出在对应HA亚型的标准序列的编号
                     ha_results = process_ha_na(protein_abbr, record.seq)
-                    print(f"ha_results:\n{ha_results}")
+                    # 对HA进行向H3映射的重编号
+                    # print(f"ha_results:\n{ha_results}")
                     renumbered_positions_HA1 = convert_HA_residues(ha_results["HA1"], STRUCTURE_PATH, hatype = "HA1")
-                    print(f"RENUMBER:HA1\n{renumbered_positions_HA1}")
+                    # print(f"RENUMBER:HA1\n{renumbered_positions_HA1}")
                     renumbered_positions_HA2 = convert_HA_residues(ha_results["HA2"], STRUCTURE_PATH, hatype = "HA2")
-                    print(f"RENUMBER:HA2\n{renumbered_positions_HA2}")
+                    # print(f"RENUMBER:HA2\n{renumbered_positions_HA2}")
                     renumbered_positions = merge_dictionaries(renumbered_positions_HA1, renumbered_positions_HA2)
                     # pop_num = "H3" if protein_abbr in HA_TYPES else "N2"
                     renumbered_positions[protein_id] = renumbered_positions.pop("H3")
@@ -690,6 +697,7 @@ def process_dictionary(data_dict):
 
 
 def process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_markers):
+    # 检查输入序列的重编号位点残基有哪些是在marker_markers(标志物字典'H3':{'HA1':[],'HA2':[]})中存在的。
     protein_type = acc_pro_dic[acc_id]
 
     # Skip processing if protein type is unknown
@@ -701,8 +709,8 @@ def process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_ma
     use_protein = "H3" if protein_type in HA_TYPES_ALL else protein_type
 
     expected_markers = marker_markers.get(use_protein, [])
-    print(f"expet:\n{expected_markers}")
-    print(f"renumber:\n{renumbered_position}")
+    # print(f"expet:\n{expected_markers}")
+    # print(f"renumber:\n{renumbered_position}")
     protein = f'H3' if protein_type in HA_TYPES_ALL else (
         f'N2' if protein_type in NA_TYPES_ALL else protein_type)
     markers = defaultdict(list)
@@ -750,10 +758,12 @@ def check_marker_combinations(total_markers, results_markers, markers_type, inpu
         # proba_comb is one of these dictionaries, if the dictionary is satisfied,
         # it is considered that there is a combination-combination_449 type of marker.
         for proba_comb in marker_list:
+            print(f"子集比较：\n{proba_comb}\n{results_markers}")
+            if proba_comb and is_subset_complex_revised(proba_comb, results_markers):
             # If the key-value pair in this dictionary exists in the identified marker dictionary,
             # return a more concise format.
-            if is_subset_complex_revised(proba_comb, results_markers):
-                print(f"子集比较：\n{proba_comb}\n{results_markers}")
+            # if is_subset_complex_revised(proba_comb, results_markers):
+
                 if proba_comb and all(proba_comb.values()):
                     markers_formated = process_dictionary(proba_comb)
                     results.append({
@@ -857,11 +867,14 @@ def identify_markers(input_file_path, renumbering_results, marker_markers, acc_p
     input_file_name = os.path.split(input_file_path)[1]
     results_markers = defaultdict(list)
     print(f"初始result——markers\n{renumbering_results}")
+    # 有两个标志物列表，一个是用于识别具体单个的标志物的，一个是用于识别有哪些单个的或是组合的标志物的（是一个重新组织后的标志物列表形式）
+    # 两个都经历了H3/NA转换
     # Process each accession ID and its renumbered position
     for acc_id, renumbered_position in renumbering_results.items():
         # renumbered_position是列表，除了HA外元素都是marker(226L)，HA是里面有两个字典，一个字典是HA1，对应一个列表（元素也是marker)
         # 另一个字典是HA2，对应一个列表（元素也是marker)
         # acc_id是accession号
+        # 识别有哪些是存在于标志物列表的
         protein, markers = process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_markers)
         if protein:
             results_markers[protein] = markers
