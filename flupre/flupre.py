@@ -676,25 +676,40 @@ def format_marker_list(markers, protein_prefix = ''):
     return '&'.join(format_marker(marker, protein_prefix) for marker in markers)
 
 
+# def process_dictionary(data_dict):
+#     """
+#     Processes a dictionary containing genetic markers.
+#     If the dictionary has a single key-value pair, the value is formatted directly.
+#     For multiple key-value pairs, each is formatted separately and joined by '&'.
+#
+#     Parameters:
+#         data_dict (dict): A dictionary with protein names as keys and genetic markers as values.
+#
+#     Returns:
+#         str: A single string representing the formatted contents of the dictionary.
+#     """
+#     # Process a single key-value pair directly.
+#     if len(data_dict) == 1:
+#         return format_marker_list(next(iter(data_dict.values())))
+#
+#     # Format each key-value pair separately if there are multiple.
+#     return '&'.join(format_marker_list(markers, protein) for protein, markers in data_dict.items())
+
 def process_dictionary(data_dict):
-    """
-    Processes a dictionary containing genetic markers.
-    If the dictionary has a single key-value pair, the value is formatted directly.
-    For multiple key-value pairs, each is formatted separately and joined by '&'.
+    formatted_list = []
+    for protein, markers in data_dict.items():
+        # 检查是否为嵌套字典
+        if isinstance(markers, dict):
+            for sub_protein, sub_markers in markers.items():
+                # 将内部键作为额外的前缀
+                formatted_marker = format_marker_list(sub_markers, f"{protein}-{sub_protein}")
+                formatted_list.append(formatted_marker)
+        else:
+            # 非嵌套字典直接处理
+            formatted_marker = format_marker_list(markers, protein)
+            formatted_list.append(formatted_marker)
 
-    Parameters:
-        data_dict (dict): A dictionary with protein names as keys and genetic markers as values.
-
-    Returns:
-        str: A single string representing the formatted contents of the dictionary.
-    """
-    # Process a single key-value pair directly.
-    if len(data_dict) == 1:
-        return format_marker_list(next(iter(data_dict.values())))
-
-    # Format each key-value pair separately if there are multiple.
-    return '&'.join(format_marker_list(markers, protein) for protein, markers in data_dict.items())
-
+    return '&'.join(formatted_list)
 
 def process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_markers):
     # 检查输入序列的重编号位点残基有哪些是在marker_markers(标志物字典'H3':{'HA1':[],'HA2':[]})中存在的。

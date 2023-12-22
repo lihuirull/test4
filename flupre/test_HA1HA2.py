@@ -394,16 +394,16 @@ def annotate_markers(markers_path, STRUCTURE_PATH, hatype = None):
     return marker_dict, data
 
 
-# 文件路径
-std_fasta_path = "test_py_file/std.fasta"
-complete_std_fasta_path = "test_py_file/complete_std.fasta"
-
-# 比较并获取长度差异
-length_diffs = compare_sequences(std_fasta_path, complete_std_fasta_path)
-
-s, data = annotate_markers(r"test_py_file/test_formated.csv",
-                           r"D:\user\data\fluphenotype\script\convert_site\HA_NA_mapdir")
-print(data)
+# # 文件路径
+# std_fasta_path = "test_py_file/std.fasta"
+# complete_std_fasta_path = "test_py_file/complete_std.fasta"
+#
+# # 比较并获取长度差异
+# length_diffs = compare_sequences(std_fasta_path, complete_std_fasta_path)
+#
+# s, data = annotate_markers(r"test_py_file/test_formated.csv",
+#                            r"D:\user\data\fluphenotype\script\convert_site\HA_NA_mapdir")
+# print(data)
 
 # marker_dict = {'M2': '41C'}
 # for protein in list(marker_dict.keys()):
@@ -459,114 +459,163 @@ def is_subset_complex_revised(dict1, dict2):
 # Test the revised function
 print(is_subset_complex_revised(s, s1))
 
+def format_marker(marker, protein_prefix=''):
+    if '-' in marker:
+        amino_acid = marker.split('-')[0]
+        deletion_suffix = "Deletion"
+    else:
+        amino_acid = marker
+        deletion_suffix = ""
 
-def map_residues_to_h3(protein, marker_dict, convert_to_h3_dict):
-    """
-    Maps the residue numbers for a given protein to the H3/N2 numbering system.
+    formatted_marker = f"{protein_prefix}-{amino_acid}{deletion_suffix}" \
+        if protein_prefix else f"{amino_acid}{deletion_suffix}"
+    return formatted_marker
 
-    Parameters:
-        protein (str): The protein identifier.
-        marker_dict (dict): Dictionary containing markers for various proteins.
-        convert_to_h3_dict (dict): Dictionary that maps residue numbers to H3.
-
-    Returns:
-        list: A list of residues mapped to H3 numbering system.
-    """
-    markers = marker_dict[protein]
-
-    # 如果markers是字符串，将其转换为只含一个元素的列表
+def format_marker_list(markers, protein_prefix=''):
     if isinstance(markers, str):
-        markers = [markers]
+        return format_marker(markers, protein_prefix)
 
-    mapped_residues = []
-    for marker in markers:
-        # Ensure the marker is in the expected format (e.g., "12A")
-        marker_match = re.fullmatch(r"(\d+)([A-Z])", marker)
-        if not marker_match:
-            # print(f"Warning: marker '{marker}' is not in the correct format and will be skipped.")
-            continue
+    all_contain_dash = all('-' in marker for marker in markers)
+    if all_contain_dash:
+        start = markers[0].split('-')[0]
+        end = markers[-1].split('-')[0]
+        return f"{protein_prefix}-{start}-{end}CompleteDeletion"
 
-        position, amino_acid = marker_match.groups()
-        h3_position = convert_to_h3_dict.get(position)
-        if h3_position is None:
-            # print(f"Warning: Position {position} does not have an H3 mapping "
-            #       f"in the structure comparison file and will be skipped.")
-            continue
+    return '&'.join(format_marker(marker, protein_prefix) for marker in markers)
 
-        mapped_residues.append(h3_position + amino_acid)
+def process_dictionary(data_dict):
+    formatted_list = []
+    for protein, markers in data_dict.items():
+        if isinstance(markers, dict):
+            for sub_protein, sub_markers in markers.items():
+                formatted_marker = format_marker_list(sub_markers, f"{protein}-{sub_protein}")
+                formatted_list.append(formatted_marker)
+        else:
+            formatted_marker = format_marker_list(markers, protein)
+            formatted_list.append(formatted_marker)
 
-    return mapped_residues
+    return '&'.join(formatted_list)
 
+# 测试用例
+test_dicts = [
+    {'H3': {'HA1': ['184R', '214L', '215N', '216S']}},
+    {'H3': {'HA1': ['144E', '246K', '304T']}, 'PA': '615E'},
+    {'PA': '653L', 'PB1': '229R'}
+]
 
-def convert_HA_residues(marker_dict, structure_folder):
-    """
-    Converts HA/NA residues to H3/N2 numbering.
-
-    Parameters:
-        marker_dict: Dictionary with protein types as keys and marker lists as values.
-        structure_folder: Folder path where the structure mapping files are located.
-
-    Returns:
-        Updated marker_dict with HA/NA types converted to H3/N2 numbering.
-    """
-    updated_marker_dict = marker_dict.copy()  # Create copy
-    for protein in list(marker_dict.keys()):
-        if protein in HA_TYPES:
-            mapping_data = pd.read_csv(f"{structure_folder}/H3_{protein}.txt", sep = "\t", header = None,
-                                       names = ['H3', protein])
-            convert_to_h3_dict = dict(zip(mapping_data[protein], mapping_data['H3']))
-
-            residues = map_residues_to_h3(protein, marker_dict, convert_to_h3_dict)
-            # residues = [convert_to_H3_dict.get(re.search(r"\d+", i).group()) +
-            # re.search(r"[A-Z]", i).group() for i in
-            #             marker_dict[protein] if convert_to_H3_dict.get(re.search(r"\d+", i).group())]
-            if "H3" in updated_marker_dict:
-                updated_marker_dict["H3"].extend(residues)
-            else:
-                updated_marker_dict["H3"] = residues
-            del updated_marker_dict[protein]  # del key
-        elif protein in NA_TYPES:
-            if os.path.isfile(f"{structure_folder}/N2_{protein}.txt"):
-                mapping_data = pd.read_csv(f"{structure_folder}/N2_{protein}.txt", sep = "\t", header = None,
-                                           names = ['N2', protein])
-            else:
-                mapping_data = pd.read_csv(f"{structure_folder}/{protein}_N2.txt", sep = "\t", header = None,
-                                           names = [protein, 'N2'])
-            convert_to_n2_dict = dict(zip(mapping_data[protein], mapping_data['N2']))
-
-            residues = map_residues_to_h3(protein, marker_dict, convert_to_n2_dict)
-            if "N2" in updated_marker_dict:
-                updated_marker_dict["N2"].extend(residues)
-            else:
-                updated_marker_dict["N2"] = residues
-            del updated_marker_dict[protein]  # del key
-
-    return updated_marker_dict
+# 测试结果
+test_results = [process_dictionary(test_dict) for test_dict in test_dicts]
+print(test_results)
 
 
-def annotate_markers(markers_path):
-    """
-    Annotate markers by loading virulence data, then converting HA types.
 
-    Parameters:
-        markers_path: Path to the Excel file with markers.
-
-    Returns:
-        A dictionary with annotated markers.
-    """
-    # Load markers from files
-    marker_dict, data = load_markers(markers_path)
-
-    # Duplicated
-    marker_dict = {i: list(set(j)) for i, j in marker_dict.items()}
-
-    # Convert HA/NA residues to H3/N2 numbering and update marker_dict
-    marker_dict = convert_HA_residues(marker_dict, STRUCTURE_PATH)
-
-    # Duplicated
-    marker_dict = {i: list(set(j)) for i, j in marker_dict.items()}
-
-    return marker_dict, data
+# def map_residues_to_h3(protein, marker_dict, convert_to_h3_dict):
+#     """
+#     Maps the residue numbers for a given protein to the H3/N2 numbering system.
+#
+#     Parameters:
+#         protein (str): The protein identifier.
+#         marker_dict (dict): Dictionary containing markers for various proteins.
+#         convert_to_h3_dict (dict): Dictionary that maps residue numbers to H3.
+#
+#     Returns:
+#         list: A list of residues mapped to H3 numbering system.
+#     """
+#     markers = marker_dict[protein]
+#
+#     # 如果markers是字符串，将其转换为只含一个元素的列表
+#     if isinstance(markers, str):
+#         markers = [markers]
+#
+#     mapped_residues = []
+#     for marker in markers:
+#         # Ensure the marker is in the expected format (e.g., "12A")
+#         marker_match = re.fullmatch(r"(\d+)([A-Z])", marker)
+#         if not marker_match:
+#             # print(f"Warning: marker '{marker}' is not in the correct format and will be skipped.")
+#             continue
+#
+#         position, amino_acid = marker_match.groups()
+#         h3_position = convert_to_h3_dict.get(position)
+#         if h3_position is None:
+#             # print(f"Warning: Position {position} does not have an H3 mapping "
+#             #       f"in the structure comparison file and will be skipped.")
+#             continue
+#
+#         mapped_residues.append(h3_position + amino_acid)
+#
+#     return mapped_residues
+#
+#
+# def convert_HA_residues(marker_dict, structure_folder):
+#     """
+#     Converts HA/NA residues to H3/N2 numbering.
+#
+#     Parameters:
+#         marker_dict: Dictionary with protein types as keys and marker lists as values.
+#         structure_folder: Folder path where the structure mapping files are located.
+#
+#     Returns:
+#         Updated marker_dict with HA/NA types converted to H3/N2 numbering.
+#     """
+#     updated_marker_dict = marker_dict.copy()  # Create copy
+#     for protein in list(marker_dict.keys()):
+#         if protein in HA_TYPES:
+#             mapping_data = pd.read_csv(f"{structure_folder}/H3_{protein}.txt", sep = "\t", header = None,
+#                                        names = ['H3', protein])
+#             convert_to_h3_dict = dict(zip(mapping_data[protein], mapping_data['H3']))
+#
+#             residues = map_residues_to_h3(protein, marker_dict, convert_to_h3_dict)
+#             # residues = [convert_to_H3_dict.get(re.search(r"\d+", i).group()) +
+#             # re.search(r"[A-Z]", i).group() for i in
+#             #             marker_dict[protein] if convert_to_H3_dict.get(re.search(r"\d+", i).group())]
+#             if "H3" in updated_marker_dict:
+#                 updated_marker_dict["H3"].extend(residues)
+#             else:
+#                 updated_marker_dict["H3"] = residues
+#             del updated_marker_dict[protein]  # del key
+#         elif protein in NA_TYPES:
+#             if os.path.isfile(f"{structure_folder}/N2_{protein}.txt"):
+#                 mapping_data = pd.read_csv(f"{structure_folder}/N2_{protein}.txt", sep = "\t", header = None,
+#                                            names = ['N2', protein])
+#             else:
+#                 mapping_data = pd.read_csv(f"{structure_folder}/{protein}_N2.txt", sep = "\t", header = None,
+#                                            names = [protein, 'N2'])
+#             convert_to_n2_dict = dict(zip(mapping_data[protein], mapping_data['N2']))
+#
+#             residues = map_residues_to_h3(protein, marker_dict, convert_to_n2_dict)
+#             if "N2" in updated_marker_dict:
+#                 updated_marker_dict["N2"].extend(residues)
+#             else:
+#                 updated_marker_dict["N2"] = residues
+#             del updated_marker_dict[protein]  # del key
+#
+#     return updated_marker_dict
+#
+#
+# def annotate_markers(markers_path):
+#     """
+#     Annotate markers by loading virulence data, then converting HA types.
+#
+#     Parameters:
+#         markers_path: Path to the Excel file with markers.
+#
+#     Returns:
+#         A dictionary with annotated markers.
+#     """
+#     # Load markers from files
+#     marker_dict, data = load_markers(markers_path)
+#
+#     # Duplicated
+#     marker_dict = {i: list(set(j)) for i, j in marker_dict.items()}
+#
+#     # Convert HA/NA residues to H3/N2 numbering and update marker_dict
+#     marker_dict = convert_HA_residues(marker_dict, STRUCTURE_PATH)
+#
+#     # Duplicated
+#     marker_dict = {i: list(set(j)) for i, j in marker_dict.items()}
+#
+#     return marker_dict, data
 
 # def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
 #     # marker_match = re.fullmatch(r"(\d+)([A-Z]|-)", marker)
