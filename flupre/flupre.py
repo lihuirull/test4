@@ -333,7 +333,6 @@ def convert_HA_residues(marker_dict, structure_folder, hatype):
             updated_marker_dict["N2"] = updated_marker_dict.get("N2", []) + residues
             del updated_marker_dict[protein]
 
-
     # print(marker_dict)
     # print(updated_marker_dict)
     # print('-'*50)
@@ -1038,6 +1037,7 @@ def process_extract_cmd(input_file, args, is_directory = True):
     acc_pro_dic = dict(zip(annotations.iloc[:, 0], annotations.iloc[:, 1]))
     for filename in os.listdir(MARKER_PATH):
         if filename.endswith("_formated.csv") and "lence" in filename:
+            # marker_dict已经过H3/N2的位点转换，data未经过位点转换
             marker_dict, data = annotate_markers(MARKER_PATH + f"/{filename}", STRUCTURE_PATH)
             renumbering_results = renumber_proteins(
                 fasta_path = str(input_file),

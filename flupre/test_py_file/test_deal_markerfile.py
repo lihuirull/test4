@@ -276,6 +276,8 @@ def generate_combinations(group):
 def read_and_prepare_data(file_name, column_names):
     """读取Excel文件并进行初步处理，包括调整列名"""
     data = pd.read_excel(file_name, engine = "openpyxl")
+    data.loc[:,"Original Site"] = data.loc[:,"Amino acid site"]
+    print(data)
     # Replace empty strings with NaN
     data.replace('', np.nan, inplace = True)
     data = data.dropna(subset = ["Protein Type"],how = "all", axis = 0)
@@ -332,6 +334,8 @@ def main(input_file, output_file):
 
 # 调用主函数
 if __name__ == '__main__':
+    # 先通过此脚本处理表型文件，把标志物能拆的都拆，变成单个的。
+    # 再进行位点转换
     phenotype = "mammalian_virulence"
     # phenotype = "human_adaptation"
     # phenotype = "transmissibility"
@@ -339,5 +343,5 @@ if __name__ == '__main__':
     # new_protein_dict = main(f"drug_resistance_std.xlsx",
     #                         f"../../data/markers_for_extract/{phenotype}_formated.csv")
     new_protein_dict = main(f"../../data/markers_for_extract/{phenotype}.xlsx",
-        # f"../data/markers_for_extract/{phenotype}_formated.csv")
-                            f"test_formated.csv")
+        f"../../data/markers_for_extract/{phenotype}_formated.csv")
+        #                     f"test_formated1224.csv")

@@ -304,6 +304,76 @@ def compare_sequences(seq_file1, seq_file2):
             length_differences[key] = abs(len(seq_dict1[key]) - len(seq_dict2[key]))
     return length_differences
 
+if __name__ == '__main__':
+
+    """把HA NA单个的标志物转变为H3 N2"""
+    # phenotype = "drug_resistance"
+    phenotype = "mammalian_virulence"
+    data = pd.read_csv(f"../../data/markers_for_extract/{phenotype}_formated.csv")
+
+    # data = pd.read_csv(f"test_formated.csv")
+    print(data)
+    print(data.loc[:, "Protein Type"].tolist())
+    # # 假设 HA_TYPES 和 NA_TYPES 是预定义的列表
+    # HA_TYPES.append('H3')
+    # NA_TYPES.append('N2')
+
+    data_with_hana = data[
+        data.loc[:, "Protein"].isin(HA_TYPES) | data.loc[:, "Protein"].isin(NA_TYPES)]
+
+    data_without_hana = data[
+        ~(data.loc[:, "Protein"].isin(HA_TYPES) | data.loc[:, "Protein"].isin(NA_TYPES))]
+    # data_with_hana = data[
+    #     data.loc[:, "Protein Type"].isin(HA_TYPES) | data.loc[:, "Protein Type"].isin(NA_TYPES)]
+    #
+    # data_without_hana = data[
+    #     ~(data.loc[:, "Protein Type"].isin(HA_TYPES) | data.loc[:, "Protein Type"].isin(NA_TYPES))]
+
+    # data_with_combination.loc[:, "Residue"] = data_with_combination.loc[:, "Mutation"].apply(
+    #     lambda x: re.search('[A-Z-]', x).group())
+    # data_with_combination.loc[:, "Mutation"] = data_with_combination.loc[:, "Mutation"].apply(
+    #     lambda x: re.search('\d+', x).group())
+    # print(data_with_combination)
+
+
+    # 文件路径
+    std_fasta_path = "std.fasta"
+    complete_std_fasta_path = "complete_std.fasta"
+
+    # 比较并获取长度差异
+    length_diffs = compare_sequences(std_fasta_path, complete_std_fasta_path)
+
+    for idx, row in data_with_hana.iterrows():
+        dic = {row["Protein"]: row['Mutation']}
+
+        newdic = convert_HA_residues(dic, r"D:/user/data/fluphenotype/script/flupre/data/HA_NA_mapdir")
+        # print(newdic)
+        print('-' * 50)
+
+        # 检查 newdic 是否为空
+        if list(newdic.values())[0]:
+            # print('-'*50)
+            # print(dic)
+            print(dic)
+            print(newdic)
+            data_with_hana.loc[idx, "Protein"] = list(newdic.keys())[0]
+            data_with_hana.loc[idx, "Protein"] = list(newdic.keys())[0]
+            data_with_hana.loc[idx, "Mutation"] = list(newdic.values())[0][0]
+        else:
+            # 如果 newdic 为空，可以选择跳过或赋予默认值
+            # 例如：跳过当前迭代
+            continue
+            # 或者赋予默认值
+            # data_with_hana.loc[idx, "Protein Type"] = 默认值
+            # data_with_hana.loc[idx, "Mutation"] = 默认值
+
+    print(data_with_hana)
+    data_with_hana.to_csv("test.csv")
+    converted_data = pd.concat([data_with_hana,data_without_hana])
+    print(converted_data)
+    converted_data.to_csv(f"test2_formated.csv",index = False)
+    # converted_data.to_csv(f"../../data/markers_for_extract/{phenotype}_formated.csv",index = False)
+
 
 # 用于测试和理解代码思路的
 # total_markers = defaultdict(list)
@@ -330,68 +400,6 @@ def compare_sequences(seq_file1, seq_file2):
 # for s in t:
 #     res = process_dictionary(s)
 #     print(res)
-
-"""把HA NA单个的标志物转变为H3 N2"""
-# phenotype = "drug_resistance"
-# data = pd.read_csv(f"../../data/markers_for_extract/{phenotype}_formated.csv")
-phenotype = "mammalian_virulence"
-data = pd.read_csv(f"test_formated.csv")
-print(data)
-print(data.loc[:, "Protein Type"].tolist())
-# # 假设 HA_TYPES 和 NA_TYPES 是预定义的列表
-# HA_TYPES.append('H3')
-# NA_TYPES.append('N2')
-
-
-data_with_hana = data[
-    data.loc[:, "Protein Type"].isin(HA_TYPES) | data.loc[:, "Protein Type"].isin(NA_TYPES)]
-
-data_without_hana = data[
-    ~(data.loc[:, "Protein Type"].isin(HA_TYPES) | data.loc[:, "Protein Type"].isin(NA_TYPES))]
-# data_with_combination.loc[:, "Residue"] = data_with_combination.loc[:, "Mutation"].apply(
-#     lambda x: re.search('[A-Z-]', x).group())
-# data_with_combination.loc[:, "Mutation"] = data_with_combination.loc[:, "Mutation"].apply(
-#     lambda x: re.search('\d+', x).group())
-# print(data_with_combination)
-
-
-# 文件路径
-std_fasta_path = "std.fasta"
-complete_std_fasta_path = "complete_std.fasta"
-
-# 比较并获取长度差异
-length_diffs = compare_sequences(std_fasta_path, complete_std_fasta_path)
-
-for idx, row in data_with_hana.iterrows():
-    dic = {row["Protein Type"]: row['Mutation']}
-    print(dic)
-    newdic = convert_HA_residues(dic, r"D:/user/data/fluphenotype/script/flupre/data/HA_NA_mapdir")
-    print(newdic)
-    print('-' * 50)
-
-    # 检查 newdic 是否为空
-    if list(newdic.values())[0]:
-        # print('-'*50)
-        # print(dic)
-        # print(newdic)
-        data_with_hana.loc[idx, "Protein Type"] = list(newdic.keys())[0]
-        data_with_hana.loc[idx, "Protein"] = list(newdic.keys())[0]
-        data_with_hana.loc[idx, "Mutation"] = list(newdic.values())[0][0]
-    else:
-        # 如果 newdic 为空，可以选择跳过或赋予默认值
-        # 例如：跳过当前迭代
-        continue
-        # 或者赋予默认值
-        # data_with_hana.loc[idx, "Protein Type"] = 默认值
-        # data_with_hana.loc[idx, "Mutation"] = 默认值
-
-print(data_with_hana)
-
-converted_data = pd.concat([data_with_hana,data_without_hana])
-print(converted_data)
-converted_data.to_csv(f"test2_formated.csv",index = False)
-# converted_data.to_csv(f"../../data/markers_for_extract/{phenotype}_formated.csv",index = False)
-
 
 # 以下为一些函数的探索过程
 # def map_residues_to_h3(protein, marker_dict, convert_to_h3_dict):

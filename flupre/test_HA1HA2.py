@@ -456,56 +456,56 @@ def is_subset_complex_revised(dict1, dict2):
     return True
 
 
-# Test the revised function
-print(is_subset_complex_revised(s, s1))
-
-def format_marker(marker, protein_prefix=''):
-    if '-' in marker:
-        amino_acid = marker.split('-')[0]
-        deletion_suffix = "Deletion"
-    else:
-        amino_acid = marker
-        deletion_suffix = ""
-
-    formatted_marker = f"{protein_prefix}-{amino_acid}{deletion_suffix}" \
-        if protein_prefix else f"{amino_acid}{deletion_suffix}"
-    return formatted_marker
-
-def format_marker_list(markers, protein_prefix=''):
-    if isinstance(markers, str):
-        return format_marker(markers, protein_prefix)
-
-    all_contain_dash = all('-' in marker for marker in markers)
-    if all_contain_dash:
-        start = markers[0].split('-')[0]
-        end = markers[-1].split('-')[0]
-        return f"{protein_prefix}-{start}-{end}CompleteDeletion"
-
-    return '&'.join(format_marker(marker, protein_prefix) for marker in markers)
-
-def process_dictionary(data_dict):
-    formatted_list = []
-    for protein, markers in data_dict.items():
-        if isinstance(markers, dict):
-            for sub_protein, sub_markers in markers.items():
-                formatted_marker = format_marker_list(sub_markers, f"{protein}-{sub_protein}")
-                formatted_list.append(formatted_marker)
-        else:
-            formatted_marker = format_marker_list(markers, protein)
-            formatted_list.append(formatted_marker)
-
-    return '&'.join(formatted_list)
-
-# 测试用例
-test_dicts = [
-    {'H3': {'HA1': ['184R', '214L', '215N', '216S']}},
-    {'H3': {'HA1': ['144E', '246K', '304T']}, 'PA': '615E'},
-    {'PA': '653L', 'PB1': '229R'}
-]
-
-# 测试结果
-test_results = [process_dictionary(test_dict) for test_dict in test_dicts]
-print(test_results)
+# # Test the revised function
+# print(is_subset_complex_revised(s, s1))
+#
+# def format_marker(marker, protein_prefix=''):
+#     if '-' in marker:
+#         amino_acid = marker.split('-')[0]
+#         deletion_suffix = "Deletion"
+#     else:
+#         amino_acid = marker
+#         deletion_suffix = ""
+#
+#     formatted_marker = f"{protein_prefix}-{amino_acid}{deletion_suffix}" \
+#         if protein_prefix else f"{amino_acid}{deletion_suffix}"
+#     return formatted_marker
+#
+# def format_marker_list(markers, protein_prefix=''):
+#     if isinstance(markers, str):
+#         return format_marker(markers, protein_prefix)
+#
+#     all_contain_dash = all('-' in marker for marker in markers)
+#     if all_contain_dash:
+#         start = markers[0].split('-')[0]
+#         end = markers[-1].split('-')[0]
+#         return f"{protein_prefix}-{start}-{end}CompleteDeletion"
+#
+#     return '&'.join(format_marker(marker, protein_prefix) for marker in markers)
+#
+# def process_dictionary(data_dict):
+#     formatted_list = []
+#     for protein, markers in data_dict.items():
+#         if isinstance(markers, dict):
+#             for sub_protein, sub_markers in markers.items():
+#                 formatted_marker = format_marker_list(sub_markers, f"{protein}-{sub_protein}")
+#                 formatted_list.append(formatted_marker)
+#         else:
+#             formatted_marker = format_marker_list(markers, protein)
+#             formatted_list.append(formatted_marker)
+#
+#     return '&'.join(formatted_list)
+#
+# # 测试用例
+# test_dicts = [
+#     {'H3': {'HA1': ['184R', '214L', '215N', '216S']}},
+#     {'H3': {'HA1': ['144E', '246K', '304T']}, 'PA': '615E'},
+#     {'PA': '653L', 'PB1': '229R'}
+# ]
+#
+# # 测试结果
+# test_results = [process_dictionary(test_dict) for test_dict in test_dicts]
+# print(test_results)
 
 
 

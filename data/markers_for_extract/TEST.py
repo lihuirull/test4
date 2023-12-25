@@ -6,11 +6,12 @@ import pandas as pd
 
 import os
 
-f = os.listdir("./")
-lst = []
-for file in f:
-    if file.endswith(".xlsx"):
-        df = pd.read_excel(file)
-        lst.extend(df["Protein Type"].tolist())
 
-print(set(lst))
+df = pd.read_csv(r"D:\user\data\fluphenotype\script\flupre\data\markers_for_extract\mammalian_virulence_formated.csv")
+df = df[df.loc[:,"Protein"].isin([f"H{i}" for i in range(1,19)])]
+df.loc[:,"Mutation"] = df.loc[:,"Mutation"].str.replace("HA\d-","")
+print(df.Mutation)
+
+# 使用更通用的正则表达式提取数字
+df["Position"] = df["Mutation"].str.extract("(\d+)")
+print(df)
