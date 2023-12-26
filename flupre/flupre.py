@@ -824,6 +824,7 @@ def merge_dataframes(results, data, markers_type, ha_type, na_type):
     # Merge parts with and without 'combination' separately
     merged_with_combination = pd.merge(results_with_combination, data_with_combination, on = 'Protein Type',
                                        how = 'left')
+    data_without_combination.loc[:,"Amino acid site"] = data_without_combination.loc[:,"Amino acid site"].str.split("HA\d-").str[-1]
     merged_without_combination = pd.merge(results_without_combination, data_without_combination,
                                           on = ['Protein Type', 'Amino acid site'], how = 'left')
 
