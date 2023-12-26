@@ -456,9 +456,9 @@ def is_subset_complex_revised(dict1, dict2):
     return True
 
 
-# # Test the revised function
-# print(is_subset_complex_revised(s, s1))
-#
+# Test the revised function
+print(is_subset_complex_revised(s, s1))
+
 # def format_marker(marker, protein_prefix=''):
 #     if '-' in marker:
 #         amino_acid = marker.split('-')[0]
@@ -495,17 +495,108 @@ def is_subset_complex_revised(dict1, dict2):
 #             formatted_list.append(formatted_marker)
 #
 #     return '&'.join(formatted_list)
+
+
+def format_marker(marker, protein_prefix = ''):
+    """
+    Formats a single genetic marker. If the marker contains a hyphen ('-'),
+    only the part before the hyphen is retained and appended with 'Deletion'.
+    If a protein prefix is provided, it's added before the marker.
+
+    Parameters:
+        marker (str): The genetic marker to be formatted.
+        protein_prefix (str): An optional prefix to be added before the marker.
+
+    Returns:
+        str: Formatted genetic marker.
+    """
+    # Check if the marker contains a hyphen and split accordingly.
+    if '-' in marker:
+        amino_acid = marker.split('-')[0]
+        deletion_suffix = "Deletion"
+    else:
+        amino_acid = marker
+        deletion_suffix = ""
+
+    # Combine the protein prefix, amino acid, and deletion suffix.
+    formatted_marker = f"{protein_prefix}-{amino_acid}{deletion_suffix}" \
+        if protein_prefix else f"{amino_acid}{deletion_suffix}"
+    return formatted_marker
+
+
+def format_marker_list(markers, protein_prefix = ''):
+    """
+    Formats a list of markers or a single marker string.
+    In case of a list where all elements contain a hyphen, a special formatted string is returned.
+    Otherwise, each marker in the list is formatted individually.
+
+    Parameters:
+        markers (str or list): A string or list of strings representing genetic markers.
+        protein_prefix (str): An optional prefix to be added before each marker.
+
+    Returns:
+        str: A single string representing the formatted markers, joined by '&'.
+    """
+    # Check if the input is a single string and format directly.
+    if isinstance(markers, str):
+        return format_marker(markers)
+
+    # Determine if all markers in the list contain a hyphen.
+    all_contain_dash = all('-' in marker for marker in markers)
+    if all_contain_dash:
+        # Create a special format string if all markers contain a hyphen.
+        start = markers[0].split('-')[0]
+        end = markers[-1].split('-')[0]
+        return f"{start}-{end}CompleteDeletion"
+
+    # Format each marker individually and join with '&'.
+    return '&'.join(format_marker(marker, protein_prefix) for marker in markers)
+
+
+# def process_dictionary(data_dict):
+#     """
+#     Processes a dictionary containing genetic markers.
+#     If the dictionary has a single key-value pair, the value is formatted directly.
+#     For multiple key-value pairs, each is formatted separately and joined by '&'.
 #
-# # 测试用例
-# test_dicts = [
-#     {'H3': {'HA1': ['184R', '214L', '215N', '216S']}},
-#     {'H3': {'HA1': ['144E', '246K', '304T']}, 'PA': '615E'},
-#     {'PA': '653L', 'PB1': '229R'}
-# ]
+#     Parameters:
+#         data_dict (dict): A dictionary with protein names as keys and genetic markers as values.
 #
-# # 测试结果
-# test_results = [process_dictionary(test_dict) for test_dict in test_dicts]
-# print(test_results)
+#     Returns:
+#         str: A single string representing the formatted contents of the dictionary.
+#     """
+#     # Process a single key-value pair directly.
+#     if len(data_dict) == 1:
+#         return format_marker_list(next(iter(data_dict.values())))
+#
+#     # Format each key-value pair separately if there are multiple.
+#     return '&'.join(format_marker_list(markers, protein) for protein, markers in data_dict.items())
+
+def process_dictionary(data_dict):
+    formatted_list = []
+    for protein, markers in data_dict.items():
+        # 检查是否为嵌套字典
+        if isinstance(markers, dict):
+            for sub_protein, sub_markers in markers.items():
+                # 将内部键作为额外的前缀
+                formatted_marker = format_marker_list(sub_markers, f"{protein}-{sub_protein}")
+                formatted_list.append(formatted_marker)
+        else:
+            # 非嵌套字典直接处理
+            formatted_marker = format_marker_list(markers, protein)
+            formatted_list.append(formatted_marker)
+
+    return '&'.join(formatted_list)
+# 测试用例
+test_dicts = [
+    {'H3': {'HA1': ['184R', '214L', '215N', '216S']}},
+    {'H3': {'HA1': ['144E', '246K', '304T']}, 'PA': '615E'},
+    {'PA': '653L', 'PB1': '229R'}
+]
+test_dicts = [{'H3': {'HA1': ['214L', '215N', '216S']}}]
+# 测试结果
+test_results = [process_dictionary(test_dict) for test_dict in test_dicts]
+print(test_results)
 
 
 

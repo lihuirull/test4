@@ -782,6 +782,8 @@ def check_marker_combinations(total_markers, results_markers, markers_type, inpu
 
                 if proba_comb and all(proba_comb.values()):
                     markers_formated = process_dictionary(proba_comb)
+                    print(f"proba_comb:\n{proba_comb}")
+                    print(f"markers_formated:\n{markers_formated}")
                     results.append({
                         'Strain ID': input_file_name.split(".")[0],
                         'Amino acid site': markers_formated,
