@@ -403,7 +403,7 @@ def annotate_markers(markers_path, STRUCTURE_PATH, hatype = None):
     # Convert HA/NA residues to H3/N2 numbering and update marker_dict
     # Already Duplicated
     # 传入的marker_dict已经经过H3/N2的转换
-    # marker_dict = convert_HA_residues(marker_dict, STRUCTURE_PATH, hatype)
+    marker_dict = convert_HA_residues(marker_dict, STRUCTURE_PATH, hatype)
 
     # Duplicated
     # marker_dict = {i: list(set(j)) for i, j in marker_dict.items()}
