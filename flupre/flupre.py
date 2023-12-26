@@ -331,7 +331,8 @@ def convert_HA_residues(marker_dict, structure_folder, hatype):
         elif protein in NA_TYPES:
             residues = process_na_type(protein, marker_dict, structure_folder, hatype)
             print(f"residues\n{residues}")
-            updated_marker_dict["N2"] = updated_marker_dict.get("N2", []) + residues
+            if residues:
+                updated_marker_dict["N2"] = updated_marker_dict.get("N2", []) + residues
             del updated_marker_dict[protein]
 
     # print(marker_dict)
@@ -401,8 +402,8 @@ def annotate_markers(markers_path, STRUCTURE_PATH, hatype = None):
 
     # Convert HA/NA residues to H3/N2 numbering and update marker_dict
     # Already Duplicated
-    # 传入的marker_dict应该没有经过H3/N2的转换
-    marker_dict = convert_HA_residues(marker_dict, STRUCTURE_PATH, hatype)
+    # 传入的marker_dict已经经过H3/N2的转换
+    # marker_dict = convert_HA_residues(marker_dict, STRUCTURE_PATH, hatype)
 
     # Duplicated
     # marker_dict = {i: list(set(j)) for i, j in marker_dict.items()}
