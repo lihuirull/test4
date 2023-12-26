@@ -371,8 +371,8 @@ if __name__ == '__main__':
     data_with_hana.to_csv("test.csv")
     converted_data = pd.concat([data_with_hana,data_without_hana])
     print(converted_data)
-    converted_data.to_csv(f"test2_formated.csv",index = False)
-    # converted_data.to_csv(f"../../data/markers_for_extract/{phenotype}_formated.csv",index = False)
+    # converted_data.to_csv(f"test2_formated.csv",index = False)
+    converted_data.to_csv(f"../../data/markers_for_extract/{phenotype}_formated.csv",index = False)
 
 
 # 用于测试和理解代码思路的
