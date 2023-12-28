@@ -1,5 +1,5 @@
 def getSite(fileName,dir,seqName,site):
-    file = open(dir+fileName,"r")
+    file = open(dir+"/"+fileName,"r")
     text = file.readlines()
     # print(text)
     for each in text :

@@ -1,7 +1,7 @@
 # -*- coding:UTF-8 -*-
 
 def get(fileName="test",dir="",seqName=""):
-    file = open(dir+fileName,"r")
+    file = open(dir+"/"+fileName,"r")
     text = file.readlines()
     flag = 0
     seq = ""
