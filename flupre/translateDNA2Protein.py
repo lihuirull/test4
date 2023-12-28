@@ -67,7 +67,7 @@ def makeProteinFileForDownload(dirUserTemp, file, dirUserOut, dicOriginalName, l
                 fileOut.write(eachLine.strip() + annotation + '\n')
             else:
                 fileOut.write(eachLine)
-
+    return os.path.join(dirUserOut, file + '.annotataion.fa')
 
 if __name__ == '__main__':
     dirUser = '/data/FluPhenotype/temp/PROT/'
