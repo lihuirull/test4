@@ -17,11 +17,14 @@ def translate(file, DNASeqDir, DIR, outFileDir):
     mafftDir = os.path.join(DIR, "app/mafft/mafft-7.158-without-extensions/scripts/")
     outputName = file.replace(".fas", ".trans2protein.fas")
 
-    # 调用Perl脚本执行翻译
-    command = f"perl {os.path.join(DNA2protein6Dir, 'DNA2protein6.pl')} {os.path.join(DNASeqDir, file)} {blastBinDir} {forblastDir} {outFileDir} {dataDir} {os.path.join(outFileDir, outputName)} {mafftDir}"
-    os.system(command)
     print("翻译")
     print(os.path.join(outFileDir, outputName))
+    print(os.path.join(DNA2protein6Dir, 'DNA2protein6.pl'))
+    # 调用Perl脚本执行翻译
+    command = f"perl {os.path.join(DNA2protein6Dir, 'DNA2protein6.pl')} {os.path.join(DNASeqDir, file)} {blastBinDir} {forblastDir} {outFileDir} {dataDir} {os.path.join(outFileDir, outputName)} {mafftDir}"
+    print(command)
+    os.system(command)
+
     # 读取输出文件并进行进一步处理
     dicCDS = {}
     with open(os.path.join(outFileDir, outputName), 'r') as fileIn, open(
