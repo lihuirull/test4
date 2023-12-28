@@ -141,6 +141,7 @@ def ivew_task(resultFileDir, tempFileDir, inputFilePath):
     if querySeqType == "protein":
         dataBaseName = "/protType_AA"  # blast
     querySeqFile = inputFile
+    tempFileDir =tempFileDir +"/"
     querySeqFileDir = tempFileDir
     DBDir = DIR + "/18Mid/standard_seq/allProteinTypeDB/"  # blast
     queryEValue = "1e-5"  # blast
@@ -165,13 +166,13 @@ def ivew_task(resultFileDir, tempFileDir, inputFilePath):
     if querySeqType == "protein":
         dataBaseName = "/HostProtDB"  # blast
     querySeqFile = inputFile
-    querySeqFileDir = tempFileDir
+    # querySeqFileDir = tempFileDir+"/"
     DBDir = DIR + "/18Mid/standard_seq/allProteinTypeDB/"
     # print(DBDir)
     queryEValue = "1e-5"  # blast
     outfmt = "3"  # blas
     outName = "querySeqToHostDB"  # blast
-    tempFileDir = tempFileDir  # blas
+    # tempFileDir = tempFileDir+"/"  # blast
     blastSeq(querySeqFile, querySeqType, DBDir, dataBaseName, queryEValue, outfmt, outName, querySeqFileDir,
              tempFileDir)  #
     Host = getMostCommonHitProtein(outName, tempFileDir)
