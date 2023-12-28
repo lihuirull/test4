@@ -2,4 +2,9 @@ include README.md
 recursive-include data *.*
 recursive-include model *.*
 recursive-include tests *.*
+recursive-include 18Mid *.*
+recursive-include app *.*
+recursive-include temp *.*
+recursive-include querySeq *.*
+recursive-include result *.*
 
