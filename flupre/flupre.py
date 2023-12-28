@@ -122,9 +122,9 @@ def format_line_stage2(line):
 def ivew_task(resultFileDir, tempFileDir, inputFilePath):
     beginTime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     DIR = base_dir
-    print(DIR)
-    workName = os.path.basename(inputFilePath)
 
+    workName = os.path.basename(inputFilePath)
+    print(resultFileDir + "/" + workName + ".result")
     fileLog = open(resultFileDir + "/" + workName + ".result", "w", encoding = 'utf-8')
     fileLog.write("\n######################\t" + beginTime + "begin\n")
     ##########################################################################
@@ -282,6 +282,7 @@ def ivew_task(resultFileDir, tempFileDir, inputFilePath):
                     fileLog.write(each.replace('\tX', '\t-').replace('X\t', '-\t'))
             except Exception as e:
                 print(e)
+    fileLog.close()
     return proteinPath, resultFileDir + workName + ".result"
 
 

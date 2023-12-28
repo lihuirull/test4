@@ -1,69 +1,3 @@
-# def translate(file,DNASeqDir,DIR,outFileDir):
-#     import os
-#     import  subprocess
-#     DNA2protein6Dir = DIR+"18Mid/translatePerl/translate//"
-#     DNASeqDir = DNASeqDir
-#     DNASeq = file
-#     blastBinDir = DIR+"app/blast/bin//"
-#     forblastDir = DIR+"18Mid/translatePerl/translate/forblast//"
-#     dataDir = DIR+"18Mid/translatePerl/data//"
-#     tempDir = outFileDir
-#     mafftDir = DIR+"app/mafft/mafft-7.158-without-extensions/scripts/"
-#     outPutDir = outFileDir
-#     outputName = DNASeq.replace(".fas",".trans2protein.fas")
-#     result = os.system(str(("perl "+DNA2protein6Dir+"DNA2protein6.pl "+DNASeqDir+DNASeq+" "+blastBinDir+" "+forblastDir+" "+tempDir+" "+dataDir+" "+outPutDir+outputName+" "+mafftDir)))
-#     # print(result)
-#     outputName2 = DNASeq.replace(".fas",".trans2protein.fas2")
-#     fileIn = open(outPutDir + outputName,'r')
-#     text = fileIn.readlines()
-#     fileOut = open(outPutDir+outputName2,'w')
-#     dicCDS = {}
-#     fileKey = open(tempDir+DNASeq,'r')
-#     textKey = fileKey.readlines()
-#     fileKey.close()
-#     for querySeqName in textKey:
-#         if querySeqName[0]=='>':
-#             key = querySeqName.strip('>').strip('\n')
-#             dicCDS[key]=''
-#
-#     for each in text:
-#         if each[0]=='>':
-#             key = each.split('_',1)[0].lstrip('>')
-#             value = each.split('_',1)[1]
-#             if key not in dicCDS or dicCDS[key]=="":
-#                 dicCDS[key] = value.strip()
-#             else:
-#                 dicCDS[key] = dicCDS[key]+','+value.strip()
-#         if each[0]=='>':
-#             each = each.split("(")[0]+"\n"
-#         fileOut.write(each)
-#     fileOut.close()
-#     for eachKey in dicCDS:
-#         if dicCDS[eachKey].strip()=='':
-#             dicCDS[eachKey]='Unknown'
-#     #os.system("cd "+tempDir+"\nrm -r DNAseq* blastOut*")
-#     dicCDS = sorted(dicCDS.items(),key = lambda d:d[0])
-#     return outputName2,outPutDir,dicCDS
-#
-# def makeProteinFileForDownload(dirUserTemp,file,dirUserOut,dicOriginalName,listProteinType):
-#     dicProteinType = {}
-#     for each in listProteinType:
-#         dicProteinType['>'+each[0]] = each[1]
-#
-#     fileIn = open(dirUserTemp+file,'r')
-#     textIn = fileIn.readlines()
-#     fileIn.close()
-#     fileOut = open(dirUserOut+file+'.annotataion.fa','w')
-#     for eachLine in textIn:
-#         if '>' not in eachLine:
-#             fileOut.write(eachLine)
-#         else:
-#             seqSTDname = eachLine.strip('\n').split('_')[0]
-#             if seqSTDname in dicOriginalName:
-#                 eachLine = eachLine.strip('\n')+'_'+dicProteinType[seqSTDname]+'|'+dicOriginalName[seqSTDname].strip('>')+'\n'
-#             fileOut.write(eachLine)
-#     fileOut.close()
-#
 import os
 def translate(file, DNASeqDir, DIR, outFileDir):
     """
@@ -86,7 +20,8 @@ def translate(file, DNASeqDir, DIR, outFileDir):
     # 调用Perl脚本执行翻译
     command = f"perl {os.path.join(DNA2protein6Dir, 'DNA2protein6.pl')} {os.path.join(DNASeqDir, file)} {blastBinDir} {forblastDir} {outFileDir} {dataDir} {os.path.join(outFileDir, outputName)} {mafftDir}"
     os.system(command)
-
+    print("翻译")
+    print(os.path.join(outFileDir, outputName))
     # 读取输出文件并进行进一步处理
     dicCDS = {}
     with open(os.path.join(outFileDir, outputName), 'r') as fileIn, open(
