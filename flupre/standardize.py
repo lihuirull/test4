@@ -53,7 +53,7 @@ def standardize(filePath, outFileDir):
     print(f"读入文件：{filePath}")
     print(f"输出文件：{outFileDir + outFileName}")
 
-    with open(filePath, 'r') as inFile, open(outFileDir + outFileName, 'w') as outFile:
+    with open(filePath, 'r') as inFile, open(outFileDir + "/" + outFileName, 'w') as outFile:
         for record in SeqIO.parse(inFile, "fasta"):
             n+=1
             standardName = ">querySeq" + str(n)
