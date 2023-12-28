@@ -20,9 +20,13 @@ setup(
             'flupre=flupre.flupre:main',
         ],
     },
+    # package_data={
+    #     '': ['data/*.*', 'model/*.*','tests/*.*', '18Mid/*.*', 'temp/*.*','app/*.*', 'querySeq/*.*','result/*.*'],
+    # },
     package_data={
-        '': ['data/*.*', 'model/*.*','tests/*.*', '18Mid/*.*', 'temp/*.*','app/*.*', 'querySeq/*.*','result/*.*'],
+        '': ['data/*', 'model/*','tests/*', '18Mid/*', 'temp/*','app/*', 'querySeq/*','result/*'],
     },
+
     install_requires=required,
     zip_safe=False,
  
