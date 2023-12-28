@@ -1,0 +1,93 @@
+
+######################	2018-07-26 20:17:37begin
+standard_name：original_name->{'>querySeq4': '>standard_HM567967', '>querySeq5': '>standard_CY005706', '>querySeq8': '>standard_AY855344', '>querySeq6': '>standard_CY067711', '>querySeq7': '>standard_CY005853', '>querySeq3': '>standard_JX293565', '>querySeq1': '>standard_CY070890', '>querySeq2': '>standard_CY101570'}
+ProteinType->[('querySeq1', 'H16'), ('querySeq2', 'PB2'), ('querySeq3', 'PB1'), ('querySeq4', 'PA'), ('querySeq5', 'NS'), ('querySeq6', 'NP'), ('querySeq7', 'N9'), ('querySeq8', 'MP')]
+VirusHost->('Avian', 6)
+standard_name_new：original_name->{'>querySeq8_M1': '>standard_AY855344', '>querySeq3_PB1': '>standard_JX293565', '>querySeq7': '>standard_CY005853', '>querySeq3_PB1-F2': '>standard_JX293565', '>querySeq5_NS2': '>standard_CY005706', '>querySeq6': '>standard_CY067711', '>querySeq5_NS1': '>standard_CY005706', '>querySeq2': '>standard_CY101570', '>querySeq8_M2': '>standard_AY855344', '>querySeq4_PA-X': '>standard_HM567967', '>querySeq4_PA': '>standard_HM567967', '>querySeq1': '>standard_CY070890'}
+ProteinType->[('querySeq1', 'H16'), ('querySeq2', 'PB2'), ('querySeq3_PB1', 'PB1'), ('querySeq3_PB1-F2', 'PB1-F2'), ('querySeq4_PA', 'PA'), ('querySeq4_PA-X', 'PA-X'), ('querySeq5_NS1', 'NS1'), ('querySeq5_NS2', 'NS2'), ('querySeq6', 'NP'), ('querySeq7', 'N9'), ('querySeq8_M1', 'M1'), ('querySeq8_M2', 'M2')]
+
+querySeq1	>standard_CY070890	H16
+Virulent Site:
+	145L	Virulent	doi:10.1001/jama.295.8.joc60020
+	238Q	Virulent	PMID: 9780245
+	240S	Virulent	PMID: 9780245
+	298M	Virulent	PMID: 9780245
+AntigenInfo
+querySeq1_HA	A/herring gul/Delaware/712/1988____GISAID_EPI437403____PMID_17997603	Max	V50I	H87N	R136K	T138A	I146V	N153D	K154R	K159R	E183T	V184T	R187K	A213T	E217D	T237M	R265G	G269A
+querySeq1_HA	A/black-legged kittywake/Alaska/295/1975____GISAID_EPI120417____PMID_17997603	Max	I47V	V50I	H87N	F91Y	D124N	T138A	N153E	E183A	V184T	R187K	A213T	E217D	T237M	R265G	G269A	M279L
+querySeq1_HA	A/Black-headed Gull/Sweden/2/99____GISAID_EPI24729____PMID_15709000	Max	S13T	I47V	V50I	T69S	L95V	S118P	V125I	D127E	V129T	L134Q	D135N	T138A	S139N	K150N	Q151K	N152L	D161E	E183A	V184T	T186N	R187K	K205R	A213T	E217D	N241S	R265G	I266V	M268L	G269A	V282I
+querySeq1_HA	A/Shorebird/Delaware/168/06____GISAID_EPI120417____PMID_17997603	Max	S13T	T15K	V16I	N22T	I30V	I47V	V50I	H87N	D124N	T138A	S139K	I146V	N152D	N153G	T181S	E183T	V184T	R187N	K205R	A213T	E217D	I225L	H231S	T258S	R265G	I266V	G269A	M279V	V282I	E292D	L296I
+querySeq1_HA	A/shorebird/Delaware/172/06____GISAID_EPI407987____PMID_17997603	Max	S13T	T15K	V16I	N22T	I30V	I47V	V50I	H87N	F91Y	D124N	T138A	S139K	I146V	N152D	N153G	T181S	E183T	V184T	R187N	K205R	A213T	E217D	I225L	H231S	T258S	R265G	I266V	G269A	M279V	V282I	E292D	L296I
+querySeq1_HA	A/black-headed gull/Sweden/5/99____GENBANK_AAV91217____PMID_22046370	Max	S12A	S13T	I30V	V50I	H87N	S120N	V125I	L134R	R136N	T138A	I146V	L148I	Q151N	N152K	N153G	V158I	E183T	V184T	T186I	R187N	V190A	N191S	A213T	E217D	I225L	H231R	T237M	L245I	R265G	I266V	G269A	M279L	V282I	I320V
+
+querySeq2	>standard_CY101570	PB2
+Virulent Site:
+	199A	Virulent	PMID: 20522774
+	355K	Virulent	PMID: 29569430,PMID: 8610442,PMID: 29569430
+	508R	Virulent	PMID: 19486492
+	675L	Virulent	PMID: 19486492
+	683T	Virulent	PMID: 17997603
+
+querySeq3_PB1	>standard_JX293565	PB1
+Virulent Site:
+	171M	Virulent	PMID: 20522774
+	198K	Virulent	PMID: 29569430
+	436Y	Virulent	PMID: 9780244
+
+querySeq3_PB1-F2	>standard_JX293565	PB1-F2
+Virulent Site:
+
+querySeq4_PA	>standard_HM567967	PA
+Virulent Site:
+	336M	Virulent	PMID: 24371061
+	515T	Virulent	PMID: 29569430
+
+querySeq4_PA-X	>standard_HM567967	PA-X
+Virulent Site:
+
+querySeq5_NS1	>standard_CY005706	NS1
+Virulent Site:
+	103F	Virulent	PMID: 8610442
+	106M	Virulent	PMID: 28790460
+	127N	Virulent	PMID: 17997603
+	144L	Virulent	PMID: 15709000
+	149A	Virulent	PMID: 15709000
+	164&167PP	Virulent	PMID: 17997603
+	184&185&186&187&188GLEWN	Virulent	PMID: 8610442
+	212&213&214&215&216&217PPLPAK	Virulent	PMID: 22046370
+	42S	Virulent	PMID: 20522774
+	89Y	Virulent	PMID: 24371061
+
+querySeq5_NS2	>standard_CY005706	NS2
+Virulent Site:
+
+querySeq6	>standard_CY067711	NP
+Virulent Site:
+	16G	Virulent	PMID: 20522774
+	319N	Virulent	PMID: 24371061
+
+querySeq7	>standard_CY005853	N9
+Virulent Site:
+	29L	Virulent	PMID: 20522774,PMID: 26581996
+Resistance Site:
+
+
+querySeq8_M1	>standard_AY855344	M1
+Virulent Site:
+	215A	Virulent	PMID: 29569430
+	30D	Virulent	PMID: 24371061
+
+querySeq8_M2	>standard_AY855344	M2
+Virulent Site:
+	69P	Virulent	PMID: 29569430
+Resistance Site:
+	26L	0	Resistant	PMID: 9780215
+	27V	9	Resistant	PMID: 9780225
+	30A	2	Resistant	PMID: 9780213
+	30&31AS	5600	Resistant	PMID: 9780217
+	31S	78	Resistant	PMID: 9780214
+	34G	1200	Resistant	PMID: 9780215
+	38L	1255	Resistant	PMID: 9780216
+
+
+######################	2018-07-26 20:17:46down

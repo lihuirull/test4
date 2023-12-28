@@ -8,15 +8,26 @@ import os
 import re
 import subprocess
 import sys
+from collections import Counter
 from collections import defaultdict
+import datetime
 from itertools import product
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
+from .blastHASeq import blastHASeq
+# 模块与函数重名时，最好用.模块的语法导入（这样不会显示不可callable）
+from .blastSeq import blastSeq
 from . import predict_host
 from . import predict_virulence
+from .changeStandardNameForMPNS import refreshStandardName
+from .getBlastMostCommonHitProteinType import getMostCommonHitProtein, getMostCommonHitProteinLowLevelHost
+from .getSeq import get
+from .predictVirusHost import getVirusHost, getVirusHostLowLevel
+from .standardize import standardize
+from .translateDNA2Protein import translate, makeProteinFileForDownload
 
 pd.set_option('display.max_columns', None)
 
@@ -33,6 +44,245 @@ STANDARD_PATH = os.path.join(base_dir, 'data', 'standard_seq_protein')
 MODEL_PATH = os.path.join(base_dir, 'model')
 DATA_PATH = os.path.join(base_dir, 'data')
 MARKER_PATH = os.path.join(base_dir, 'data', 'markers_for_extract')
+RESULT_PATH = os.path.join(base_dir,'result')
+TEMP_PATH = os.path.join(base_dir,'temp')
+
+def process_antigen_text(file_path):
+    """
+    处理抗原信息文件的文本行。
+    :param file_path: 抗原信息文件路径
+    :return: 处理后的文本行列表
+    """
+    with open(file_path, 'r') as AntigenFile:
+        text = AntigenFile.readlines()
+
+    # 对text进行排序
+    text.sort(key=lambda x: calculate_sort_key(x))
+
+    # 第一次格式化text
+    text = [format_line_stage1(line) for line in text]
+
+    # 第二次格式化text
+    text = [format_line_stage2(line) for line in text]
+
+    return text
+
+def calculate_sort_key(line):
+    """
+    根据提供的排序逻辑计算排序键。
+    """
+    parts = line.split('\t')
+    try:
+        value = parts[2]
+        if "Max" in value:
+            return 10000000000 + len(line)
+        elif "Min" in value:
+            return -100000 + len(line)
+        else:
+            return float('{:.10f}'.format(float(value)))
+    except IndexError:
+        return float('inf')
+
+def format_line_stage1(line):
+    """
+    对文本行进行第一次格式化。
+    """
+    parts = line.split('\t')
+    try:
+        value = parts[2]
+        if "Max" not in value and "Min" not in value:
+            # 直接给parts[2]赋值，不额外添加'\t'
+            parts[2] = '{0:.2e}'.format(float(value))
+        # 使用'\t'.join(parts)来合并，自然会在每个部分之间插入'\t'
+        return '\t'.join(parts)
+
+    except IndexError:
+        return line  # 如果格式不正确，返回原行
+
+def format_line_stage2(line):
+    """
+    对文本行进行第二次格式化。
+    """
+    parts = line.split('\t')
+    try:
+        value = parts[2]
+        if "Max" not in value and "Min" not in value:
+            value_float = float(value)
+            prefix = "Similar_" if value_float <= 1.0 else "Variant_"
+            parts[2] = prefix + value
+        elif "Min" in value:
+            parts[2] = "similar_" + value
+        elif "Max" in value:
+            parts[2] = "variant_" + value
+        return '\t'.join(parts)
+    except IndexError:
+        return line  # 如果格式不正确，返回原行
+
+
+def ivew_task(resultFileDir, tempFileDir, inputFilePath):
+    beginTime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    DIR = base_dir
+    print(DIR)
+    workName = inputFilePath
+
+    fileLog = open(resultFileDir + workName + ".result", "w", encoding = 'utf-8')
+    fileLog.write("\n######################\t" + beginTime + "begin\n")
+    ##########################################################################
+    # 标准化序列并返回类型（DNA/蛋白质）
+    inputFile, querySeqType, dic = standardize(inputFilePath, outFileDir = tempFileDir)
+
+    fileLog.write("standard_name:original_name->" + str(dic) + "\n")
+    ##########################################################################
+
+    ##########################################################################
+    dataBaseName = None
+    if querySeqType == "nucleo":
+        dataBaseName = "/protType_NA"  # blast
+    if querySeqType == "protein":
+        dataBaseName = "/protType_AA"  # blast
+    querySeqFile = inputFile
+    querySeqFileDir = tempFileDir
+    DBDir = DIR + "/18Mid/standard_seq/allProteinTypeDB/"  # blast
+    queryEValue = "1e-5"  # blast
+    outfmt = "3"  # blast
+    outName = "querySeqToProteinTypeDB"  # blast
+
+    blastSeq(querySeqFile, querySeqType, DBDir, dataBaseName, queryEValue, outfmt, outName, querySeqFileDir,
+             tempFileDir)  #
+    predictedProteinType = getMostCommonHitProtein(outName, tempFileDir)
+    print(predictedProteinType)  #
+    fileLog.write("ProteinType->" + str(predictedProteinType) + "\n")
+    for eachSeqType in predictedProteinType:
+        if 'Unknown' in eachSeqType:
+            fileLog.write('Attention! One or more sequence inputted may not belong to influenza viruses\n')
+    times = Counter(num[1] for num in predictedProteinType).most_common()
+    for time in times:
+        if time[1] > 1:
+            fileLog.write("Warning : You've entered " + str(time[1]) + " " + str(time[0]) + " proteins in\n")
+
+    if querySeqType == "nucleo":
+        dataBaseName = "/HostNuclDB"  # blast
+    if querySeqType == "protein":
+        dataBaseName = "/HostProtDB"  # blast
+    querySeqFile = inputFile
+    querySeqFileDir = tempFileDir
+    DBDir = DIR + "/18Mid/standard_seq/allProteinTypeDB/"
+    # print(DBDir)
+    queryEValue = "1e-5"  # blast
+    outfmt = "3"  # blas
+    outName = "querySeqToHostDB"  # blast
+    tempFileDir = tempFileDir  # blas
+    blastSeq(querySeqFile, querySeqType, DBDir, dataBaseName, queryEValue, outfmt, outName, querySeqFileDir,
+             tempFileDir)  #
+    Host = getMostCommonHitProtein(outName, tempFileDir)
+    HostLowLevel = getMostCommonHitProteinLowLevelHost(outName, tempFileDir, Host)
+    virusHostLowLevel, HostNew2 = getVirusHostLowLevel(predictedProteinType, HostLowLevel)
+    virusHost, HostNew = getVirusHost(predictedProteinType, Host)
+    fileLog.write("virusHostLowLevel->" + str(virusHostLowLevel) + "\n")
+    fileLog.write("VirusHost->" + str(virusHost) + "\n")
+    ##########################################################################
+
+    ##########################################################################
+    # 获取对每条DNA序列翻译后注释的结果（包含蛋白类型和长度）
+    # CDSList:[('querySeq1', 'HA(1..1698)'), ('querySeq2', 'NA(1..1419)'), ('querySeq3', 'NP(1..1494)'),
+    # ('querySeq4', 'NS1(1..711),NS2(1..30,503..838)'), ('querySeq5', 'PA(1..2148),PA-X(1..570,572..760)'),
+    # ('querySeq6', 'PB1(1..2274),PB1-F2(95..364)'), ('querySeq7', 'PB2(1..2277)'),
+    # ('querySeq8', 'M1(1..816),M2(1..26,715..982)'), ('querySeq9', 'HA(1..1698)')]
+    CDSList = []
+    # proteinPath = ""
+    if querySeqType == "nucleo":
+        # 返回：outputName.replace(".fas", ".fas2"), outFileDir, dicCDS
+        queryProteinSeqFile = translate(querySeqFile, querySeqFileDir, DIR, tempFileDir)
+        querySeqFile = queryProteinSeqFile[0]
+
+        # 新的蛋白文件路径
+        # proteinPath = os.path.join(queryProteinSeqFile[1], querySeqFile)
+
+        fileLog.write("CDS->" + str(queryProteinSeqFile[2]) + "\n")
+        CDSList = queryProteinSeqFile[2]
+
+    ###########################################################################
+    proteinPath = makeProteinFileForDownload(tempFileDir, querySeqFile, resultFileDir, dic, predictedProteinType)
+    print(f"proteinPath:\n{proteinPath}")
+    ##########################################################################
+    # 根据传入的dic，为query添加蛋白注释信息同时和原本序列id对应。
+    # 拆解CDSList，这里主要是为了区分一条序列对应多个蛋白（NS, MP, PB1, PA)
+    # 把('querySeq6', 'PB1(1..2274),PB1-F2(95..364)'),
+    # 变成--》'>querySeq6_PB1': '>standard_AB434294', '>querySeq6_PB1-F2': '>standard_AB434294'
+    # 不区分不同蛋白的无需为query添加蛋白注释信息
+
+    # CDS->[('querySeq1', 'HA(1..1698)'), ('querySeq2', 'NA(1..1419)'), ('querySeq3', 'NP(1..1494)'), ('querySeq4', 'NS1(1..711),NS2(1..30,503..838)'), ('querySeq5', 'PA(1..2148),PA-X(1..570,572..760)'), ('querySeq6', 'PB1(1..2274),PB1-F2(95..364)'), ('querySeq7', 'PB2(1..2277)'), ('querySeq8', 'M1(1..816),M2(1..26,715..982)'), ('querySeq9', 'HA(1..1698)')]
+    # standard_name_new:original_name->{'>querySeq1': '>standard_DQ992756', '>querySeq2': '>standard_CY078869_modified', '>querySeq3': '>standard_CY079270', '>querySeq7': '>standard_CY101570', '>querySeq9': '>standard_KJ200805', '>querySeq4_NS1': '>standard_CY004342', '>querySeq4_NS2': '>standard_CY004342', '>querySeq5_PA': '>standard_CY102193_modified', '>querySeq5_PA-X': '>standard_CY102193_modified', '>querySeq6_PB1': '>standard_AB434294', '>querySeq6_PB1-F2': '>standard_AB434294', '>querySeq8_M1': '>standard_CY005795', '>querySeq8_M2': '>standard_CY005795'}
+    # ProteinType->[('querySeq1', 'H5'), ('querySeq2', 'N5'), ('querySeq3', 'NP'), ('querySeq4_NS1', 'NS1'), ('querySeq4_NS2', 'NS2'), ('querySeq5_PA', 'PA'), ('querySeq5_PA-X', 'PA-X'), ('querySeq6_PB1', 'PB1'), ('querySeq6_PB1-F2', 'PB1-F2'), ('querySeq7', 'PB2'), ('querySeq8_M1', 'M1'), ('querySeq8_M2', 'M2'), ('querySeq9', 'H6')]
+
+    if querySeqType == "nucleo":
+        predictedProteinType = refreshStandardName(predictedProteinType, dic)
+        fileLog.write("standard_name_new:original_name->" + str(dic) + "\n")
+        fileLog.write("ProteinType->" + str(predictedProteinType) + "\n")
+    ##########################################################################
+    CDSTypeList = []
+    print(CDSList)
+    for eachCDSType in CDSList:
+        print(eachCDSType)
+        for eachType in eachCDSType[1].split('),'):
+            if eachType.split('(')[0] in ['NS1', 'NS2', 'M1', 'M2', 'PB1', 'PB1-F2', 'PA-X', 'PA']:
+                CDSTypeList.append(eachCDSType[0] + '_' + eachType.split('(')[0])
+            else:
+                CDSTypeList.append(eachCDSType[0])
+    print(CDSTypeList)
+    # 完全一致
+    # print([i[0] for i in predictedProteinType])
+    ##########################################################################
+    for eachQuery in predictedProteinType:
+        if (querySeqType == "nucleo") and (eachQuery[0] not in CDSTypeList): continue
+        print(dic)
+        print(eachQuery)
+        fileLog.write("\n" + eachQuery[0] + "\t" + dic[">" + eachQuery[0]] + "\t" + eachQuery[1].rstrip() + "\n")
+        if str(eachQuery[1]).strip("\n") == "Unknown":
+            fileLog.write("Virulent Site:\n" + "\tNo result" + "\n")
+            continue
+        querySeq, querySeqFileName = get(fileName = querySeqFile, dir = querySeqFileDir, seqName = eachQuery[0])
+        mafftDir = DIR + "/app/mafft/mafft-7.158-without-extensions/scripts/"
+        ##########################################################################
+        # 计算和疫苗株的抗原距离
+        if eachQuery[1] in ["H1", "H3", "H5", "H7", "H9"]:
+            subType = eachQuery[1]
+            querySeqFileDir = tempFileDir
+            querySeqName = eachQuery[0]
+            print(querySeqName)
+            # 虽然此处的librarydir是/18Mid/antigen/modelData/，但其实predAV.pl只用了model和referseq目录
+            # 而针对这五种亚型的HA，还需传入疫苗株的序列，去计算遗传距离
+            os.system(
+                "perl " + DIR + "/18Mid/antigen/predAV.pl" + " " + subType + " " + querySeqFileDir + querySeqFileName + " " + DIR + "/18Mid/antigen/modelData/vaccine/" + subType + " " + tempFileDir + querySeqFileName + ".antigenInfo" + " " + DIR + "/18Mid/antigen/modelData/" + " " + tempFileDir)
+            try:
+                AntigenFile = tempFileDir + querySeqFileName + ".antigenInfo"
+                text = process_antigen_text(AntigenFile)
+                fileLog.write("AntigenInfo\n")
+                for each in text:
+                    fileLog.write(each.replace('\tX', '\t-').replace('X\t', '-\t'))
+            except Exception as e:
+                print(e)
+            # Add a module of antigen similarity calculation
+        if eachQuery[1] in [f"H{i}" for i in range(1, 17)]:
+            # 针对所有亚型，传入自己HA的序列在一个文件中），通过blastp比对确定五条最相似的序列并传入这五条序列（在一个文件中），
+            # 计算两两遗传距离
+            subType = eachQuery[1]
+            querySeqFileDir = tempFileDir
+            querySeqName = eachQuery[0]
+            print(querySeqName)
+            try:
+                blastHASeq(prefixDir = DIR, blastQuerySeqHA = querySeqFileName, HAType = subType, tempDir = tempFileDir,
+                           mafftDir = mafftDir)
+                AntigenHAFile = tempFileDir + querySeqFileName + ".antigenInfo.blast"
+
+                text = process_antigen_text(AntigenHAFile)
+
+                fileLog.write("AntigenInfo_Blast\n")
+                for each in text:
+                    fileLog.write(each.replace('\tX', '\t-').replace('X\t', '-\t'))
+            except Exception as e:
+                print(e)
+    return proteinPath, resultFileDir + workName + ".result"
 
 
 def run_diamond_blast(input_fasta_file, output_path, threads, evalue = 1e-5, suppress_output = False):
@@ -179,6 +429,7 @@ def get_h3_dict_and_hatype(protein, marker, convert_to_h3_dict):
         return convert_to_h3_dict, None
     return None, None
 
+
 def adjust_position_type(position, H3_dict):
     if not H3_dict:
         return position  # 如果字典为空，则直接返回原始位置
@@ -195,6 +446,7 @@ def adjust_position_type(position, H3_dict):
         return first_key_type(position)
     except ValueError:
         return None  # 或者处理转换失败的情况
+
 
 def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
     # marker_match = re.fullmatch(r"(\d+)([A-Z]|-)", marker)
@@ -220,7 +472,7 @@ def adjust_position_and_get_h3_position(marker, hatype, H3_dict, protein):
         return H3_dict.get(adjusted_position), amino_acid, hatype
     else:
         if not hatype:
-            hatype = "HA1" #处理标志物字典的H3标志物
+            hatype = "HA1"  # 处理标志物字典的H3标志物
         # 处理H3（不需要位点转换）
         return f"{hatype}-{position}{amino_acid}"
 
@@ -318,7 +570,8 @@ def convert_HA_residues(marker_dict, structure_folder, hatype):
 
                     # 而传入标志物列表时会出现无需处理带有HA1和HA2标识的marker字符串，不带有的则需要减去信号肽，
                     # 给这些marker字符串加上HA1-的前缀
-                    marker = adjust_position_and_get_h3_position(marker, hatype = hatype, H3_dict = None, protein = "H3")
+                    marker = adjust_position_and_get_h3_position(marker, hatype = hatype, H3_dict = None,
+                                                                 protein = "H3")
                 # print(marker)
                 res.append(marker)
             updated_marker_dict["H3"] = res
@@ -619,7 +872,8 @@ def is_subset_complex_revised(dict1, dict2):
 
     return True
 
-def format_marker(marker, protein_prefix=''):
+
+def format_marker(marker, protein_prefix = ''):
     if '-' in marker:
         amino_acid = marker.split('-')[0]
         deletion_suffix = "Deletion"
@@ -631,7 +885,8 @@ def format_marker(marker, protein_prefix=''):
         if protein_prefix else f"{amino_acid}{deletion_suffix}"
     return formatted_marker
 
-def format_marker_list(markers, protein_prefix=''):
+
+def format_marker_list(markers, protein_prefix = ''):
     if isinstance(markers, str):
         return format_marker(markers, protein_prefix)
 
@@ -642,6 +897,7 @@ def format_marker_list(markers, protein_prefix=''):
         return f"{protein_prefix}-{start}-{end}CompleteDeletion"
 
     return '&'.join(format_marker(marker, protein_prefix) for marker in markers)
+
 
 def process_dictionary(data_dict):
     formatted_list = []
@@ -664,8 +920,8 @@ def process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_ma
     # Skip processing if protein type is unknown
     if protein_type == "Unknown":
         return None, None
-    HA_TYPES_ALL =  [f"H{i}" for i in range(1, 19)]
-    NA_TYPES_ALL =  [f"N{i}" for i in range(1, 10)]
+    HA_TYPES_ALL = [f"H{i}" for i in range(1, 19)]
+    NA_TYPES_ALL = [f"N{i}" for i in range(1, 10)]
 
     use_protein = "H3" if protein_type in HA_TYPES_ALL else protein_type
 
@@ -699,7 +955,6 @@ def process_protein_sequence(acc_id, renumbered_position, acc_pro_dic, marker_ma
     return protein, markers_oth
 
 
-
 def check_marker_combinations(total_markers, results_markers, markers_type, input_file_name, data, ha_type, na_type):
     results = []
 
@@ -721,9 +976,9 @@ def check_marker_combinations(total_markers, results_markers, markers_type, inpu
         for proba_comb in marker_list:
             print(f"子集比较：\n{proba_comb}\n{results_markers}")
             if proba_comb and is_subset_complex_revised(proba_comb, results_markers):
-            # If the key-value pair in this dictionary exists in the identified marker dictionary,
-            # return a more concise format.
-            # if is_subset_complex_revised(proba_comb, results_markers):
+                # If the key-value pair in this dictionary exists in the identified marker dictionary,
+                # return a more concise format.
+                # if is_subset_complex_revised(proba_comb, results_markers):
 
                 if proba_comb and all(proba_comb.values()):
                     markers_formated = process_dictionary(proba_comb)
@@ -771,7 +1026,8 @@ def merge_dataframes(results, data, markers_type, ha_type, na_type):
     # Merge parts with and without 'combination' separately
     merged_with_combination = pd.merge(results_with_combination, data_with_combination, on = 'Protein Type',
                                        how = 'left')
-    data_without_combination.loc[:,"Amino acid site"] = data_without_combination.loc[:,"Amino acid site"].str.split("HA\d-").str[-1]
+    data_without_combination.loc[:, "Amino acid site"] = \
+    data_without_combination.loc[:, "Amino acid site"].str.split("HA\d-").str[-1]
     merged_without_combination = pd.merge(results_without_combination, data_without_combination,
                                           on = ['Protein Type', 'Amino acid site'], how = 'left')
 
@@ -895,6 +1151,35 @@ def find_files_with_string(directory, string):
 
     return files_with_string[0]
 
+def extract_protein_annotations(protein_path):
+    """
+    从FASTA文件提取蛋白类型和序列标识符，并将它们写入一个新的CSV文件。
+
+    :param protein_path: FASTA文件的路径。
+    :return: None
+    """
+    # 定义输出文件路径
+    base_name = os.path.basename(protein_path).split('.')[0]
+    result_dir_name = os.path.dirname(protein_path)
+    output_path = os.path.join(result_dir_name, "{}_annotation.csv".format(base_name))
+
+    # 解析FASTA文件
+    sequences = SeqIO.parse(protein_path, "fasta")
+
+    # 准备写入文件
+    with open(output_path, 'w') as out_file:
+        out_file.write("qseqid,Protein Abbreviation")
+        for record in sequences:
+            seq_id = record.id.split("|")[0]
+            # 使用正则表达式从seq_id中提取蛋白类型
+            protein_type_match = re.search("querySeq\d+_([^_]+)", seq_id)
+            if protein_type_match:  # 确保找到了匹配
+                protein_type = protein_type_match.group(1)
+                # 将蛋白类型和记录ID作为一行写入文件
+                out_file.write("{},{}\n".format(record.id, protein_type))
+
+    # 输出文件操作完成
+    print("Annotation written to {}".format(output_path))
 
 def parse_args():
     parser = argparse.ArgumentParser(prog = 'flupre',
@@ -908,15 +1193,19 @@ def parse_args():
                                                'using DIAMOND BLAST against a flu database.')
     anno_parser.add_argument('-i', '--input', required = True,
                              help = 'Input FASTA file or directory containing FASTA files.')
-    anno_parser.add_argument('-o', '--output_directory', type = str, default = '.',
-                             help = 'Directory to save the output files. Defaults to the current directory.')
-    anno_parser.add_argument('-p', '--prefix', type = str, default = '', help = 'Prefix for the output filenames.')
-    anno_parser.add_argument('-e', '--evalue', type = float, default = 1e-5,
-                             help = 'E-value threshold for DIAMOND BLAST hits. Defaults to 1e-5.')
-    anno_parser.add_argument('-u', '--update_file', action = 'store_true',
-                             help = 'If set, updates the FASTA file with annotations.')
-    anno_parser.add_argument('-t', '--threads', type = int, default = 10,
-                             help = 'Number of threads for DIAMOND BLAST. Defaults to 10.')
+    anno_parser.add_argument('-o', '--output_directory', type = str, default = RESULT_PATH,
+                            help = 'Directory to save the output files. Defaults to the result directory.')
+    anno_parser.add_argument('-temp', '--temp_directory', type = str, default = TEMP_PATH,
+                             help = 'Directory to save the temp output files. Defaults to the temp directory.')
+    # anno_parser.add_argument('-o', '--output_directory', type = str, default = '.',
+    #                          help = 'Directory to save the output files. Defaults to the current directory.')
+    # anno_parser.add_argument('-p', '--prefix', type = str, default = '', help = 'Prefix for the output filenames.')
+    # anno_parser.add_argument('-e', '--evalue', type = float, default = 1e-5,
+    #                          help = 'E-value threshold for DIAMOND BLAST hits. Defaults to 1e-5.')
+    # anno_parser.add_argument('-u', '--update_file', action = 'store_true',
+    #                          help = 'If set, updates the FASTA file with annotations.')
+    # anno_parser.add_argument('-t', '--threads', type = int, default = 10,
+    #                          help = 'Number of threads for DIAMOND BLAST. Defaults to 10.')
 
     # extract subcommand
     extract_parser = subparsers.add_parser('extract', help = 'Extract and process protein annotations.')
@@ -963,15 +1252,18 @@ def process_anno_cmd(input_file, args):
     """
     Call the appropriate functions to process a single fasta file
     """
-
-    annotate_fasta_file(
-        str(input_file),
-        args.output_directory,
-        args.prefix,
-        args.evalue,
-        args.update_file,
-        args.threads
-    )
+    # 在这里加ivew
+    proteinPath, resultPath = ivew_task(args.output_directory,args.temp_directory, str(input_file))
+    # 得到注释文件和包含抗原和blast预测的结果文件。
+    extract_protein_annotations(proteinPath)
+    # annotate_fasta_file(
+    #     str(input_file),
+    #     args.output_directory,
+    #     args.prefix,
+    #     args.evalue,
+    #     args.update_file,
+    #     args.threads
+    # )
 
 
 def process_extract_cmd(input_file, args, is_directory = True):
@@ -984,6 +1276,7 @@ def process_extract_cmd(input_file, args, is_directory = True):
         annotations = pd.read_csv(f"{args.anno_path}/{anno_filename}")
     else:
         annotations = pd.read_csv(f"{args.anno_path}")
+    # 在这里加上blast预测和抗原的必行代码
     acc_pro_dic = dict(zip(annotations.iloc[:, 0], annotations.iloc[:, 1]))
     for filename in os.listdir(MARKER_PATH):
         if filename.endswith("_formated.csv") and "lence" in filename:

@@ -1,0 +1,54 @@
+
+######################	2018-07-26 20:06:19begin
+standard_name：original_name->{'>querySeq3': '>standard_CY025255', '>querySeq2': '>standard_KF971981', '>querySeq1': '>standard_JX273136'}
+ProteinType->[('querySeq1', 'PB2'), ('querySeq2', '\n'), ('querySeq3', 'N1')]
+VirusHost->('Swine', 1)
+standard_name：original_name->{'>querySeq3': '>standard_CY025255', '>querySeq2': '>standard_KF971981', '>querySeq1': '>standard_JX273136'}
+ProteinType->[('querySeq1', 'PB2'), ('querySeq2', '\n'), ('querySeq3', 'N1')]
+
+querySeq1	>standard_JX273136	PB2
+Virulent Site:
+	199A	Virulent	PMID: 20522774
+	675L	Virulent	PMID: 19486492
+	683T	Virulent	PMID: 17997603
+
+querySeq2	>standard_KF971981	
+Virulent Site:
+	No result
+
+querySeq3	>standard_CY025255	N1
+Virulent Site:
+	119E	Virulent	PMID: 29569430
+	223I	Virulent	PMID: 29569430
+	275H	Virulent	PMID: 29569430
+	29I	Virulent	PMID: 20522774
+	293R	Virulent	PMID: 29569430
+	39Q	Virulent	PMID: 24371061
+Resistance Site:
+	117&119IE	12,50	Resistant	PMID: 9780245
+	117&275IH	12,50	Resistant	PMID: 9780245
+	117&295IN	12,50	Resistant	PMID: 9780245
+	117&295&275INH	9999,50	Resistant	PMID: 9780245
+	119E	20,50	Resistant	PMID: 15709000
+	136Q	3,50	Resistant	PMID: 9780245
+	136&151QD	98,50	Resistant	PMID: 9780245
+	136&151&275QDH	5,50	Resistant	PMID: 9780245
+	136&275QH	99,50	Resistant	PMID: 9780245
+	151&275DH	12,50	Resistant	PMID: 9780245
+	199D	8,50	Resistant	PMID: 9780245
+	199&275DH	12,50	Resistant	PMID: 9780245
+	223I	200,50	Resistant	PMID: 9780245
+	223&275IH	45,50	Resistant	PMID: 9780245
+	223&295IN	5656,50	Resistant	PMID: 9780245
+	223&295&275INH	89,50	Resistant	PMID: 9780245
+	247S	12,50	Resistant	PMID: 9780245
+	275H	1,50	Resistant	PMID: 9780245
+	293R	1200,50	Resistant	PMID: 9780245
+	293&275RH	9898,50	Resistant	PMID: 9780245
+	295N	120,50	Resistant	PMID: 9780245
+	295&275NH	65,50	Resistant	PMID: 9780245
+	313&427QI	78,50	Resistant	PMID: 9780245
+	334&275SH	45,50	Resistant	PMID: 9780245
+
+
+######################	2018-07-26 20:06:21down

@@ -1,0 +1,25 @@
+
+######################	2018-07-26 20:12:56begin
+standard_name：original_name->{'>querySeq1': '>standard_GQ176115', '>querySeq2': '>standard_CY111905'}
+ProteinType->[('querySeq1', 'PA'), ('querySeq2', 'PB1')]
+VirusHost->('Human', 1)
+standard_name_new：original_name->{'>querySeq2_PB1': '>standard_CY111905', '>querySeq1_PA': '>standard_GQ176115', '>querySeq2_PB1-F2': '>standard_CY111905', '>querySeq1_PA-X': '>standard_GQ176115'}
+ProteinType->[('querySeq1_PA', 'PA'), ('querySeq1_PA-X', 'PA-X'), ('querySeq2_PB1', 'PB1'), ('querySeq2_PB1-F2', 'PB1-F2')]
+
+querySeq1_PA	>standard_GQ176115	PA
+Virulent Site:
+	515T	Virulent	PMID: 29569430
+
+querySeq1_PA-X	>standard_GQ176115	PA-X
+Virulent Site:
+
+querySeq2_PB1	>standard_CY111905	PB1
+Virulent Site:
+	171M	Virulent	PMID: 20522774
+	198K	Virulent	PMID: 29569430
+	436Y	Virulent	PMID: 9780244
+
+querySeq2_PB1-F2	>standard_CY111905	PB1-F2
+Virulent Site:
+
+######################	2018-07-26 20:13:00down

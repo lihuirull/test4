@@ -1,0 +1,94 @@
+H7
+A/Anhui/1/2013
+A/Anhui/1/2013
+A/Anhui/1/2013
+A/Anhui/1/2013
+A/Shanghai/2/2013
+A/Shanghai/2/2013
+A/Shanghai/2/2013
+A/Shanghai/2/2013
+A/Hong Kong/125/2017-like
+A/Guangdong/17SF003/2016-like
+A/Guangdong/17SF003/2016-like
+A/Guangdong/17SF003/2016-like
+A/Guangdong/17SF003/2016-like
+A/Hunan/02650/2016-like
+
+H7
+A/mallard/Netherlands/12/2000
+A/turkey/Italy/3889/99
+A/turkey/Virginia/4529/2002
+A/New York/107/2003
+A/Canada/rv444/2004
+A/mallard/Netherlands/12/2000
+A/mallard/Netherlands/12/2000
+
+H9
+A/Hong Kong/1073/99
+A/chicken/Hong Kong/G9/97
+A/chicken/Hong Kong/G9/97
+A/Hong Kong/33982/2009
+A/Bangladesh/994/2011
+A/Hong Kong/308/2014
+
+(H1)v
+A/Ohio/9/2015 (IDCDC-RG48A)
+A/Hunan/42443/2015
+A/Iowa/32/2016-like
+A/Netherlands/3315/2016-like
+A/Ohio/24/2017-like
+A/Ohio/35/2017-like
+H1N1
+A/Michigan/45/2015
+
+
+(H3N2)v
+Candidate vaccine viruses
+NYMC X-203
+NYMC X-213
+IDCDC-RG55C
+A/Ohio/13/2017-like
+H3N1
+A/Singapore/INFIMH-16-0019/2016
+
+H5
+Candidate vaccine viruses
+A/Viet Nam/1203/2004
+A/Viet Nam/1194/2004
+A/Cambodia/R0405050/2007
+A/Cambodia/X0810301/2013
+A/duck/Hunan/795/2002
+A/Indonesia/5/2005
+A/Indonesia/NIHRD11771/2011
+A/bar-headed goose/Qinghai/1A/2005
+A/chicken/India/NIV33487/2006
+A/whooper swan/Mongolia/244/2005
+A/Egypt/2321-NAMRU3/2007
+A/turkey/Turkey/1/2005
+A/Egypt/N03072/2010
+A/Egypt/3300-NAMRU3/2008
+A/Egypt/N04915/2014
+A/common magpie/Hong Kong/5052/2007
+A/Hubei/1/2010
+A/duck/Bangladesh/19097/2013
+A/barn swallow/Hong Kong/D10-1161/2010
+A/duck/Viet Nam/NCVD-1584/2012
+A/chicken/Hong Kong/AP156/2008
+A/Anhui/1/2005
+A/duck/Laos/3295/2006
+A/Japanese white eye/Hong Kong/1038/2006
+A/chicken/Bangladesh/11rs1984-30/2011
+A/Guizhou/1/2013
+A/Sichuan/26221/2014
+A/Hubei/29578/2016
+A/gyrfalcon/Washington/41088-6/2014
+A/duck/Hyogo/1/2016
+A/goose/Guiyang/337/2006
+A/chicken/Viet Nam/NCVD-016/2008
+A/chicken/Viet Nam/NCDV-03/2008
+A/chicken/Guiyang/1153/2016
+A/chicken/Ghana/20/2015-like
+A/chicken/Viet Nam/NCVD-15A59/2015
+A/Fujian-Sanyuan/21099/2017-like
+A/environment/Hubei/950/2013
+

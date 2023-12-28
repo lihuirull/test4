@@ -1,0 +1,2000 @@
+BLASTN 2.13.0+
+
+
+Reference: Zheng Zhang, Scott Schwartz, Lukas Wagner, and Webb
+Miller (2000), "A greedy algorithm for aligning DNA sequences", J
+Comput Biol 2000; 7(1-2):203-14.
+
+
+
+Database: ./influenza.fna.markedHost.fas_RemoveDiscardSeq.fas_addLowLevelRankN
+ame_Redundancy_99_4HighClass
+           104,895 sequences; 167,274,799 total letters
+
+
+
+Query= querySeq1
+
+Length=1695
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza A virus (A/chick...  3125    0.0  
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza A virus (A/goose/G...  3092    0.0  
+Avian_Duck_gi|148829009|gb|EF670479|Influenza A virus (A/duck/Hun...  2977    0.0  
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza A virus (A...  2931    0.0  
+Avian_Duck_gi|169124914|gb|CY028969|Influenza A virus (A/duck/Hun...  2931    0.0  
+
+
+
+Query_1                                                 1     ATGGAGAAAATAGTGCTTCTTCTTGCAATAGTCAGCCTTGTTAAAAGTGATCAGATTTGC  60
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        1     ............................................................  60
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          1              ...................................................  51
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           29    ............................................................  88
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  10    ............A...............................................  69
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           1     ............................................................  60
+
+Query_1                                                 61    ATTGGTTACCATGCAAACAACTCGACAGAGCAGGTTGACACAATAATGGAAAAGAACGTT  120
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        61    ............................................................  120
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          52    ............................................................  111
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           89    ............................................................  148
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  70    ............................................................  129
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           61    .......C....................................................  120
+
+Query_1                                                 121   ACTGTTACACATGCCCAAGACATACTAGAAAAGACACACAACGGGAAGCTCTGCGATCTA  180
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        121   ............................................................  180
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          112   ............................................................  171
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           149   ..........................G.................................  208
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  130   ..........................G.................................  189
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           121   ..........................G.................................  180
+
+Query_1                                                 181   GATGGAGTGAAGCCCCTGATTTTAAGAGATTGTAGTGTAGCTGGATGGCTCCTCGGAAAC  240
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        181   ............................................................  240
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          172   ............................................................  231
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           209   ..............T.............................................  268
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  190   ..............T.............................................  249
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           181   ..............T.............................................  240
+
+Query_1                                                 241   CCAATGTGTGACGAATTCATCAATGTACCGGAATGGTCTTACATAGTGGAGAAGGCCAAT  300
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        241   ............................................................  300
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          232   ............................................................  291
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           269   ..........................G................................C  328
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  250   ..........................G.................................  309
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           241   ..........................G.................................  300
+
+Query_1                                                 301   CCAGCCAATGACCTCTGTTACCCAGGGAATTTCAACGACTATGAAGAACTGAAACACCTA  360
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        301   ............................................................  360
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          292   ............................................................  351
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           329   ............................................................  388
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  310   ............................................................  369
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           301   .......................................................C....  360
+
+Query_1                                                 361   TTGAGCAGAATAAATCATTTTGAGAAAATTCAGATCATCCCCAAAAGTTCTTGGTCCGAT  420
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        361   ............................................................  420
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          352   ............................................................  411
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           389   ..............C.............................................  448
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  370   ..............C..............A..............................  429
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           361   .C.........C..C.............................................  420
+
+Query_1                                                 421   CATGAAGCCTCATCAGGAGTGAGCTCAGCATGTCCATACCAGGGAAAGTCCTCCTTTTTC  480
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        421   ............................................................  480
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          412   ............................................................  471
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           449   .................G..........................................  508
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  430   .............T...G............................GT............  489
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           421   .................G....................T.....................  480
+
+Query_1                                                 481   AGAAATGTGGTATGGCTTATCAAAAAGAACAATGCATACCCAACAATAAAGAGAAGCTAC  540
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        481   ............................................................  540
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          472   ............................................................  531
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           509   ............................................................  568
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  490   ............................................................  549
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           481   ............................................................  540
+
+Query_1                                                 541   AATAATACCAACCAGGAAGATCTTTTGGTACTGTGGGGGATTCACCATCCTAACGATGCA  600
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        541   ............................................................  600
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          532   ............................................................  591
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           569   .....................................................T.....G  628
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  550   ..............A........C.............................T....AG  609
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           541   ..............A......................................T.....G  600
+
+Query_1                                                 601   GCAGAGCAGACAAAGCTCTATCAAAACCCAACCACCTATATTTCCGTTGGAACATCAACA  660
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        601   ............................................................  660
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          592   ............................................................  651
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           629   ..................................................G.........  688
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  610   .............G....................................G.........  669
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           601   .............G..................A.................G.........  660
+
+Query_1                                                 661   CTAAACCAGAGATTGATACCAAAAATAGCTACTAGATCCAAAGTAAACGGACAAAGTGGA  720
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        661   ............................................................  720
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          652   ............................................................  711
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           689   ...............G....C...........................C.G.........  748
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  670   ...............G..................................G.........  729
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           661   ...............G..........C.......................G.........  720
+
+Query_1                                                 721   AGGATGGATTTCTTCTGGACAATTTTAAAACCGAATGATGCAATCAACTTCGAGAGTAAT  780
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        721   ............................................................  780
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          712   ............................................................  771
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           749   ..........K.................................................  808
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  730   ............................................................  789
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           721   ............................................................  780
+
+Query_1                                                 781   GGAAATTTCATTGCTCCAGAATATGCATACAAAATTGTCAAGAAAGGGGACTCAGCAATT  840
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        781   ............................................................  840
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          772   ............................................................  831
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           809   ............................................................  868
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  790   .................T.............................A............  849
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           781   ............................................................  840
+
+Query_1                                                 841   ATGAAAAGTGAGGTGGAATATGGTAACTGTAACACCAAGTGTCAAACTCCAATGGGGGCG  900
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        841   ...........A................................................  900
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          832   ...........A................................................  891
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           869   ...........A.................C..............................  928
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  850   ...........A.................C..............................  909
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           841   ...........A...............A.C..A...........................  900
+
+Query_1                                                 901   ATAAACTCTAGTATGCCATTCCACAATATACACCCTCTCACCATCGGGGAATGCCCCAAA  960
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        901   ............................................................  960
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          892   ............................................................  951
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           929   ..........................C.................................  988
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  910   ..........................C..........................T......  969
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           901   ..........................C..........................T......  960
+
+Query_1                                                 961   TATGTGAAATCAGACAAATTAGTCCTTGCAACTGGCCTCAGAAATAGTCCTCAAAGAGAG  1020
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        961   ............................................................  1020
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          952   ............................................................  1011
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           989   ............A................G.....G........................  1048
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  970   ............A................G.....G...........C............  1029
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           961   ............A................G.....G...........C............  1020
+
+Query_1                                                 1021  AGAAGAAGAAAAAGAGGACTATTTGGAGCTATAGCAGGTTTTATAGAAGGAGGATGGCAG  1080
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        1021  ............................................................  1080
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          1012  ............................................................  1071
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           1049  ...............................................G............  1108
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  1030  ...............................................G............  1089
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           1021  ...............................................G............  1080
+
+Query_1                                                 1081  GGAATGGTAGATGGTTGGTATGGGTACCACCATAGCAATGAGCAGGGGAGTGGGTACGCT  1140
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        1081  ............................................................  1140
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          1072  ............................................................  1131
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           1109  ............................................................  1168
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  1090  ............................................................  1149
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           1081  ............................................................  1140
+
+Query_1                                                 1141  GCAGACAAAGAATCCACTCAAAAGGCAATAGATGGAGTCACCAATAAGGTCAACTCGATC  1200
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        1141  ............................................................  1200
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          1132  ............................................................  1191
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           1169  ............................................................  1228
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  1150  ............................................................  1209
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           1141  ............................................................  1200
+
+Query_1                                                 1201  ATTGACAAAATGAACACTCAGTTTGAGGCCGTTGGAAGGGAATTTAATAACTTAGAAAGG  1260
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        1201  ............................................................  1260
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          1192  ........................................................G...  1251
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           1229  ............................................................  1288
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  1210  ............................................................  1269
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           1201  ............................................................  1260
+
+Query_1                                                 1261  AGAATAGAGAATTTAAACAAGAAGATGGAAGACGGATTCCTAGATGTCTGGACTTATAAT  1320
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        1261  ............................................................  1320
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          1252  ............................................................  1311
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           1289  ............................................................  1348
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  1270  ............................................C...............  1329
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           1261  ............................................................  1320
+
+Query_1                                                 1321  GCTGAACTTCTGGTTCTCATGGAAAATGAGAGAACTCTAGACTTCCACGACTCAAATGTC  1380
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        1321  ............................................................  1380
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          1312  ............................................................  1371
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           1349  ...............................................T............  1408
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  1330  ...............................................T............  1389
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           1321  .............................A.................T............  1380
+
+Query_1                                                 1381  AAGAACCTTTACGACAAGGTCCGACTACAGCTTAGGGATAATGCAAAGGAACTGGGTAAC  1440
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        1381  ............................................................  1440
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          1372  ............................................................  1431
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           1409  .....T............................................G........T  1468
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  1390  ..................................................G.........  1449
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           1381  ..................................................G.........  1440
+
+Query_1                                                 1441  GGTTGTTTCGAGTTCTATCACAAATGTGATAATGAATGTATGGAAAGTGTAAGAAACGGA  1500
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        1441  ............................................................  1500
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          1432  ............................................................  1491
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           1469  ............................................................  1528
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  1450  ............................................................  1509
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           1441  ............................................................  1500
+
+Query_1                                                 1501  ACGTATGACTATCCGCAGTATTCAGAAGAAGCAAGATTAAAAAGAGAGGAAATTAGTGGA  1560
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        1501  ............................................................  1560
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          1492  .......................................................A....  1551
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           1529  ...........C.........G......................................  1588
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  1510  ...........C.........................................A......  1569
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           1501  ...........C.........................................A......  1560
+
+Query_1                                                 1561  GTAAAATTGGAATCAATAGGAACTTACCAAATACTGTCAATTTATTCAACAGTGGCGAGC  1620
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        1561  ............................................................  1620
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          1552  ............................................................  1611
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           1589  ...........................................................T  1648
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  1570  ...........................................................T  1629
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           1561  ...........................................................T  1620
+
+Query_1                                                 1621  TCCCTAGCACTGGCAATCATGGTGGCTGGTCTATCTTTATGGATGTGCTCCAATGGGTCG  1680
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        1621  ............................................................  1680
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          1612  ............................................................  1671
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           1649  ............................................................  1708
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  1630  ............................................................  1689
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           1621  ............................................................  1680
+
+Query_1                                                 1681  TTACAATGCAGAATT  1695
+Avian_Chicken_gi|116271148|gb|DQ992755|Influenza        1681  ...............  1695
+Avian_Goose_gi|116271152|gb|DQ992757|Influenza          1672  ............     1683
+Avian_Duck_gi|148829009|gb|EF670479|Influenza           1709  ...............  1723
+Avian_Silky-chicken_gi|169124762|gb|CY028961|Influenza  1690  ...............  1704
+Avian_Duck_gi|169124914|gb|CY028969|Influenza           1681  ...............  1695
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 274290313512
+
+
+Query= querySeq2
+
+Length=1422
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza A virus (A/malla...  2621    0.0  
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza A virus ...  2566    0.0  
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza A virus...  2555    0.0  
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza A virus (A/pintai...  2483    0.0  
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza A virus (A/malla...  2471    0.0  
+
+
+
+Query_2                                                    1     ATGAATCCAAATCAGAAAATAATAACAATTGGTTCTGTGTCATTGGCACTAGTTATATTC  60
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           10    ............................................................  69
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   10    ............................................................  69
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  22    ............................................................  81
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            22    ......................................................G.....  81
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           9     ......................................................G.....  68
+
+Query_2                                                    61    AACATACTGCTTCATATTGCATCAATAGTCATAGGAATAATATCAGTGACAAAAGAAAGC  120
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           70    ............................................................  129
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   70    ............................C...............................  129
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  82    ............................................................  141
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            82    ...........................A................................  141
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           69    ............................................................  128
+
+Query_2                                                    121   AGTATACCATCACCCTGCAACACCACTGAGGTTTACAATGAAACTGTAAGGCTGGAAACT  180
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           130   ............................................................  189
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   130   ............................................................  189
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  142   ......T.....................................................  201
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            142   ..C...T.....A...............................................  201
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           129   ......T.......................A.............................  188
+
+Query_2                                                    181   ATAACAATTCCTATCAACAACACTGTTTACATAGAAAGAGAATCACATCAAGAACCTGAG  240
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           190   ............................................................  249
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   190   ............................................................  249
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  202   ..........................................G.................  261
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            202   .........................................G.................A  261
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           189   .........................................G..................  248
+
+Query_2                                                    241   TTTTTAAACAATACAGAACCTCTCTGCAATGTATCCGGGTTCGCAATAGTTTCCAAGGAC  300
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           250   ............................................................  309
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   250   ............................................................  309
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  262   ............................................................  321
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            262   ........................................................A...  321
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           249   .........................................T..................  308
+
+Query_2                                                    301   AATGGAATCAGAATTGGGTCAAGGGGACATGTGTTTGTCATAAGAGAACCATTTGTGGCA  360
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           310   ............................................................  369
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   310   .....................................................C......  369
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  322   .....................................................C......  381
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            322   .....................................................C......  381
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           309   ............................................................  368
+
+Query_2                                                    361   TGTGGTCCCACAGAATGTAGGACTTTTTTCCTAACGCAAGGTGCCTTACTGAATGATAAA  420
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           370   ............................................................  429
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   370   ............................................................  429
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  382   ............................................................  441
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            382   ............................................................  441
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           369   .......................A....................................  428
+
+Query_2                                                    421   CACTCCAACATTACAGTGAAAGATAGGAGCCCTTACCGTGCATTGATGAGTGTGCCATTG  480
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           430   ..........A.................................................  489
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   430   ..........A..................T........C................T....  489
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  442   ..........A..................T..............................  501
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            442   ..........A..................T.............................A  501
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           429   ..T.......A..................T.............................A  488
+
+Query_2                                                    481   GGATCTTCACCCAATGCTTATCAGGCCAAGTTTGAGTCTGTTGCATGGTCGGCCACAGCA  540
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           490   ............................................................  549
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   490   ............................................................  549
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  502   ............................................................  561
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            502   ............................................................  561
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           489   ....................C.......................................  548
+
+Query_2                                                    541   TGCCATGATGGCAAAGAATGGCTGGCATTAGGGATAAGTGGTGCAGATGACGATGCTTAT  600
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           550   ............................................................  609
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   550   ............................................................  609
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  562   ............................................................  621
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            562   .................G.........G................................  621
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           549   .................G.........G................................  608
+
+Query_2                                                    601   GCTGTAATCCATTATgggggggTGCCAACAGATGTGGTGAGATCATGGAGAAAGCAAATT  660
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           610   ............................................................  669
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   610   ........T...................................................  669
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  622   ............................................................  681
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            622   .........................................G..................  681
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           609   ..A..................A...................G..................  668
+
+Query_2                                                    661   CTAAGAACACAAGAATCGTCATGTGTGTGTATGAAAGGAAACTGTTATTGGGTAATGACG  720
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           670   ............................................................  729
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   670   ............................................................  729
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  682   ............................................................  741
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            682   ............................................................  741
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           669   ............................................................  728
+
+Query_2                                                    721   GATGGTCCTGCTAACAATCAGGCTAGTTACAAAATTTTCAAGTCTCATAAGGGGATGGTG  780
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           730   ............................................................  789
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   730   ............................................................  789
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  742   ............................................................  801
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            742   ...........G................................................  801
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           729   ...........G................................................  788
+
+Query_2                                                    781   ACAAATGAAAGAGAAGTGTCATTCCAGGGAGGTCACATTGAAGAGTGCTCTTGCTACCCC  840
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           790   ............................................................  849
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   790   ............................................................  849
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  802   .......................T....................................  861
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            802   .......................T....................................  861
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           789   .......................T....................................  848
+
+Query_2                                                    841   AATTTGGGTCAAGTGGAGTGCGTTTGCCGAGATAATTGGAATGGAATGAATAGACCAATT  900
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           850   ............................................................  909
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   850   .........A..................................................  909
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  862   .........A..................................................  921
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            862   ..C......A..................................................  921
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           849   ..C......A..................................................  908
+
+Query_2                                                    901   TTGACTTTTGATGAGGACTTGAACTATGAGGTGGGTTATTTATGTGCCGGAATACCGACA  960
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           910   ............................................................  969
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   910   ............................................................  969
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  922   ............................................................  981
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            922   ............................................................  981
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           909   ............................................................  968
+
+Query_2                                                    961   GACACTCCACGGGTTCAAGACAGTAGTTTCACTGGTTCCTGTACTAACGCTGTTGGAGGA  1020
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           970   ............................................................  1029
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   970   ............................................................  1029
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  982   ...............................................T............  1041
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            982   ...............................................T...........G  1041
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           969   ...............................................T...........G  1028
+
+Query_2                                                    1021  AGTGGAACGAACAACTATGGAGTGAAGGGTTTTGGCTTCAGACAAGGTAATAGCGTGTGG  1080
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           1030  ............................................................  1089
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   1030  ............................................................  1089
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  1042  ...............................................G............  1101
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            1042  .....................................................T......  1101
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           1029  .....................................................T......  1088
+
+Query_2                                                    1081  GCAGGGAGAACAGTTAGCATTTCATCCCGAAGTGGGTTTGAAATCCTATTGATAGAAGAC  1140
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           1090  ............................................................  1149
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   1090  ....................C....................G..................  1149
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  1102  .....A...................................G..................  1161
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            1102  .....A...................................G..................  1161
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           1089  .....A...................................G..................  1148
+
+Query_2                                                    1141  GGTTGGACCAAAACAAGCAAAACTGTCATCAAAAAAGTGGAGGTCCTCAACAATAAGAAT  1200
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           1150  ............................................................  1209
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   1150  ............................................................  1209
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  1162  .................T..........................................  1221
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            1162  ...........................G................................  1221
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           1149  ...........................G...................A............  1208
+
+Query_2                                                    1201  TGGTCAGGATACAGCGGAGCTTTCACCATCCCAATCACAATGACTAGTAAACAATGCTTA  1260
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           1210  ............................................................  1269
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   1210  ............................................................  1269
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  1222  ............................................................  1281
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            1222  ............................................................  1281
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           1209  ............................................................  1268
+
+Query_2                                                    1261  GTTCCATGTTTCTGGCTGGAAATGATAAGAGGAAAACCAGAAGAGAGGACAAGCATTTGG  1320
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           1270  ............................................................  1329
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   1270  ............................................................  1329
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  1282  .....................................................T......  1341
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            1282  ..................................G.........................  1341
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           1269  ............................................................  1328
+
+Query_2                                                    1321  ACCTCTAGTAGCTCCACGGTATTTTGTGGTGTTTCAAGTGAGGTCCCAGGGTGGTCCTGG  1380
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           1330  ............................................................  1389
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   1330  .................A..........................................  1389
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  1342  ............................................................  1401
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            1342  ............................................................  1401
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           1329  ............................................................  1388
+
+Query_2                                                    1381  GATGATGGCGCAATTCTTCCCTTTGACATCGATAAGATGTAA  1422
+Avian_Mallard_gi|315422856|gb|CY078869|Influenza           1390  ..........................................  1431
+Avian_American-wigeon_gi|340541854|gb|CY094383|Influenza   1390  ..........................................  1431
+Avian_Northern-pintail_gi|390534680|gb|JX081158|Influenza  1402  ..........................................  1443
+Avian_Pintail_gi|82623633|gb|CY004340|Influenza            1402  ..........................................  1443
+Avian_Mallard_gi|632811479|gb|CY185798|Influenza           1389  ........A.................................  1430
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 229397474430
+
+
+Query= querySeq3
+
+Length=1497
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+Avian_Avian_gi|315424609|gb|CY079270|Influenza A virus (A/avian/J...  2765    0.0  
+Avian_Avian_gi|315624067|gb|CY080218|Influenza A virus (A/avian/J...  2743    0.0  
+Avian_Avian_gi|315424589|gb|CY079262|Influenza A virus (A/avian/J...  2737    0.0  
+Avian_Avian_gi|315424513|gb|CY079230|Influenza A virus (A/avian/J...  2737    0.0  
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza A virus (A/duck/Ho...  2715    0.0  
+
+
+
+Query_3                                         1     ATGGCGTCTCAAGGCACCAAACGATCTTATGAGCAGATGGAAACTGGTGGAGAACGCCAG  60
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  1     ............................................................  60
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  1     ............................................................  60
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  1     ............................................................  60
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  1     ............................................................  60
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  40    ............................................................  99
+
+Query_3                                         61    AATGCTACTGAGATCAGAGCATCTGTTGGGAGGATGGTCAGTGGAATTGGGAGATTCTAC  120
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  61    ............................................................  120
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  61    .......................................G....................  120
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  61    .......................................G....................  120
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  61    .......................................G....................  120
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  100   .......................................G....................  159
+
+Query_3                                         121   ATACAGATGTGCACTGAACTCAAACTCAGCGACTATGAAGGGAGACTGATCCAAAACAGC  180
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  121   ............................................................  180
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  121   ............................................................  180
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  121   ............................................................  180
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  121   ............................................................  180
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  160   ............................................................  219
+
+Query_3                                         181   ATAACAATAGAGAGAATGGTTCTCTCTGCATTTGACGAAAGGAGGAATAAATACCTAGAA  240
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  181   ............................................................  240
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  181   ............................................................  240
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  181   ............................................................  240
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  181   ............................................................  240
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  220   ............................................................  279
+
+Query_3                                         241   GAACATCCCAGTGCGGGGAAGGACCCGAAGAAAACTGGAGGTCCAATCTACAGAAGGAGA  300
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  241   ............................................................  300
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  241   ............................................................  300
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  241   ....................................................A.......  300
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  241   .........................................................C..  300
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  280   ............................................................  339
+
+Query_3                                         301   GACGGAAAATGGATGAGAGAGCTAATTCTGTATGACAAAGAGGAGATCAGGAGGATTTGG  360
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  301   ............................................................  360
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  301   ..............A.............................................  360
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  301   ..............A.............................................  360
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  301   ..............A.............................................  360
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  340   ..............A..........C..................................  399
+
+Query_3                                         361   CGTCAAGCAAACAATGGAGAAGACGCAACTGCTGGTCTCACTCATCTGATGATCTGGCAT  420
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  361   ............................................................  420
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  361   ............................................................  420
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  361   ............................................................  420
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  361   ............................................................  420
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  400   ............................................................  459
+
+Query_3                                         421   TCCAATCTGAATGATGCCACATATCAGAGAACAAGAGCTCTCGTGCGCACTGGGATGGAT  480
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  421   ............................................................  480
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  421   ............................................................  480
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  421   ............................................................  480
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  421   ............................................................  480
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  460   .........................................T..................  519
+
+Query_3                                         481   CCCAGAATGTGCTCTCTAATGCAAGGATCGACTCTCCCGAGGAGATCTGGAGCTGCCGGT  540
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  481   ............................................................  540
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  481   ............................................................  540
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  481   ............................................................  540
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  481   ............................................................  540
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  520   ............................................................  579
+
+Query_3                                         541   GCAGCAGTAAAGGGAGTTGGGACGATGGTGATGGAACTAATTCGGATGATAAAGCGGGGG  600
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  541   ............................................................  600
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  541   ....................A.......................................  600
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  541   ....................A.......................................  600
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  541   ....................A.......................................  600
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  580   ............................................................  639
+
+Query_3                                         601   ATCAATGATCGGAATTTCTGGAGAGGCGAGAATGGGCGAAGAACAAGGATTGCATATGAG  660
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  601   ............................................................  660
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  601   ............................................................  660
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  601   ............................................................  660
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  601   ............................................................  660
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  640   ............................................................  699
+
+Query_3                                         661   AGAATGTGCAACATTCTCAAAGGAAAATTCCAAACAGCAGCACAACGAGCAATGATGGAC  720
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  661   ............................................................  720
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  661   ............................................................  720
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  661   ............................................................  720
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  661   ............................................................  720
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  700   ............................................................  759
+
+Query_3                                         721   CAAGTGCGAGAAAGCAGAAATCCTGGAAATGCTGAAATAGAAGACCTTATCTTCTTGGCA  780
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  721   ............................................................  780
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  721   ............................................................  780
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  721   ............................................................  780
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  721   ............................................................  780
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  760   ............................................................  819
+
+Query_3                                         781   CGGTCTGCACTCATTCTGAGAGGATCAGTGGCTCATAAGTCCTGCTTGCCTGCTTGTGTA  840
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  781   ............................................................  840
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  781   ............................................................  840
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  781   ............................................................  840
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  781   ............................................................  840
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  820   ............................................................  879
+
+Query_3                                         841   TATGGACTTGCTGTGGCCAGTGGATATGACTTTGAGAGAGAGGGATACTCTCTGGTCGGA  900
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  841   ............................................................  900
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  841   ............................................G...............  900
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  841   ............................................G...............  900
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  841   ............................................G...............  900
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  880   ............................................................  939
+
+Query_3                                         901   ATCGACCCTTTCCGTCTGCTTCAAAACAGCCAGGTATTCAGCCTCATCAGACCAAATGAG  960
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  901   ............................................................  960
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  901   ............................................................  960
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  901   ............................................................  960
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  901   ............................................................  960
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  940   ............................................................  999
+
+Query_3                                         961   AACCCGGCACATAAGAGTCAGCTGGTATGGATGGCATGCCATTCTGCAGCATTTGAGGAC  1020
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  961   ............................................................  1020
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  961   ............................................................  1020
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  961   ............................................................  1020
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  961   ............................................................  1020
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  1000  .......................A....................................  1059
+
+Query_3                                         1021  CTGAGAGTATCAAGTTTCATCAGAGGGACAAGAGTGGTCCCAAGAGGACAGCTTGCCACC  1080
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  1021  ............................................................  1080
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  1021  ............................................................  1080
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  1021  ............................................................  1080
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  1021  ............................................................  1080
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  1060  ..............C.................G...........................  1119
+
+Query_3                                         1081  AGAGGAGTCCAAATAGCTTCAAATGAGAACATGGAAACAATGGACTCCAGTACTCTTGAA  1140
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  1081  ............................................................  1140
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  1081  ............................................................  1140
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  1081  ............................................................  1140
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  1081  ............................................................  1140
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  1120  .....G......................................................  1179
+
+Query_3                                         1141  CTGAGAAGCAGATACTGGGCTATAAGGACCAGGAGTGGTGGGAACACCAACCAACAGAGA  1200
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  1141  ............................................................  1200
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  1141  ............................................................  1200
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  1141  ............................................................  1200
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  1141  ............................................................  1200
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  1180  T...........................................................  1239
+
+Query_3                                         1201  GCATCTGCAGGACAAATCAGTGTACAACCCACTTTCTCGGTACAGAGAAATCTTCCTTTC  1260
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  1201  ............................................................  1260
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  1201  ............................................................  1260
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  1201  ............................................................  1260
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  1201  ............................................................  1260
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  1240  ............................................................  1299
+
+Query_3                                         1261  GAGAGAGCAACCATCATGGCGGCATTCACAGGGAACACAGAAGGCAGGACATCTGACATG  1320
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  1261  ............................................................  1320
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  1261  ............................................................  1320
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  1261  ............................................................  1320
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  1261  ............................................................  1320
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  1300  ............................................................  1359
+
+Query_3                                         1321  AGGACTGAAATCATAAAGATGATGGAAAGTGCCAGACCAGAAGATGTGTCTTTCCAGGGG  1380
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  1321  ............................................................  1380
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  1321  ............................................................  1380
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  1321  ............................................................  1380
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  1321  ............................................................  1380
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  1360  ............................................................  1419
+
+Query_3                                         1381  CGGGGAGTCTTCGAGCTCTCGGACGAAAAGGCAACGAACCCGATCGTGCCTTCCTTTGAC  1440
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  1381  ............................................................  1440
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  1381  ............................................................  1440
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  1381  ............................................................  1440
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  1381  ............................................................  1440
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  1420  ............................................................  1479
+
+Query_3                                         1441  ATGAATAACGAGGGATCTTATTTCTTCGGAGACAATGCAGAGGAGTATGACAATTAA  1497
+Avian_Avian_gi|315424609|gb|CY079270|Influenza  1441  .........................................................  1497
+Avian_Avian_gi|315624067|gb|CY080218|Influenza  1441  .........................................................  1497
+Avian_Avian_gi|315424589|gb|CY079262|Influenza  1441  .........................................................  1497
+Avian_Avian_gi|315424513|gb|CY079230|Influenza  1441  .........................................................  1497
+Avian_Duck_gi|1293099018|gb|LC339660|Influenza  1480  .........................................................  1536
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 241730671980
+
+
+Query= querySeq4
+
+Length=838
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza A virus (A/pintai...  1548    0.0  
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza A virus (...  1531    0.0  
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza A ...  1531    0.0  
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza A ...  1531    0.0  
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza A viru...  1526    0.0  
+
+
+
+Query_4                                                         1    ATGGATTCCAACACTGTGTCAAGCTTTCAGGTAGACTGCTTTCTTTGGCATGTCCGCAAA  60
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 27   ............................................................  86
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         15   ............................................................  74
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  15   ............................................................  74
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  15   ............................................................  74
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      15   ............................................................  74
+
+Query_4                                                         61   CGATTTGCAGACCAAGAACTGGGTGATGCCCCGTTCCTTGACCGGCTTCGCCGAGATCAA  120
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 87   ............................................................  146
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         75   ............................................................  134
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  75   ............................................................  134
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  75   ............................................................  134
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      75   ............................................................  134
+
+Query_4                                                         121  AAATCTCTAAGGGGAAGAGGCAGCACTCTTGGTCTGGACATCGAAACAGCCACTCGTGCT  180
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 147  ............................................................  206
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         135  ............................................................  194
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  135  ............................................................  194
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  135  ............................................................  194
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      135  ............................................................  194
+
+Query_4                                                         181  GGAAAGCAGATAGTGGAGAGGATTCTGGAGGAAGAATCCGATGAGGCACTTAAAATGACC  240
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 207  ............................................................  266
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         195  ............................................................  254
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  195  ............................................................  254
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  195  ............................................................  254
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      195  ............................................................  254
+
+Query_4                                                         241  ATTGCCTCTGTACCTGCTTCACGCTACCTAACTGACATGACTCTTGAAGAGATGTCAAGA  300
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 267  ............................................................  326
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         255  ............................................................  314
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  255  ............................................................  314
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  255  ............................................................  314
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      255  ...............................................G............  314
+
+Query_4                                                         301  GACTGGTTCATGCTCATGCCCAAACAAAAAGTGGCAGGTTCCCTCTGTATCAGAATGGAC  360
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 327  ............................................................  386
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         315  ............................................................  374
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  315  ............................................................  374
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  315  ............................................................  374
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      315  ............................................................  374
+
+Query_4                                                         361  CAGGCAATTATGGACAAGAACATCACGCTGAAAGCAAATTTCAGTGTGATCTTCGATCGG  420
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 387  ............................................................  446
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         375  ............................................................  434
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  375  ............................................................  434
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  375  ............................................................  434
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      375  ...........................................................A  434
+
+Query_4                                                         421  CTGGAGACACTAATACTACTCAGAGCTTTCACAGAAGAAGGAGCAATCGTCGGCGAAATT  480
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 447  ............................................................  506
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         435  ............................................................  494
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  435  ............................................................  494
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  435  ............................................................  494
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      435  ............................................................  494
+
+Query_4                                                         481  TCACCATTGCCTTCTCTTCCAGGACATACTGATGAGGATGTCAAAAATGCAATTGGAGTC  540
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 507  ............................................................  566
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         495  ........................................................G...  554
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  495  ........................................................G...  554
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  495  ........................................................G...  554
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      495  ........................................................G...  554
+
+Query_4                                                         541  CTCATCGGAGGACTTGAATGGAATGATAACACAGTTCGAGTCTCTGAAACTCTACAGAGA  600
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 567  ............................................................  626
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         555  ............................................................  614
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  555  ............................................................  614
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  555  ............................................................  614
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      555  ............................................................  614
+
+Query_4                                                         601  TTCGCTTGGAGAAGCAGTAATGAGGATGGGAGACCTCCACTCCCTCCAAAGCAGAAACGG  660
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 627  ............................................................  686
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         615  ............................................................  674
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  615  ............................................................  674
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  615  ............................................................  674
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      615  ............................................................  674
+
+Query_4                                                         661  AAAATGGCGAGAACAATTGAGTCAGAAGTTTGAGGAAATAAGGTGGCTGATTGAAGAAGT  720
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 687  ............................................................  746
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         675  ..........................................A.................  734
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  675  ..........................................A.................  734
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  675  ..........................................A.................  734
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      675  ............................................................  734
+
+Query_4                                                         721  GCGACATAGACTAAAGGTTACAGAGAATAGCTTTGAACAAATAACATTTATGCAAGCCTT  780
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 747  ............................................................  806
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         735  .........................................................A..  794
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  735  .........................................................A..  794
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  735  .........................................................A..  794
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      735  ............................................................  794
+
+Query_4                                                         781  ACAACTACTGCTTGAAGTGGAGCAAGAGATAAGAACTTTCTCGTTTCAGCTTATTTAA  838
+Avian_Pintail_gi|82623637|gb|CY004342|Influenza                 807  ..........................................................  864
+Avian_Emperor-goose_gi|1111246956|gb|KY130698|Influenza         795  ..........................................................  852
+Avian_Glaucous-winged-gull_gi|1111246930|gb|KY130687|Influenza  795  ..........................................................  852
+Avian_Glaucous-winged-gull_gi|1111246783|gb|KY130628|Influenza  795  ..........................................................  852
+Avian_Green-winged-teal_gi|259024097|gb|GQ923505|Influenza      795  ...............G..........................................  852
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 133362976174
+
+
+Query= querySeq5
+
+Length=2151
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza A virus (A/sho...  3956    0.0  
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza A virus (A/sho...  3945    0.0  
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza A virus ...  3934    0.0  
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza A virus ...  3795    0.0  
+Avian_Duck_gi|115279537|gb|CY015172|Influenza A virus (A/duck/Ala...  3723    0.0  
+
+
+
+Query_5                                                   1     ATGGAAGACTTTGTGCGACAATGCTTCAATCCAATGATCGTCGAGCTTGCGGAAAAGGCA  60
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        13    ............................................................  72
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        13    ............................................................  72
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  13    ............................................................  72
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  13    ............................................................  72
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             25    ............................................................  84
+
+Query_5                                                   61    ATGAAAGGGTATGGGGAAGATCCAAAAATCGAAACTAACAAATTCGCCGCAATGTGCACT  120
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        73    .......A.............................................A......  132
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        73    .......A.............................................A......  132
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  73    .......A.............................................A......  132
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  73    .......AA............................................A......  132
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             85    .......AA......................................T.....A......  144
+
+Query_5                                                   121   CACTTGGAAGTCTGTTTCATGTATTCGGATTTTCACTTCATTGACGAACGGGGCGAATCA  180
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        133   ............................................................  192
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        133   ............................................................  192
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  133   ............................................................  192
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  133   ............................................................  192
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             145   .................................................A..........  204
+
+Query_5                                                   181   ATAATTGTAGAATCCGGTGATCCAAATGCATTACTGAAACACCGATTTGAGATAATTGAA  240
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        193   ............................................................  252
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        193   ............................................................  252
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  193   ............................................................  252
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  193   ................A...........................................  252
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             205   ..............T.............................................  264
+
+Query_5                                                   241   GGAAGGGACCGAACAATGGCCTGGACAGTGGTGAATAGCATCTGCAACACCACAAGGGTT  300
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        253   ............................................................  312
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        253   ......................................................G.....  312
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  253   ......................................................G.....  312
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  253   ......................................................G.....  312
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             265   ......................................................G.....  324
+
+Query_5                                                   301   GAGAAGCCTAAATTTCTTCCGGATCTGTATGATTACAAAGAGAACCGATTCATTGAAATT  360
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        313   ............................................................  372
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        313   ............................................................  372
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  313   ...........G................................................  372
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  313   ..A........G................................................  372
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             325   ..A........G..........................G.....................  384
+
+Query_5                                                   361   GGAGTGACACGGAGGGAGGTCCATATATACTACCTAGAGAAAGCCAACAAGATAAAATCC  420
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        373   ............................................................  432
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        373   ............................................................  432
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  373   ............................................................  432
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  373   .................A..........................................  432
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             385   ............................................................  444
+
+Query_5                                                   421   GAGAAGACACACATTCACATTTTTTCATTTACTGGGGAAGAAATGGCCACCAAAGCGGAC  480
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        433   ............................................................  492
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        433   ............................................................  492
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  433   ............................................................  492
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  433   ............................................................  492
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             445   ............................................................  504
+
+Query_5                                                   481   TACACCCTTGACGAAGAGAGCAGAGCAAGAATCAAAACCAGGCTGTTTACTATAAGACAA  540
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        493   ............................................................  552
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        493   ............................................................  552
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  493   ............................................................  552
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  493   ........................................................G...  552
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             505   ...............................................C............  564
+
+Query_5                                                   541   GAAATGGCCAGCAGGGGTCTATGGGATTCCTTTCGTCAGTCCGAAAGAGGCGAAGGGACA  600
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        553   .......................................................A....  612
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        553   .......................................................A....  612
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  553   .......................................................A....  612
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  553   .......................................................A....  612
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             565   .......................................................A....  624
+
+Query_5                                                   601   ATTGAAGAAAGATTTGAAATCACAGGAACCATGCGCAGGCTTGCCGACCAAAGTCTCCCA  660
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        613   ............................................................  672
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        613   ............................................................  672
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  613   ............................................................  672
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  613   ........................................................T...  672
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             625   .....................G......................................  684
+
+Query_5                                                   661   CCGAACTTCTCCAGCCTTGAAAACTTTAGAGCCTATGTGGATGGATTCGAACCGAACGGC  720
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        673   ............................................................  732
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        673   ............................................................  732
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  673   ............................................................  732
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  673   ............................................................  732
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             685   ............................................................  744
+
+Query_5                                                   721   TGCATTGAGGGCAAGCTTTCTCAAATGTCAAAAGAAGTGAACGCCAGGATTGAGCCATTT  780
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        733   ............................................................  792
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        733   ............................................................  792
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  733   ............................................................  792
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  733   ............................................................  792
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             745   ............................................................  804
+
+Query_5                                                   781   CTGAAGACAACACCACGCCCTCTCAGATTACCTGATGGGCCTCCTTGTTCTCAGCGGTCT  840
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        793   ............................................................  852
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        793   ............................................................  852
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  793   ............................................................  852
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  793   ..........................G.................................  852
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             805   ..........................G....................C............  864
+
+Query_5                                                   841   AAATTCTTGCTGATGGATGCCTTGAAATTAAGCATTGAAGATCCGAGTCATGAGGGAGAG  900
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        853   ............................................................  912
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        853   ............................................................  912
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  853   ............................................................  912
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  853   ......C....................C................................  912
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             865   ...........................C................................  924
+
+Query_5                                                   901   GGGATACCATTATATGATGCAATTAAATGCATGAAGACATTTTTTGGTTGGAAAGAGCCC  960
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        913   ............................................................  972
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        913   ............................................................  972
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  913   ............................................................  972
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  913   .........C..................................................  972
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             925   ........GC....C.............................C...............  984
+
+Query_5                                                   961   AACATAATCAAGCCGCATGAGAAAGGCATAAACCCCAATTACCTTCTGGCTTGGAAGCAA  1020
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        973   ............................................................  1032
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        973   ............................................................  1032
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  973   ............................................................  1032
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  973   ....................A..............T........................  1032
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             985   ...........A..A..........................T..................  1044
+
+Query_5                                                   1021  GTACTAGCAGAACTCCAAGACATTGAAAATGAGGAGAAGATCCCAAAGACCAAAAACATG  1080
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1033  ............................................................  1092
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1033  .....................T......................................  1092
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1033  ..G.........................................................  1092
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1033  ..G.........................................................  1092
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1045  ..G...............................................A.........  1104
+
+Query_5                                                   1081  AAGAAGACAAGCCAATTGAAGTGGGCACTTGGTGAGAACATGGCACCAGAAAAGGTGGAC  1140
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1093  ............................................................  1152
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1093  ............................................................  1152
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1093  ............................................................  1152
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1093  ............................................................  1152
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1105  .....A......................................................  1164
+
+Query_5                                                   1141  TTTGAGGATTGCAAGGACGTCAGCGATCTAAAACAGTATGATAGTGATGAACCAGAACCT  1200
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1153  ............................................................  1212
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1153  ............................................................  1212
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1153  ............................................................  1212
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1153  ..........................C.......................G.......T.  1212
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1165  ..........................C.......................G.........  1224
+
+Query_5                                                   1201  AGATCGCTAGCAAGCTGGATCCAGAGTGAATTCAACAAGGCATGTGAGTTGACCGATTCG  1260
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1213  ............................................................  1272
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1213  ............................................................  1272
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1213  ............................................................  1272
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1213  ............................................................  1272
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1225  ............................................................  1284
+
+Query_5                                                   1261  AGCTGGATAGAACTTGATGAGATAGGGGAAGATGTTGCCCCAATTGAACACATTGCAAGT  1320
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1273  ............................................................  1332
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1273  ............................................................  1332
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1273  ............................................................  1332
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1273  ............................................................  1332
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1285  ............................................................  1344
+
+Query_5                                                   1321  ATGAGGAGGAACTATTTTACGGCGGAAGTGTCCCATTGCAGGGCCACTGAATACATAATG  1380
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1333  ............................................................  1392
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1333  ............................................................  1392
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1333  ............................................................  1392
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1333  ............................................................  1392
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1345  ............................................................  1404
+
+Query_5                                                   1381  AAGGGAGTATACATAAACACAGCTTTGCTCAATGCATCTTGTGCAGCCATGGATGACTTC  1440
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1393  ............................................................  1452
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1393  ............................................................  1452
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1393  ............................................................  1452
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1393  ...........................................................T  1452
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1405  ............................................................  1464
+
+Query_5                                                   1441  CAGCTGATTCCAATGATAAGCAAATGTAGGACAAGGGAAGGAAGACGGAAAACAAACCTT  1500
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1453  ............................................................  1512
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1453  ............................................................  1512
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1453  ............................................................  1512
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1453  ..................................A.........................  1512
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1465  ..................................A........................G  1524
+
+Query_5                                                   1501  TATGGGTTCATTATAAAAGGAAGGTCTCATTTGAGGAATGATACTGACGTGGTAAACTTT  1560
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1513  ............................................................  1572
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1513  ............................................................  1572
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1513  ............................................................  1572
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1513  ...............................................T............  1572
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1525  ............................................................  1584
+
+Query_5                                                   1561  GTGAGCATGGAGTTTTCTCTCACTGACCCGAGGCTGGAGCCGCATAAATGGGAAAAATAC  1620
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1573  ............................................................  1632
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1573  ............................................................  1632
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1573  ............................................................  1632
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1573  ........................................................G...  1632
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1585  ......................................A.....C...........G...  1644
+
+Query_5                                                   1621  TGTGTTCTTGAAGTAGGAGACATGCTCCTGAGAACTGCAATAGGCCAAGTGTCAAGGCCC  1680
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1633  ............................................................  1692
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1633  ............................................................  1692
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1633  ............................................................  1692
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1633  ................................G...........................  1692
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1645  ....................T...........G...........................  1704
+
+Query_5                                                   1681  ATGTTCCTGTACGTTAGAACCAATGGGACCTCCAAAATCAAGATGAAATGGGGCATGGAA  1740
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1693  ............................................................  1752
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1693  ............................................................  1752
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1693  ............................................................  1752
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1693  ...................................G.................T......  1752
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1705  ...................................G.................T......  1764
+
+Query_5                                                   1741  ATGAGGCGCTGTCTTCTTCAATCTCTTCAGCAAATTGAGAGCATGATTGAAGCTGAGTCT  1800
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1753  ............................................................  1812
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1753  ............................................................  1812
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1753  ............................................................  1812
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1753  ............................................................  1812
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1765  .......................C..........................G.........  1824
+
+Query_5                                                   1801  TCTGTCAAAGAAAAGGACATGACAAAAGAATTCTTTGAGAACAAATCAGAAACATGGCCA  1860
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1813  ............................................................  1872
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1813  ............................................................  1872
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1813  ............................................................  1872
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1813  ...............................................G............  1872
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1825  ......................................A........G............  1884
+
+Query_5                                                   1861  ATTGGAGAGTCCCCCAAGGGAGTGGAGGAAGGCTCTATTGGAAAAGTGTGTAGAACCTTA  1920
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1873  ............................................................  1932
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1873  ............................................................  1932
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1873  ............................................................  1932
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1873  ............................................................  1932
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1885  ......................................C.....................  1944
+
+Query_5                                                   1921  TTGGCAAAATCTGTATTCAACAGTCTATATGCATCTCCACAACTCGAGGGATTTTCAGCT  1980
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1933  ............................................................  1992
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1933  ............................................................  1992
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1933  ............................................................  1992
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1933  ..A..........................C..............................  1992
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             1945  .............................C..............................  2004
+
+Query_5                                                   1981  GAATCAAGGAAATTACTTCTCATTGTTCAGGCACTTAGGGACAACCTGGAACCTGGAACC  2040
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        1993  ............................................................  2052
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        1993  ............................................................  2052
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  1993  ........................A...................................  2052
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  1993  ...........................................................T  2052
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             2005  .....G......................................................  2064
+
+Query_5                                                   2041  TTTGATCTTGGGGGGCTATATGAAGCAATTGAGGAGTGCCTGATTAATGATCCCTGGGTT  2100
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        2053  ............................................................  2112
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        2053  ............................................................  2112
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  2053  ............................................................  2112
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  2053  ............................................................  2112
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             2065  ...........A................................................  2124
+
+Query_5                                                   2101  TTGCTTAATGCATCTTGGTTCAACTCCTTCCTCACACATGCACTGAAATAG  2151
+Avian_Shorebird_gi|357395508|gb|CY102193|Influenza        2113  ...................................................  2163
+Avian_Shorebird_gi|454158911|gb|CY136893|Influenza        2113  ...................................................  2163
+Avian_Ruddy-turnstone_gi|454162771|gb|CY136903|Influenza  2113  ...................................................  2163
+Avian_Ruddy-turnstone_gi|423514923|gb|CY127258|Influenza  2113  ...................................................  2163
+Avian_Duck_gi|115279537|gb|CY015172|Influenza             2125  ...................................................  2175
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 348889019897
+
+
+Query= querySeq6
+
+Length=2277
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+Swine_Swine_gi|216409227|gb|AB434294|Influenza A virus (A/swine/R...  4205    0.0  
+Swine_Swine_gi|216409209|gb|AB434286|Influenza A virus (A/swine/R...  3746    0.0  
+Swine_Swine_gi|225733870|gb|CY038021|Influenza A virus (A/swine/D...  3705    0.0  
+Swine_Swine_gi|225733592|gb|CY037904|Influenza A virus (A/swine/E...  3694    0.0  
+Swine_Swine_gi|225733813|gb|CY037997|Influenza A virus (A/swine/S...  3672    0.0  
+
+
+
+Query_6                                         1     ATGGATGTCAATCCGACTTTGCTTTTCTTAAAAGTGCCAGCGCAAAATGCTATAAGCACC  60
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1     ............................................................  60
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1     ....................A.......................................  60
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1     ...........C......C.A........G.............................T  60
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1     ...........C......C.A........G.............................T  60
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1     ...........C......C.A........G.............................T  60
+
+Query_6                                         61    ACATTCCCTTATACTGGAGATCCTCCATACAGTCATGGGACAGGGACAGGGTACACCATG  120
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  61    ............................................................  120
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  61    .................T....................A...........A.....T...  120
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  61    ......................................A...........A.........  120
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  61    ......................................A...........A.........  120
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  61    ......................................A...........A.........  120
+
+Query_6                                         121   GACACGGTCAATAGGACACATCAATACTCAGAAAGGGGAAAATGGACAACAAACACAGAG  180
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  121   ............................................................  180
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  121   ...........C................................................  180
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  121   ...........C..............T.................................  180
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  121   ...........C..............T.................................  180
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  121   ...........C..............T.......A.........................  180
+
+Query_6                                         181   ACTGGAGCACCCCAGCTTAACCCGATTGATGGGCCACTACCTGAGGACAATGAACCAAGC  240
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  181   ............................................................  240
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  181   ...........................................................T  240
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  181   ................................A...........................  240
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  181   .............................C..A...........................  240
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  181   ..............C.................A...........................  240
+
+Query_6                                         241   GGATATGCACAAACAGACTGTGTCTTGGAGGCAATGGCTTTCCTTGAGGAATCCCACCCA  300
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  241   ............................................................  300
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  241   ........................C......................A............  300
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  241   ........................C...................................  300
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  241   ........................C...................................  300
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  241   ........................C...................................  300
+
+Query_6                                         301   GGAATATTTGAAAACTCGTGTATTGAGGCGATGGAGGTTGTTCAACAAACAAGAGTGGAC  360
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  301   ............................................................  360
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  301   .....................C.................A.C...........G......  360
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  301   .....................C.....A.............C..................  360
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  301   .....................C.....A.............C..................  360
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  301   .....................C.....A.............C..................  360
+
+Query_6                                         361   AAATTGACTCAAGGTCGTCAGACCTATGACTGGACATTAAACAGAAACCAACCGGCTGCA  420
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  361   ............................................................  420
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  361   ............................................................  420
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  361   ..............C..C..........................................  420
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  361   ............................................................  420
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  361   ............................................................  420
+
+Query_6                                         421   ACTGCTTTGGCCAACACCATAGAAGTCTTCAGGTTGAACAGTCTAACAGCTAATGAATCG  480
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  421   ............................................................  480
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  421   ..............T..T.....G................................T..A  480
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  421   .......................G........AC..........................  480
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  421   .......................G....................................  480
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  421   .......................G....................................  480
+
+Query_6                                         481   GGGAGGCTAATGGACTTCCTTAAAGATGTGATGGAATCAATGGATAAAGAAGAGATGGAA  540
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  481   ............................................................  540
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  481   ...........A..T........G.......................G............  540
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  481   ...........A..T........G....................................  540
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  481   ...........A...........G....................................  540
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  481   ...........A..T......................................A......  540
+
+Query_6                                         541   ATAACAACACATTTCCAAAGGAAAAGAAGAGTAAGAGACAATATGACCAAGAAAATGGTA  600
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  541   ............................................................  600
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  541   ............................................................  600
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  541   .........................................C..................  600
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  541   ...................................G.....C..A...............  600
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  541   ...................................G.....C..................  600
+
+Query_6                                         601   ACACAAAGGACAATAGGAAAGAAGAAACAGAAACTAGACAGGAGGAATTATCTAATAAGG  660
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  601   ............................................................  660
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  601   ..............................C....GA......................A  660
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  601   ........A........G..A..............GA...A.....G............A  660
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  601   ........A..........................GA...A.....G............A  660
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  601   ........A..........................GA...A.....G............A  660
+
+Query_6                                         661   GCATTGACATTAAACACAATGACAAAGGATGCAGAAAGAGGCAAGTTGAAAAGACGTGCA  720
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  661   ............................................................  720
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  661   ..........................A.................................  720
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  661   .....................................................G......  720
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  661   .........C................A.................A........G......  720
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  661   .........C................A..........................G......  720
+
+Query_6                                         721   ATTGCAACACCAGGAATGCAGATAAGAGGGTTTGTGTACTTCGTAGAAACACTGGCAAGG  780
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  721   ............................................................  780
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  721   ...........T..G.....A...........C...........................  780
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  721   ..............G........C................................G...  780
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  721   ..............G........C................................G...  780
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  721   ..............G........C................................G...  780
+
+Query_6                                         781   AGCATCTGTGAGAAGCTTGAGCAGTCTGGGCTCCCAGTTGGAGGGAATGAAAAGAAAGCC  840
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  781   ............................................................  840
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  781   T.............A........A.................G........G.........  840
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  781   ..............A........A....................A...............  840
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  781   ..............A........A....................................  840
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  781   ...........T..A........A....................A...............  840
+
+Query_6                                         841   AAATTGGCAAATGTTGTGAGAAAAATGATGACCAACTCACAAGATACAGAACTCTCCTTT  900
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  841   ............................................................  900
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  841   .................A................................G.........  900
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  841   ..................................................G.........  900
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  841   .....A............................................G.........  900
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  841   ..................................................G.........  900
+
+Query_6                                         901   ACAATTACTGGAGACAACACCAAATGGAATGAGAATCAAAGCCCTCGGATGTTTCTAGCG  960
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  901   ............................................................  960
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  901   ........................................A...................  960
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  901   ................................A.......A...............G...  960
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  901   ................................A.......A...............G...  960
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  901   ................................A.......A...............G...  960
+
+Query_6                                         961   ATGATAACGTACATCACAAGGAATCAGCCTGAATGGTTCAGAAATGTTTTGAGCATCGCC  1020
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  961   ............................................................  1020
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  961   .....................................................T......  1020
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  961   ....................A.......................................  1020
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  961   ....................A.......................................  1020
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  961   ....................A...................................T...  1020
+
+Query_6                                         1021  CCTATAATGTTCTCGAACAAGATGGCAAGGTTAGGGAAAGGATACATGTTCGAAAGTAAG  1080
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1021  ............................................................  1080
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1021  ..............A.........................................C...  1080
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1021  ..............A.....A.......................................  1080
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1021  ..............A.....A.......................................  1080
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1021  ..............A.....A.......................................  1080
+
+Query_6                                         1081  AGCATGAAGCTAAGGACACAAATACCAGCAGAAATGCTTGCAAACATTGACTTGAAATAC  1140
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1081  ............................................................  1140
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1081  .........A..C.............G............A.......C............  1140
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1081  ............C..................................C............  1140
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1081  ............C.........................A.....................  1140
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1081  .A..........C.........................A.....................  1140
+
+Query_6                                         1141  TTCAATGAATCAACAAGAAAGAAAATCGAGAAGATAAGGCCACTCCTAATAGAGGGCACA  1200
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1141  ............................................................  1200
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1141  ..............G..G...........A.............................G  1200
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1141  .................G...................................T.....G  1200
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1141  .................G...................................T.....G  1200
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1141  .................G....................A..............T.....G  1200
+
+Query_6                                         1201  GCCTCATTGAGTCCCGGAATGATGATGGGCATGTTTAACATGCTGAGCACAGTCCTAGGA  1260
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1201  ............................................................  1260
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1201  ...........C................................................  1260
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1201  ............................................................  1260
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1201  ..............T.............................A...............  1260
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1201  ..............T.............................A...............  1260
+
+Query_6                                         1261  GTCTCAATCTTGAATCTTGGGCAAAAGAGATACACTAAAACCACATACTGGTGGGATGGA  1320
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1261  ............................................................  1320
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1261  .....G.............................C........................  1320
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1261  .....G......................................................  1320
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1261  .....G......................................................  1320
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1261  .....G......................................................  1320
+
+Query_6                                         1321  CTCCAATCTTCTGATGACTTCGCCCTCATAGTGAATGCACCTAACCATGAGGGAATACAG  1380
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1321  ............................................................  1380
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1321  ...........................................................A  1380
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1321  .........................................C..T..............A  1380
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1321  ............................................T..............A  1380
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1321  ............................................T..............A  1380
+
+Query_6                                         1381  GCTGGAGTGAATAGGTTTTATAGGACCTGTAAACTGGTTGGAATCAATATGAGCAAAAAG  1440
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1381  ............................................................  1440
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1381  ..A......G...................C..............................  1440
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1381  ..A......G...................C..............................  1440
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1381  ..A......G...................C..............................  1440
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1381  ..A......G...................C..............................  1440
+
+Query_6                                         1441  AAATCTTACATAAATAAGACAGGAACATTCGAATTCACAAGCTTTTTCTACCGCTATGGG  1500
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1441  ............................................................  1500
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1441  ................G............T....................T.........  1500
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1441  ................G............T..............................  1500
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1441  ................G............T.............................T  1500
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1441  ................G............T.............................T  1500
+
+Query_6                                         1501  TTTGTAGCCAATTTCAGTATGGAGCTACCCAGTTTTGGGGTATCTGGGGTTAATGAATCA  1560
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1501  ............................................................  1560
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1501  .........................................G.................G  1560
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1501  .................C..............C........G.................G  1560
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1501  ................................C........G.................G  1560
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1501  ................................C........G.................G  1560
+
+Query_6                                         1561  GCTGATATGAGCATTGGAGTGACAGTGATAAAGAATAACATGATAAACAATGATCTTGGA  1620
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1561  ............................................................  1620
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1561  ............................................................  1620
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1561  ...................................C........................  1620
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1561  ...................................C........................  1620
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1561  ...................................C........................  1620
+
+Query_6                                         1621  CCAGCAACTGCCCAAATGGCTCTTCAGCTATTCATCAAAGACTACAGGTACACATACCGG  1680
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1621  ............................................................  1680
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1621  ......................................G.....................  1680
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1621  ......................................G.....................  1680
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1621  ............................................................  1680
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1621  ............................................................  1680
+
+Query_6                                         1681  TGCCACAGAGGTGACAAGCAAATCCAAACGAGAAGATCATTTGAGCTGAAGAAGCTATGG  1740
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1681  ............................................................  1740
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1681  ........G...................................................  1740
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1681  ................C...........................................  1740
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1681  .........A......C.................................A.........  1740
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1681  .........A......Y....................................A......  1740
+
+Query_6                                         1741  GAGCAAACCCATTCAAAGGCAGGACTACTAGTTTCAGATGGAGGACCAAATCTATACAAT  1800
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1741  ............................................................  1800
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1741  ..................A..........G..............................  1800
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1741  ..................A..........G..C...........................  1800
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1741  .................AA....G.....G..............G...............  1800
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1741  .....G............A....G.....G..............................  1800
+
+Query_6                                         1801  ATCCGGAACCTCCACATTCCAGAAGTCTGCTTGAAGTGGGAGCTAATGGATGAAGATTAT  1860
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1801  ............................................................  1860
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1801  ..........................A.................G...............  1860
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1801  ............................................................  1860
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1801  ....................G.......................................  1860
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1801  ....................G.......................................  1860
+
+Query_6                                         1861  AAGGGTAGATTGTGCAATCCTCTGAATCCATTTGTTAGCCACAAGGAAATTGAATCCGTA  1920
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1861  ............................................................  1920
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1861  .G...................................................G......  1920
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1861  CGA...........T......................................G......  1920
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1861  CG............T......................................G......  1920
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1861  CG............T......................................G......  1920
+
+Query_6                                         1921  AACAATGCAGTGATAATGCCCGCTCATGGTCCAGCCAAGAGCATGGAGTATGATGCTGTT  1980
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1921  ............................................................  1980
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1921  ....G...C...................................................  1980
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1921  ....G...C...G.......A..........................A............  1980
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1921  ....G...C...G.......A..........................A............  1980
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1921  ....G...C...G.......A..........................A............  1980
+
+Query_6                                         1981  GCAACTACACACTCTTGGATCCCTAAAAGGAACCGTTCCATTCTCAATACCAGCCAAAGG  2040
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  1981  ............................................................  2040
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  1981  ...................CT.......................................  2040
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  1981  ....................T.......................................  2040
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  1981  ............................................................  2040
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  1981  ....................T.......................................  2040
+
+Query_6                                         2041  GGAATTCTTGAGGATGAACAAATGTACCAGAAGTGCTGTAATCTATTTGAGAAATTCTTC  2100
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  2041  ............................................................  2100
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  2041  ......................................C.....................  2100
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  2041  ......................................C........C............  2100
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  2041  ...................G..................C........C............  2100
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  2041  ......................................C........C............  2100
+
+Query_6                                         2101  CCTAGCAGTACATACAGGAGGCCAGTTGGAATTTCAAGCATGGTGGAGGCCATGGTATCT  2160
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  2101  ............................................................  2160
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  2101  .........T.........................C....................G...  2160
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  2101  .........T......A..................C........................  2160
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  2101  .........T.........................C........................  2160
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  2101  .........T.........................C........................  2160
+
+Query_6                                         2161  AGGGCCAGGATTGATGCACGGATTGATTTCGAATCTGGAAGGATCAAGAAAGAAGAGTTT  2220
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  2161  ............................................................  2220
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  2161  ...............................................A..G.........  2220
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  2161  ................................G...........T...............  2220
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  2161  ................................G...........T...............  2220
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  2161  ................................G...........T...............  2220
+
+Query_6                                         2221  GCTGAGATCATGAAGATCTGTTCCACCATTGAAGAGATCAGACGGCAGAAACAGTGA  2277
+Swine_Swine_gi|216409227|gb|AB434294|Influenza  2221  .........................................................  2277
+Swine_Swine_gi|216409209|gb|AB434286|Influenza  2221  ...................................................        2271
+Swine_Swine_gi|225733870|gb|CY038021|Influenza  2221  ....................................T.............         2270
+Swine_Swine_gi|225733592|gb|CY037904|Influenza  2221  ....................................C.............         2270
+Swine_Swine_gi|225733813|gb|CY037997|Influenza  2221  .T..................................C.............         2270
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 369595575011
+
+
+Query= querySeq7
+
+Length=2280
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza A virus (A/malla...  4211    0.0  
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza A virus (A/malla...  4045    0.0  
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza A virus (A/shov...  4012    0.0  
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza A virus (A/pinta...  3962    0.0  
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza A virus (A/turkey...  3956    0.0  
+
+
+
+Query_7                                            1     ATGGAGAGAATAAAAGAACTAAGAGATCTAATGTCACAATCCCGCACCCGCGAGATACTC  60
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   16    ............................................................  75
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   16    ............................................................  75
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  16    ............................................................  75
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   16    ............................................................  75
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    16    ............................................................  75
+
+Query_7                                            61    ACCAAAACCACTGTGGACCACATGGCCATAATCAAAAAATACACATCAGGAAGGCAAGAA  120
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   76    ............................................................  135
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   76    ...........................................................G  135
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  76    ...........................................................G  135
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   76    ...........................................................G  135
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    76    ...........................................................G  135
+
+Query_7                                            121   AAGAACCCTGCACTCAGGATGAAGTGGATGATGGCAATGAAATATCCAATTACAGCAGAT  180
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   136   ............................................................  195
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   136   ...................................G.................G......  195
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  136   .....................................................G......  195
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   136   ............................................C........G......  195
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    136   ........C............................................G......  195
+
+Query_7                                            181   AAGAGAATAATGGAAATGATTCCTGAAAGGAATGAACAAGGACAAACCCTCTGGAGCAAA  240
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   196   ............................................................  255
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   196   ............................................................  255
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  196   ............................................................  255
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   196   ............................................................  255
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    196   ............................................................  255
+
+Query_7                                            241   ACAAACGATGCCGGCTCAGACCGAGTGATGGTGTCACCTCTGGCTGTGACATGGTGGAAT  300
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   256   ............................................................  315
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   256   ............................................................  315
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  256   ............................................................  315
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   256   ............................................................  315
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    256   ............................................................  315
+
+Query_7                                            301   AGGAATGGACCAACAACAAGTACAGTTCACTACCCAAAGGTGTATAAAACCTACTTCGAA  360
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   316   ............................................................  375
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   316   ..................................................T.........  375
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  316   ..................................................T..T......  375
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   316   .....................................G............T.........  375
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    316   ..................................................T..T......  375
+
+Query_7                                            361   AAAGTCGACAGGTTGAAACATGGGACCTTTGGCCCCGTTCACTTCAGAAATCAAGTTAAA  420
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   376   ............................................................  435
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   376   ......................................C....................G  435
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  376   ......................................C....................G  435
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   376   .......G..............................C....................G  435
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    376   ..............A.......................C....................G  435
+
+Query_7                                            421   ATAAGACGAAGAGTTGACATAAACCCTGGCCACGCAGACCTCAGTGCCAAAGAGGCACAG  480
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   436   ............................................................  495
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   436   ............................................................  495
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  436   ............................................................  495
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   436   ............................................................  495
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    436   ........G...................................................  495
+
+Query_7                                            481   GATGTAATCATGGAAGTTGTTTTCCCAAATGAAGTGGGAGCTAGAATACTAACATCGGAG  540
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   496   ............................................................  555
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   496   ............................................................  555
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  496   ............................................................  555
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   496   ............................................................  555
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    496   ............................................................  555
+
+Query_7                                            541   TCACAACTGACAATAACAAAGGAGAAGAAGGAAGAACTCCATGACTGTAAAATTGCTCCC  600
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   556   ............................................................  615
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   556   .........................................G..............C...  615
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  556   .........................................G..............C...  615
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   556   .........................................G..............C...  615
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    556   .........................................G..............C...  615
+
+Query_7                                            601   TTGATGGTAGCATACATGCTAGAAAGAGAGTTGGTCCGCAAAACGAGGTTCCTCCCAGTG  660
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   616   ............................................................  675
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   616   ...............................................A............  675
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  616   ...............................................A............  675
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   616   ...............................................A............  675
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    616   ...............................................A..T........A  675
+
+Query_7                                            661   GCTGGTGGAACAAGTAGTGTCTATATTGAGGTGTTGCATTTAACCCAGGGGACATGCTGG  720
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   676   ............................................................  735
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   676   ............................................................  735
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  676   ............................................................  735
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   676   ....................T.......................................  735
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    676   ..............C.............................................  735
+
+Query_7                                            721   GAGCAGATGTACACTCCAGGAGGGGAGGTAAGAAATGATGATGTCGATCAAAGCTTGATT  780
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   736   ............................................................  795
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   736   ...............................................C............  795
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  736   .....A......................................T..C............  795
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   736   ...............................................C............  795
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    736   ...............................................C............  795
+
+Query_7                                            781   ATTGCTGCCAGGAACATAGTAAGAAGAGCAACAGTATCAGCAGACCCACTAGCATCTCTA  840
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   796   ............................................................  855
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   796   ..C.............................G...........................  855
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  796   ..C.............................G...........................  855
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   796   ..C.............................G..G........................  855
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    796   ..C.....................C.......G...........................  855
+
+Query_7                                            841   TTGGAGATGTGCCACAGCACACAGATTGGGGGAATAAGGATGGTAGACATCCTTAGACAA  900
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   856   ............................................................  915
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   856   ............................................................  915
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  856   ............................................................  915
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   856   ............................................................  915
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    856   ............................................................  915
+
+Query_7                                            901   AACCCAACAGAGGAACAAGCCGTAGACATATGCAAGGCAGCAATGGGCTTGAGGATCAGC  960
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   916   ............................................................  975
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   916   .......................G................................T...  975
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  916   .......................G................................T...  975
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   916   ..............G................................A........T...  975
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    916   ..T....................G................................T...  975
+
+Query_7                                            961   TCATCTTTCAGCTTCGGTGGATTCACTTTCAAAAGAACAAGCGGGTCATCAGTCAAGAGA  1020
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   976   ............................................................  1035
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   976   ............................................................  1035
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  976   ............................................................  1035
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   976   .......................T....................................  1035
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    976   ...........................................................G  1035
+
+Query_7                                            1021  GAAGAAGAAGTGCTTACAGGCAACCTTCAAACACTGAAAATAAAGGTACATGAAGGGTAT  1080
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1036  ............................................................  1095
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1036  ...........................................G................  1095
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1036  ...........................................G................  1095
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1036  ..............C..................A.........G................  1095
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1036  ...........................................G................  1095
+
+Query_7                                            1081  GAAGAGTTCACAATGGTTGGGAGAAGAGCAACAGCCATTCTCAGAAAGGCAACCAGGAGA  1140
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1096  ............................................................  1155
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1096  ............................................................  1155
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1096  ............................................................  1155
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1096  ................................G...........................  1155
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1096  ....................A......................................G  1155
+
+Query_7                                            1141  TTGATCCAGCTAATAGTAAGTGGGAGAGACGAGCAGTCGATTGCTGAAGCGATAATTGTG  1200
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1156  ............................................................  1215
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1156  ......................................A...........A.........  1215
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1156  ................................A.....A...........A.........  1215
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1156  ......................................A...........A.........  1215
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1156  ......................................A...........A.........  1215
+
+Query_7                                            1201  GCCATGGTGTTTTCACAAGAGGATTGCATGATCAAGGCAGTTCGAGGTGATCTGAACTTT  1260
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1216  ............................................................  1275
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1216  ............................................................  1275
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1216  ............................................................  1275
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1216  ..................................G.........................  1275
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1216  ............................................................  1275
+
+Query_7                                            1261  GTCAATAGGGCAAACCAACGACTGAATCCCATGCACCAACTCTTGAGACATTTCCAAAAG  1320
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1276  ............................................................  1335
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1276  .................G.................T........................  1335
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1276  .................G.................T........................  1335
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1276  .................G........C........T.....T..................  1335
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1276  .................G.................T........................  1335
+
+Query_7                                            1321  GATGCAAAAGTGCTTTTCCAAAACTGGGGAGTTGAACCCATCGACAATGTGATGGGAATG  1380
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1336  ............................................................  1395
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1336  ..............................A.........................G...  1395
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1336  ..............................A.....T...................G...  1395
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1336  ..............................A...................A.....G...  1395
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1336  ..............................A.............................  1395
+
+Query_7                                            1381  ATCGGAATATTGCCCGACATGACCCCAAGTACTGAGATGTCGCTGAGGGGGATAAGAGTC  1440
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1396  ............................................................  1455
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1396  ............................................................  1455
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1396  ...............................................A............  1455
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1396  ............................................................  1455
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1396  ...........A................................................  1455
+
+Query_7                                            1441  AGCAAAATGGGAGTAGATGAATACTCCAGCACAGAGAGGGTGGTGGTGAGCATTGACCGA  1500
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1456  ............................................................  1515
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1456  ............................................................  1515
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1456  ............................................................  1515
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1456  ............................................................  1515
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1456  ............................................................  1515
+
+Query_7                                            1501  TTTTTGAGAGTTCGGGACCAACGGGGGAACATACTATTGTCACCCGAAGAAGTCAGCGAG  1560
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1516  ............................................................  1575
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1516  .................T........A...G.............................  1575
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1516  .................T........A...G.............................  1575
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1516  .................T........A...G.............................  1575
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1516  ........G........T........A...G.............................  1575
+
+Query_7                                            1561  ACGCAAGGAACGGAGAAACTGACAATAACTTATTCGTCATCAATGATGTGGGAGATCAAT  1620
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1576  ............................................................  1635
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1576  .................G................T.........................  1635
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1576  .................G..........................................  1635
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1576  ..............A..G.................A........................  1635
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1576  .................G..........................................  1635
+
+Query_7                                            1621  GGTCCTGAATCGGTGCTGGTCAATACTTATCAGTGGATCATTAGGAACTGGGAGACTGTG  1680
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1636  ............................................................  1695
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1636  ............................................................  1695
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1636  ...........A................................................  1695
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1636  ............................................................  1695
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1636  ............................................................  1695
+
+Query_7                                            1681  AAAATTCAATGGTCACAGGATCCCACAATGTTATATAATAAGATGGAATTCGAGCCATTT  1740
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1696  ............................................................  1755
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1696  ............................................................  1755
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1696  ............................................................  1755
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1696  ............................................................  1755
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1696  ............................................................  1755
+
+Query_7                                            1741  CAGTCTCTGGTCCCTAAGGCAGCTAGAGGTCAATACAGCGGATTCGTAAGGACACTGTTC  1800
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1756  ............................................................  1815
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1756  .......................C....................................  1815
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1756  .......................C.......................G............  1815
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1756  .......................C....................................  1815
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1756  ....................G..C....................................  1815
+
+Query_7                                            1801  CAGCAAATGCGGGATGTACTTGGAACATTTGACACTGTCCAGATAATAAAGCTTCTCCCT  1860
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1816  ............................................................  1875
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1816  ............................................................  1875
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1816  ............................................................  1875
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1816  ......................................T.....................  1875
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1816  ............................................................  1875
+
+Query_7                                            1861  TTTGCTGCTGCTCCACCAGAACAGAGTAGGATGCAGTTCTCCTCCCTGACTGTGAATGTG  1920
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1876  ............................................................  1935
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1876  ............................................T...............  1935
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1876  ............................................................  1935
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1876  ............................................................  1935
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1876  ........C...................................................  1935
+
+Query_7                                            1921  AGGGGATCAGGAATGAGGATACTGGTAAGAGGCAATTCTCCAGTGTTCAATTACAACAAA  1980
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1936  ............................................................  1995
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1936  ...........................................................G  1995
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1936  ...........................................................G  1995
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1936  ...........................................................G  1995
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1936  ..A........................................................G  1995
+
+Query_7                                            1981  GCCACCAAGAGGCTTACAGTCCTCGGAAAAGATGCAGGTGCATTGACTGAAGATCCAGAT  2040
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   1996  ............................................................  2055
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   1996  ............................................................  2055
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  1996  ............................................................  2055
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   1996  .......................................T....................  2055
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    1996  ...............................................C............  2055
+
+Query_7                                            2041  GAAGGCACAGCTGGAGTAGAGTCTGCTGTTCTGAGAGGATTTCTCATTTTGGGCAAAGAA  2100
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   2056  ............................................................  2115
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   2056  .................G..........................................  2115
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  2056  .................G..........................................  2115
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   2056  .................G..........................................  2115
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    2056  .................G..........................................  2115
+
+Query_7                                            2101  GACAAGAGATATGGACCAGCGCTAAGCATCAACGAACTAAGCAATCTTGCAAAAGGGGAG  2160
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   2116  ............................................................  2175
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   2116  ............................................................  2175
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  2116  ........................................................A...  2175
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   2116  ............................................................  2175
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    2116  ......................................G.................A...  2175
+
+Query_7                                            2161  AAGGCTAATGTGCTAATTGGGCAAGGAGACGTGGTGTTGGTAATGAAACGGAAACGGGAC  2220
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   2176  ............................................................  2235
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   2176  ............................................................  2235
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  2176  ............................................................  2235
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   2176  ............................................................  2235
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    2176  ............................................................  2235
+
+Query_7                                            2221  TCTAGCATACTTACTGACAGCCAGACAGCGACCAAAAGAATTCGGATGGCCATCAATTAG  2280
+Avian_Mallard_gi|357381544|gb|CY101570|Influenza   2236  ............................................................  2295
+Avian_Mallard_gi|596539786|gb|CY177797|Influenza   2236  ............................................................  2295
+Avian_Shoveler_gi|596607467|gb|CY181068|Influenza  2236  ............................................................  2295
+Avian_Pintail_gi|596570029|gb|CY178846|Influenza   2236  ............................................................  2295
+Avian_Turkey_gi|195957942|gb|EU982323|Influenza    2236  ............................................................  2295
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 370088588228
+
+
+Query= querySeq8
+
+Length=982
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+Avian_Quail_gi|326698680|gb|CY087833|Influenza A virus (A/quail/I...  1814    0.0  
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza A virus (A/sh...  1814    0.0  
+Avian_Quail_gi|78097927|gb|CY005795|Influenza A virus (A/quail/It...  1814    0.0  
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza A Virus (A/quail/I...  1779    0.0  
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza A Virus (A/duck/Ita...  1762    0.0  
+
+
+
+Query_8                                              1     ATGAGTCTTCTGACCGAGGTCGAAACGTACGTTCTCTCTATCGTCCCGTCAGGCCCCCTC  60
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       14    ............................................................  73
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  14    ............................................................  73
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        26    ............................................................  85
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       11    ............................................................  70
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        11    ............................................................  70
+
+Query_8                                              61    AAAGCCGAGATCGCGCAGAGACTTGAAGATGTTTTTGCAGGGAAGAACACAGACCTTGAG  120
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       74    ............................................................  133
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  74    ............................................................  133
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        86    ............................................................  145
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       71    ............................................................  130
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        71    .....................................................T......  130
+
+Query_8                                              121   GCTCTCATGGAATGGCTAAAGACAAGACCAATCCTGTCACCTCTGACTAAGGGGATTTTA  180
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       134   ............................................................  193
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  134   ............................................................  193
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        146   ............................................................  205
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       131   ............................................................  190
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        131   ............................................................  190
+
+Query_8                                              181   GGATTTGTGTTTACGCTCACCGTGCCCAGTGAGCAAGGACTGCAGCGTAGACGCTTTGTC  240
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       194   ............................................................  253
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  194   ............................................................  253
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        206   ............................................................  265
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       191   ..................................G.........................  250
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        191   ..................................G........................T  250
+
+Query_8                                              241   CAAAATGCCCTAAACGGGAACGGGGACCCAAACAACATGGATAGGGCCGTCAAGCTGTAT  300
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       254   ............................................................  313
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  254   ............................................................  313
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        266   ............................................................  325
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       251   ...........................................................C  310
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        251   ...........................................................C  310
+
+Query_8                                              301   AGGAAGCTGAAAAGAGAGATAACATTCCATGGAGCCAAGGAAGTGGCACTCAGCTACTCA  360
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       314   ............................................................  373
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  314   ............................................................  373
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        326   ............................................................  385
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       311   ............................................................  370
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        311   ............................................................  370
+
+Query_8                                              361   GCTGGTGCACTTGCTAGCTGCATGGGCCTCATATACAACAGGATGGGAACAGTGACCACC  420
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       374   ............................................................  433
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  374   ............................................................  433
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        386   ............................................................  445
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       371   ............................................................  430
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        371   ............................................................  430
+
+Query_8                                              421   GAGGTGGCTTTTGGCCTAGTGTGTGCCACTTGTGAACAGATTGCTGATTCACAGCATCGG  480
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       434   ............................................................  493
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  434   ............................................................  493
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        446   ............................................................  505
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       431   .....A........T.............................................  490
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        431   ............................................................  490
+
+Query_8                                              481   TCTCATCGACAGATGGTGACAACCACCAACCCACTAATCAGGCATGAAAACAGGATGGTG  540
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       494   ............................................................  553
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  494   ............................................................  553
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        506   ............................................................  565
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       491   ............................................................  550
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        491   ............................................................  550
+
+Query_8                                              541   CTGGCAAGCACTACAGCTAGGGCTATGGAGCAGATGGCTGGGTCGAGTGAACAGGCAGCG  600
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       554   ............................................................  613
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  554   ............................................................  613
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        566   ............................................................  625
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       551   ...................A........................................  610
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        551   ..............T....A........................................  610
+
+Query_8                                              601   GAAGCCATGGAAGTTGCTAGTCAGGCTAGGCAGATGGTGCAGGCGATGAGGACAATTGGG  660
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       614   ............................................................  673
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  614   ............................................................  673
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        626   ............................................................  685
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       611   ............................................................  670
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        611   ............................................................  670
+
+Query_8                                              661   ACTCATCCTAGCTCCAGTGCTGGTCTAAAAGATGATCTTCTTGAAAATTTGCAGACCTAC  720
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       674   ............................................................  733
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  674   ............................................................  733
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        686   ............................................................  745
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       671   ............................................................  730
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        671   ......................................................G.....  730
+
+Query_8                                              721   CAGAAACGGATGGGAGTGCAGATGCAGCGATTCAAGTGATCCTCTCATTATTGCCGCAAG  780
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       734   ............................................................  793
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  734   ............................................................  793
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        746   ............................................................  805
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       731   ............................................................  790
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        731   ............................................................  790
+
+Query_8                                              781   TATCATTGGGATCTTGCACTTGATATTGTGGATTCTTGATCGTCTTTTCTTCAAATGTAT  840
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       794   ............................................................  853
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  794   ............................................................  853
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        806   ............................................................  865
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       791   ............................................................  850
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        791   ..........................................C.................  850
+
+Query_8                                              841   TTATCGTCGCCTTAAATACGGTTTGAAAAGAGGGCCTTCTACGGAAGGAATGCCTGAGTC  900
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       854   ............................................................  913
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  854   ............................................................  913
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        866   ............................................................  925
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       851   ............................................................  910
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        851   ............................................................  910
+
+Query_8                                              901   TATGAGGGAAGAATATCGGCAGGAACAGCAGAGTGCTGTGGGTGTTGACGATGGTCATTT  960
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       914   ............................................................  973
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  914   ............................................................  973
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        926   ............................................................  985
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       911   .........................................A..................  970
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        911   .........................................A..................  970
+
+Query_8                                              961   TGTCAACATAGAGCTGGAATAA  982
+Avian_Quail_gi|326698680|gb|CY087833|Influenza       974   ......................  995
+Avian_Shearwater_gi|326698512|gb|CY087761|Influenza  974   ......................  995
+Avian_Quail_gi|78097927|gb|CY005795|Influenza        986   ......................  1007
+Avian_Quail_gi|255965039|gb|GQ404580|Influenza       971   .....................   991
+Avian_Duck_gi|255965048|gb|GQ404583|Influenza        971   .....................   991
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 157042715470
+
+
+Query= querySeq9
+
+Length=1701
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza A virus (A/duck/Gua...  3131    0.0  
+Avian_Duck_gi|398324976|gb|JX304746|Influenza A virus (A/duck/Gua...  2942    0.0  
+Avian_Duck_gi|398324980|gb|JX304762|Influenza A virus (A/duck/Gua...  2859    0.0  
+Avian_Duck_gi|380867216|gb|CY109746|Influenza A virus (A/duck/Sha...  2826    0.0  
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza A virus (A/duck/Hun...  2798    0.0  
+
+
+
+Query_9                                        1     ATGATTGCATTCATTGTAATAGCAATACTGGTAACGACCGGAGAATCAGACAAGATATGC  60
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  1     ............................................................  60
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  18    .................................G..........................  77
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  18    .................................G........A.................  77
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  1     .................................G.A..T...A.................  60
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  1     .................................G.A..T...A..........A......  60
+
+Query_9                                        61    ATTGGATATCATGCCAACAATTCGACAACAAAAGTAGATACGATACTCGAAAAGAACGTA  120
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  61    ............................................................  120
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  78    ..................................................G.........  137
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  78    ................................G.................G.........  137
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  61    .......................A........G..............T..G.........  120
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  61    .......................A..........................G.........  120
+
+Query_9                                        121   ACCGTCACACACTCAGTTGAACTGCTGGAGAACCAGAAAGAAGAAAGATTCTGCAAAATC  180
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  121   ............................................................  180
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  138   ............................................................  197
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  138   ............................................................  197
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  121   ............................................................  180
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  121   ............................................................  180
+
+Query_9                                        181   TCAAACAAAGCCCCTCTCGATCTAAGGGATTGTACCATAGAAGGTTGGATCTTGGGGAAT  240
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  181   ............................................................  240
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  198   .........................................G..................  257
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  198   .........................................G..............A...  257
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  181   .........................................G..................  240
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  181   ........G...........C....................G..................  240
+
+Query_9                                        241   CCCCGATGCGGCATACTTCTTGCCGATCAAAGCTGGTCATACATAGTGGAACGGCCTAAT  300
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  241   ............................................................  300
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  258   .......................T....................................  317
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  258   .................G.....T..C.................................  317
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  241   .................G.....T..C.................................  300
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  241   .................G.....T..C..............................G..  300
+
+Query_9                                        301   GCCCGAAATGGGATTTGCTATCCTGGAACGCTGAATGAAGCAGAAGAATTGAAGGCACTT  360
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  301   ............................................................  360
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  318   .............................A..............................  377
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  318   ....................C........AT.............................  377
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  301   .............................AT.............................  360
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  301   ..........................G..AT.............................  360
+
+Query_9                                        361   ATTGGATCAGGGGAAGGGGTAGAAAGGTTTGAGATGTTTCCCAAAAGTACATGGGCAGGA  420
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  361   ............................................................  420
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  378   ......................................C.....................  437
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  378   ...............A...........................................G  437
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  361   ...............A............................................  420
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  361   ...............AA...........................................  420
+
+Query_9                                        421   GTGGACACCAACAGTGGAGTATCAAGTGCTTGTCCTCTTGGTAATGGTCCATCTTTCTAC  480
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  421   ............................................................  480
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  438   ............................................................  497
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  438   ....................................T.G.....................  497
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  421   ..........G.................................................  480
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  421   ..........G................................................T  480
+
+Query_9                                        481   AGAAATCTTCTATGGATAATAAAACTCAAGTCATCAGAATATCCAGTAATTAGAGGAACT  540
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  481   ............................................................  540
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  498   ..G.........................................................  557
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  498   ..G.........................................................  557
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  481   ..G.........................................................  540
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  481   ..G.............................C...........................  540
+
+Query_9                                        541   TTCAACAACACTGGAGACAAGTCAGTTCTCTATTTTTGGGGTGTACACCATCCTCCTGTC  600
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  541   ............................................................  600
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  558   ......................................................T.....  617
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  558   ..............G.............................................  617
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  541   ............................................G...............  600
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  541   ..................................................C.........  600
+
+Query_9                                        601   ACAACTGAACAAAATGATCTGTATGGTTCTGGTAATCGATATGTTAGGATGGGTACTGAA  660
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  601   ............................................................  660
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  618   ................C...........................................  677
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  618   ............G...C..............................A............  677
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  601   ................C..............................A.....A......  660
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  601   ................C...................A.G........A.....A......  660
+
+Query_9                                        661   AGCATGAATTTTGCCAGAAACCCAGAGATTGCATTAAGGCCTGCTGTGAATGGTCAGAGA  720
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  661   ............................................................  720
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  678   ..........................A......AC.........................  737
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  678   ..........................A......GC.........................  737
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  661   ...................G......A.....GGC.........................  720
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  661   ...................G......A.....GGC.........................  720
+
+Query_9                                        721   TCCAGAATCGATTATTTCTGGTCCATTTTAAAACCAGGGGAAACCTTGAATGTAGAATCT  780
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  721   GG..........................................................  780
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  738   GG........................C.................................  797
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  738   GG........................C...................C.............  797
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  721   GG.....................AG.C.................................  780
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  721   GG........................C.................................  780
+
+Query_9                                        781   AACGGGAATTTAATAGCCCCTTGGTATGCATACAGATTTGTCAACAAAGATAGTAAAGGA  840
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  781   ............................................................  840
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  798   ............................................................  857
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  798   ............................................................  857
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  781   .........................................T..........A.......  840
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  781   .....................................................C......  840
+
+Query_9                                        841   GCCATATTCAGATCTAGCTTACCAATTGAAAACTGTGACGCCACATGCCAGACTGCTGAA  900
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  841   ............................................................  900
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  858   ..............A.AT........C..G.....C..T.....................  917
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  858   ................A.....................T.....................  917
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  841   ..............C.AT...........G........T...............A.....  900
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  841   ................AT....................T...............AT....  900
+
+Query_9                                        901   GGAGTGATAAGAACAAACAAAACATTTCAGAATGTGAGCCCTCTGTGGATTGGAGAATGC  960
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  901   ............................................................  960
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  918   .....A......................................................  977
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  918   ..............C.............................................  977
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  901   ..............C.............................................  960
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  901   ..............C.............................................  960
+
+Query_9                                        961   CCCAAGTATGTAAAAAGTAAGAGTCTAAGGCTTGCAACTGGACTAAGGAATGTTCCACAA  1020
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  961   ............................................................  1020
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  978   ........................T......................A............  1037
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  978   ............................................................  1037
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  961   ............................................................  1020
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  961   ............................................................  1020
+
+Query_9                                        1021  ATAGAAACTAGAGGACTTTTTGGAGCTATTGCAGGCTTCATTGAAGGAGGATGGACTGGA  1080
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  1021  ............................................................  1080
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  1038  ............................................................  1097
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  1038  ............................................................  1097
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  1021  ............................................................  1080
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  1021  ...........................................................T  1080
+
+Query_9                                        1081  ATGGTTGATGGATGGTATGGCTACCATCATGAAAATTCTCAAGGCTCAGGATATGCAGCT  1140
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  1081  ............................................................  1140
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  1098  ...A........................................................  1157
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  1098  ...A.......G................................................  1157
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  1081  ...A.......G................................................  1140
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  1081  ...A.......G................................................  1140
+
+Query_9                                        1141  GATAGAGAAAGCACTCAAAAGGCTATAGACGGAATTACGAATAAGGTCAATTCCATCATT  1200
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  1141  ............................................................  1200
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  1158  ............................................................  1217
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  1158  .........................................C..................  1217
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  1141  ......................................A..C..................  1200
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  1141  ......................................A..C..................  1200
+
+Query_9                                        1201  GATAAAATGAACACACAATTTGAGGCTGTGGATCATGAGTTTTCAAACCTGGAGAGAAGG  1260
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  1201  ............................................................  1260
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  1218  ...............................G....................G.......  1277
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  1218  .............................A.G............................  1277
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  1201  ............................CA.G............................  1260
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  1201  ............................CA.G........................G...  1260
+
+Query_9                                        1261  ATTGACAACCTGAACAAAAGAATGGAAGATGGATTTTTGGATGTTTGGACATACAACGCC  1320
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  1261  ............................................................  1320
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  1278  ....................................C...................T...  1337
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  1278  ....................................C.......C...............  1337
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  1261  ...........A........................C.......................  1320
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  1261  ...........A........................C.......................  1320
+
+Query_9                                        1321  GAACTATTGGTTCTTCTTGAAAACGAAAGAACACTAGATCTACATGATGCAAATGTGAAG  1380
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  1321  ............................................................  1380
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  1338  .........................G..................................  1397
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  1338  ..........................G...........C.....................  1397
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  1321  ......................................C.....................  1380
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  1321  ......................................C.....................  1380
+
+Query_9                                        1381  AACCTACATGAAAAGGTCAAATCACAACTAAGGGATAATGCTAATGACCTAGGGAACGGA  1440
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  1381  ............................................................  1440
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  1398  ..T........................................................G  1457
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  1398  ........................................................T..G  1457
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  1381  ...................................C.......................G  1440
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  1381  ...................................C.......................G  1440
+
+Query_9                                        1441  TGCTTTGAATTTTGGCATAAGTGTGACAATGAATGTATGGAGTCTGTCAAAAATGGTACC  1500
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  1441  ............................................................  1500
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  1458  ............................................................  1517
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  1458  ...............................................A............  1517
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  1441  ............................................................  1500
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  1441  ............................................................  1500
+
+Query_9                                        1501  TATAACTATCCCAAATATCAAAAAGAGAGTAGGTTAAACAGACAGAAAATAGAATCGGTA  1560
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  1501  ............................................................  1560
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  1518  ..............G.............................................  1577
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  1518  ...G....C.....G.............................................  1577
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  1501  ...G..........G.................A...........................  1560
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  1501  ...G..........G.............................................  1560
+
+Query_9                                        1561  AAACTAGAGAACTTTGATGTGTATCAAATCCTTGCCATTTATAGTACGGTATCGAGCAGT  1620
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  1561  ............................................................  1620
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  1578  .....G......................................................  1637
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  1578  .....G......................................................  1637
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  1561  .....G......................................................  1620
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  1561  .....G......................................................  1620
+
+Query_9                                        1621  CTGGTTTTGGTAGGGCTGATCATGGCAATGGGTCTTTGGATGTGTTCAAATGGTTCAATG  1680
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  1621  ............................................................  1680
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  1638  ..A.........................................................  1697
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  1638  ..A..........................A..............................  1697
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  1621  ..A.........................................................  1680
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  1621  ..A.........................................................  1680
+
+Query_9                                        1681  CAGTGCAGGATATGTATATAA  1701
+Avian_Duck_gi|585484411|gb|KJ200805|Influenza  1681  .....................  1701
+Avian_Duck_gi|398324976|gb|JX304746|Influenza  1698  .....................  1718
+Avian_Duck_gi|398324980|gb|JX304762|Influenza  1698  ..A....A.............  1718
+Avian_Duck_gi|380867216|gb|CY109746|Influenza  1681  .....................  1701
+Avian_Duck_gi|585484040|gb|KJ200869|Influenza  1681  .....................  1701
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 275276969316
+
+
+  Database: ./influenza.fna.markedHost.fas_RemoveDiscardSeq.fas_addLowLevelRankN
+ame_Redundancy_99_4HighClass
+    Posted date:  Oct 25, 2019  9:10 PM
+  Number of letters in database: 167,274,799
+  Number of sequences in database:  104,895
+
+
+
+Matrix: blastn matrix 1 -2
+Gap Penalties: Existence: 0, Extension: 2.5

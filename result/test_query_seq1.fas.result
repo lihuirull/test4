@@ -1,0 +1,6 @@
+
+######################	2023-12-28 17:07:26begin
+standard_name:original_name->{'>querySeq1': '>standard_CY111915_HA(1..1698)', '>querySeq2': '>standard_JF323789_NA(1..1404)', '>querySeq3': '>ASV61471', '>querySeq4': '>ASV61472', '>querySeq5': '>ASV61473', '>querySeq6': '>ASV61474', '>querySeq7': '>ASV61475', '>querySeq8': '>ASV61476', '>querySeq9': '>ASV61477', '>querySeq10': '>ASV61478'}
+ProteinType->[('querySeq1', 'H5'), ('querySeq2', 'N5'), ('querySeq3', 'NP'), ('querySeq4', 'NS'), ('querySeq5', 'PA'), ('querySeq6', 'PB1'), ('querySeq7', 'PB2'), ('querySeq8', 'MP'), ('querySeq9', 'H6')]
+virusHostLowLevel->('Duck', '0.222'), ('Mallard', '0.222'), ('Avian', '0.111'), ('Glaucous-winged-gull', '0.111'), ('Shorebird', '0.111'), ('Swine', '0.111'), ('Quail', '0.111')
+VirusHost->('Avian', '0.889'), ('Swine', '0.111')
