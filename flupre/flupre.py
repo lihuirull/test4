@@ -125,7 +125,7 @@ def ivew_task(resultFileDir, tempFileDir, inputFilePath):
     print(DIR)
     workName = inputFilePath
 
-    fileLog = open(resultFileDir + workName + ".result", "w", encoding = 'utf-8')
+    fileLog = open(resultFileDir + "/" + workName + ".result", "w", encoding = 'utf-8')
     fileLog.write("\n######################\t" + beginTime + "begin\n")
     ##########################################################################
     # 标准化序列并返回类型（DNA/蛋白质）
