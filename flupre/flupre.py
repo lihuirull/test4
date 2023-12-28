@@ -123,7 +123,7 @@ def ivew_task(resultFileDir, tempFileDir, inputFilePath):
     beginTime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     DIR = base_dir
     print(DIR)
-    workName = inputFilePath
+    workName = os.path.basename(inputFilePath)
 
     fileLog = open(resultFileDir + "/" + workName + ".result", "w", encoding = 'utf-8')
     fileLog.write("\n######################\t" + beginTime + "begin\n")
