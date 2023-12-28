@@ -50,6 +50,9 @@ def standardize(filePath, outFileDir):
     dic = {}
     n = 0
     # 读取并处理序列文件
+    print(f"读入文件：{filePath}")
+    print(f"输出文件：{outFileDir + outFileName}")
+
     with open(filePath, 'r') as inFile, open(outFileDir + outFileName, 'w') as outFile:
         for record in SeqIO.parse(inFile, "fasta"):
             n+=1

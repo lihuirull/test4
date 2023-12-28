@@ -1194,7 +1194,7 @@ def parse_args():
                                                'using DIAMOND BLAST against a flu database.')
     anno_parser.add_argument('-i', '--input', required = True,
                              help = 'Input FASTA file or directory containing FASTA files.')
-    anno_parser.add_argument('-o', '--output_directory', type = str, default = RESULT_PATH,
+    anno_parser.add_argument('-o', '--output_directory', type = str, default = "result/",
                             help = 'Directory to save the output files. Defaults to the result directory.')
     anno_parser.add_argument('-temp', '--temp_directory', type = str, default = TEMP_PATH,
                              help = 'Directory to save the temp output files. Defaults to the temp directory.')
@@ -1254,6 +1254,7 @@ def process_anno_cmd(input_file, args):
     Call the appropriate functions to process a single fasta file
     """
     # 在这里加ivew
+    os.makedirs(args.output_directory)
     proteinPath, resultPath = ivew_task(args.output_directory,args.temp_directory, str(input_file))
     # 得到注释文件和包含抗原和blast预测的结果文件。
     extract_protein_annotations(proteinPath)
