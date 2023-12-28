@@ -17,7 +17,7 @@ def translate(file, DNASeqDir, DIR, outFileDir):
     mafftDir = os.path.join(DIR, "app/mafft/mafft-7.158-without-extensions/scripts/")
     outputName = file.replace(".fas", ".trans2protein.fas")
 
-    print("翻译")
+    print("开始翻译")
     print(os.path.join(outFileDir, outputName))
     print(os.path.join(DNA2protein6Dir, 'DNA2protein6.pl'))
     # 调用Perl脚本执行翻译
