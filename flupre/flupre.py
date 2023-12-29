@@ -1159,16 +1159,17 @@ def find_files_with_string(directory, string):
     return files_with_string[0]
 
 
-def extract_protein_annotations(protein_path):
+def extract_protein_annotations(protein_path, result_path):
     """
     从FASTA文件提取蛋白类型和序列标识符，并将它们写入一个新的CSV文件。
 
     :param protein_path: FASTA文件的路径。
+    :param result_path: 存放注释结果csv文件的路径。
     :return: None
     """
     # 定义输出文件路径
     base_name = os.path.basename(protein_path).split('.')[0]
-    result_dir_name = os.path.dirname(protein_path)
+    result_dir_name = os.path.dirname(result_path)
     output_path = os.path.join(result_dir_name, "{}_annotation.csv".format(base_name))
 
     # 解析FASTA文件
@@ -1268,7 +1269,7 @@ def process_anno_cmd(input_file, args):
     proteinPath, resultPath = ivew_task(args.output_directory, args.temp_directory, str(input_file),
                                         args.updated_directory)
     # 得到注释文件和包含抗原和blast预测的结果文件。
-    extract_protein_annotations(proteinPath)
+    extract_protein_annotations(proteinPath, resultPath)
     # annotate_fasta_file(
     #     str(input_file),
     #     args.output_directory,
