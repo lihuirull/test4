@@ -1142,7 +1142,7 @@ def identify_markers(input_file_path, renumbering_results, marker_markers, acc_p
 
 def is_fasta_file(filename):
     # Check if input is a fasta file
-    return re.search(r'\.(fasta|faa|fa)$', filename, re.IGNORECASE)
+    return re.search(r'\.(fasta|faa|fa|fas)$', filename, re.IGNORECASE)
 
 
 def find_files_with_string(directory, string):
@@ -1325,8 +1325,6 @@ def process_single_file(file, args):
 
 def run_other_subcommand(args):
     input_path = Path(args.input)
-    print(input_path)
-    print(input_path.is_dir())
     if input_path.is_dir():
         if (args.subcommand == "extract" and Path(args.anno_path).is_dir()) or (args.subcommand == "anno"):
             process_directory(input_path, args)
