@@ -1325,6 +1325,8 @@ def process_single_file(file, args):
 
 def run_other_subcommand(args):
     input_path = Path(args.input)
+    print(input_path)
+    print(input_path.is_dir())
     if input_path.is_dir():
         if (args.subcommand == "extract" and Path(args.anno_path).is_dir()) or (args.subcommand == "anno"):
             process_directory(input_path, args)
