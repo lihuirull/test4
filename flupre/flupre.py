@@ -4,24 +4,24 @@
 # Created on 2023/11/7 10:58
 
 import argparse
+import datetime
 import os
 import re
 import subprocess
 import sys
 from collections import Counter
 from collections import defaultdict
-import datetime
 from itertools import product
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
+from . import predict_host
+from . import predict_virulence
 from .blastHASeq import blastHASeq
 # 模块与函数重名时，最好用.模块的语法导入（这样不会显示不可callable）
 from .blastSeq import blastSeq
-from . import predict_host
-from . import predict_virulence
 from .changeStandardNameForMPNS import refreshStandardName
 from .getBlastMostCommonHitProteinType import getMostCommonHitProtein, getMostCommonHitProteinLowLevelHost
 from .getSeq import get
@@ -44,8 +44,9 @@ STANDARD_PATH = os.path.join(base_dir, 'data', 'standard_seq_protein')
 MODEL_PATH = os.path.join(base_dir, 'model')
 DATA_PATH = os.path.join(base_dir, 'data')
 MARKER_PATH = os.path.join(base_dir, 'data', 'markers_for_extract')
-RESULT_PATH = os.path.join(base_dir,'result')
-TEMP_PATH = os.path.join(base_dir,'temp')
+RESULT_PATH = os.path.join(base_dir, 'result')
+TEMP_PATH = os.path.join(base_dir, 'temp')
+
 
 def process_antigen_text(file_path):
     """
@@ -57,7 +58,7 @@ def process_antigen_text(file_path):
         text = AntigenFile.readlines()
 
     # 对text进行排序
-    text.sort(key=lambda x: calculate_sort_key(x))
+    text.sort(key = lambda x: calculate_sort_key(x))
 
     # 第一次格式化text
     text = [format_line_stage1(line) for line in text]
@@ -66,6 +67,7 @@ def process_antigen_text(file_path):
     text = [format_line_stage2(line) for line in text]
 
     return text
+
 
 def calculate_sort_key(line):
     """
@@ -83,6 +85,7 @@ def calculate_sort_key(line):
     except IndexError:
         return float('inf')
 
+
 def format_line_stage1(line):
     """
     对文本行进行第一次格式化。
@@ -98,6 +101,7 @@ def format_line_stage1(line):
 
     except IndexError:
         return line  # 如果格式不正确，返回原行
+
 
 def format_line_stage2(line):
     """
@@ -119,12 +123,12 @@ def format_line_stage2(line):
         return line  # 如果格式不正确，返回原行
 
 
-def ivew_task(resultFileDir, tempFileDir, inputFilePath):
+def ivew_task(resultFileDir, tempFileDir, inputFilePath, updateFastaDir):
     beginTime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     DIR = base_dir
-
+    os.makedirs(updateFastaDir, exist_ok = True)
     workName = os.path.basename(inputFilePath)
-    print(resultFileDir + "/" + workName + ".result")
+    # print(resultFileDir + "/" + workName + ".result")
     fileLog = open(resultFileDir + "/" + workName + ".result", "w", encoding = 'utf-8')
     fileLog.write("\n######################\t" + beginTime + "begin\n")
     ##########################################################################
@@ -141,7 +145,7 @@ def ivew_task(resultFileDir, tempFileDir, inputFilePath):
     if querySeqType == "protein":
         dataBaseName = "/protType_AA"  # blast
     querySeqFile = inputFile
-    tempFileDir =tempFileDir +"/"
+    tempFileDir = tempFileDir + "/"
     querySeqFileDir = tempFileDir
     DBDir = DIR + "/18Mid/standard_seq/allProteinTypeDB/"  # blast
     queryEValue = "1e-5"  # blast
@@ -203,7 +207,8 @@ def ivew_task(resultFileDir, tempFileDir, inputFilePath):
         CDSList = queryProteinSeqFile[2]
 
     ###########################################################################
-    proteinPath = makeProteinFileForDownload(tempFileDir, querySeqFile, resultFileDir, dic, predictedProteinType)
+    # proteinPath = makeProteinFileForDownload(tempFileDir, querySeqFile, resultFileDir, dic, predictedProteinType)
+    proteinPath = makeProteinFileForDownload(tempFileDir, querySeqFile, updateFastaDir, dic, predictedProteinType)
     print(f"proteinPath:\n{proteinPath}")
     ##########################################################################
     # 根据传入的dic，为query添加蛋白注释信息同时和原本序列id对应。
@@ -1029,7 +1034,7 @@ def merge_dataframes(results, data, markers_type, ha_type, na_type):
     merged_with_combination = pd.merge(results_with_combination, data_with_combination, on = 'Protein Type',
                                        how = 'left')
     data_without_combination.loc[:, "Amino acid site"] = \
-    data_without_combination.loc[:, "Amino acid site"].str.split("HA\d-").str[-1]
+        data_without_combination.loc[:, "Amino acid site"].str.split("HA\d-").str[-1]
     merged_without_combination = pd.merge(results_without_combination, data_without_combination,
                                           on = ['Protein Type', 'Amino acid site'], how = 'left')
 
@@ -1153,6 +1158,7 @@ def find_files_with_string(directory, string):
 
     return files_with_string[0]
 
+
 def extract_protein_annotations(protein_path):
     """
     从FASTA文件提取蛋白类型和序列标识符，并将它们写入一个新的CSV文件。
@@ -1183,6 +1189,7 @@ def extract_protein_annotations(protein_path):
     # 输出文件操作完成
     print("Annotation written to {}".format(output_path))
 
+
 def parse_args():
     parser = argparse.ArgumentParser(prog = 'flupre',
                                      description = 'flupre command line tool for flu markers '
@@ -1196,9 +1203,11 @@ def parse_args():
     anno_parser.add_argument('-i', '--input', required = True,
                              help = 'Input FASTA file or directory containing FASTA files.')
     anno_parser.add_argument('-o', '--output_directory', type = str, default = "result/",
-                            help = 'Directory to save the output files. Defaults to the result directory.')
+                             help = 'Directory to save the output files. Defaults to the result directory.')
     anno_parser.add_argument('-temp', '--temp_directory', type = str, default = TEMP_PATH,
                              help = 'Directory to save the temp output files. Defaults to the temp directory.')
+    anno_parser.add_argument('-u', '--updated_directory', type = str, default = 'standardized_fasta',
+                             help = 'Directory to save the standardize fasta files. Defaults to the standardized_fasta directory.')
     # anno_parser.add_argument('-o', '--output_directory', type = str, default = '.',
     #                          help = 'Directory to save the output files. Defaults to the current directory.')
     # anno_parser.add_argument('-p', '--prefix', type = str, default = '', help = 'Prefix for the output filenames.')
@@ -1212,7 +1221,7 @@ def parse_args():
     # extract subcommand
     extract_parser = subparsers.add_parser('extract', help = 'Extract and process protein annotations.')
     extract_parser.add_argument('-i', '--input', required = True,
-                                help = 'Input FASTA file or directory containing FASTA files.')
+                                help = 'Input FASTA file or directory containing standardized FASTA files.')
     extract_parser.add_argument('-a', '--anno_path', required = True,
                                 help = 'Input annotation CSV file or directory containing annotation CSV files.')
     extract_parser.add_argument('-o', '--output_directory', type = str, default = '.',
@@ -1255,8 +1264,9 @@ def process_anno_cmd(input_file, args):
     Call the appropriate functions to process a single fasta file
     """
     # 在这里加ivew
-    os.makedirs(args.output_directory,exist_ok = True)
-    proteinPath, resultPath = ivew_task(args.output_directory,args.temp_directory, str(input_file))
+    os.makedirs(args.output_directory, exist_ok = True)
+    proteinPath, resultPath = ivew_task(args.output_directory, args.temp_directory, str(input_file),
+                                        args.updated_directory)
     # 得到注释文件和包含抗原和blast预测的结果文件。
     extract_protein_annotations(proteinPath)
     # annotate_fasta_file(
@@ -1279,7 +1289,6 @@ def process_extract_cmd(input_file, args, is_directory = True):
         annotations = pd.read_csv(f"{args.anno_path}/{anno_filename}")
     else:
         annotations = pd.read_csv(f"{args.anno_path}")
-    # 在这里加上blast预测和抗原的必行代码
     acc_pro_dic = dict(zip(annotations.iloc[:, 0], annotations.iloc[:, 1]))
     for filename in os.listdir(MARKER_PATH):
         if filename.endswith("_formated.csv") and "lence" in filename:
@@ -1309,11 +1318,10 @@ def process_extract_cmd(input_file, args, is_directory = True):
 
 def process_directory(directory, args):
     for file in directory.iterdir():
-        if is_fasta_file(str(file)):
-            if args.subcommand == 'anno':
-                process_anno_cmd(file, args)
-            elif args.subcommand == 'extract':
-                process_extract_cmd(file, args)
+        if is_fasta_file(str(file)) and args.subcommand == 'anno':
+            process_anno_cmd(file, args)
+        elif str(file).endswith(".stdName.annotataion.fa") and args.subcommand == 'extract':
+            process_extract_cmd(file, args)
 
 
 def process_single_file(file, args):
